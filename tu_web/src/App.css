@@ -18,6 +18,21 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Aplica color verde a los enlaces activos */
+.nav-link.active {
+  color: green !important;
+}
+
+/* Cambiar el color en los dropdowns */
+.nav-item.dropdown .dropdown-item.active {
+  color: green !important;
+}
+
+/* Aplica el color verde al link en focus para una mejor accesibilidad */
+.nav-link:focus, .dropdown-item:focus {
+  color: green !important;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

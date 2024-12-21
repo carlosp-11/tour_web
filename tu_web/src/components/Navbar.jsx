@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef  } from 'react';
 import {DropdownArrow} from './DropdownArrow';
+import { DropdownLink } from './DropdownLink';
 import { ButtonImage } from './ButtonImage';
 import Logo from '../assets/logos/navbar-tu-logo.png';
-import RightArrow from '../assets/icons/right-arrow.png';
 
 export const Navbar =(props)=> {
     const [openDropdown, setOpenDropdown] = useState(null); // Estado para controlar qué dropdown está abierto
@@ -63,7 +63,6 @@ export const Navbar =(props)=> {
                                     role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
-                                    // data-bs-auto-close="true"
                                     onClick={() => toggleDropdown("alquileres")}
                                 >
                                     Alquileres
@@ -73,27 +72,11 @@ export const Navbar =(props)=> {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a className="dropdown-item pb-2" href="#"  onClick={() => toggleDropdown("")}>
-                                            <span className="link-text">Corta temporada 
-                                                <span className="arrow-icon">
-                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
-                                                </span> 
-                                            </span>
-                                            <span className="tooltip-text mx-5 mb-2 pb-1">1 - 6 meses</span>
-                                            <span className="arrow-icon"></span>
-                                        </a>
+                                        <DropdownLink text="Corta temporada" subtitle="1 - 6 meses" linkFunction={toggleDropdown}/>
                                     </li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li>
-                                        <a className="dropdown-item pb-2" href="#"  onClick={() => toggleDropdown("")}>
-                                            <span className="link-text">Larga temporada 
-                                                <span className="arrow-icon">
-                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
-                                                </span> 
-                                            </span>
-                                            <span className="tooltip-text mx-5 mb-2 pb-1"> {'>'} 1 año</span>
-                                            <span className="arrow-icon"></span>
-                                        </a>
+                                        <DropdownLink text="Larga temporada" subtitle="> 1 año" linkFunction={toggleDropdown}/>
                                     </li>
                                 </ul>
                             </li>
@@ -109,7 +92,6 @@ export const Navbar =(props)=> {
                                     role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
-                                   // data-bs-auto-close="true"
                                     onClick={() => toggleDropdown("servicios")}
                                 >
                                     Servicios
@@ -119,33 +101,15 @@ export const Navbar =(props)=> {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a className="dropdown-item" href="#" onClick={() => toggleDropdown("")}>
-                                            <span className="link-text"> Asesoría 
-                                                <span className="arrow-icon">
-                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
-                                                </span> 
-                                            </span>
-                                        </a>
+                                        <DropdownLink text="Asesoría" linkFunction={toggleDropdown}/>
                                     </li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li>
-                                        <a className="dropdown-item" href="#" onClick={() => toggleDropdown("")}>
-                                        <span className="link-text">Gestión
-                                                <span className="arrow-icon">
-                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
-                                                </span> 
-                                            </span>
-                                        </a>
+                                        <DropdownLink text="Gestión" linkFunction={toggleDropdown}/>
                                     </li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li>
-                                        <a className="dropdown-item" href="#"  onClick={() => toggleDropdown("")}>
-                                            <span className="link-text"> Seguros 
-                                                <span className="arrow-icon">
-                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
-                                                </span> 
-                                            </span>
-                                        </a>
+                                        <DropdownLink text="Seguros" linkFunction={toggleDropdown}/>
                                     </li>
                                 </ul>
                             </li>

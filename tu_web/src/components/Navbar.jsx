@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef  } from 'react';
-import Logo from '../assets/logos/navbar-tu-logo.png'
+import Logo from '../assets/logos/navbar-tu-logo.png';
+import Mail from '../assets/icons/envelope-regular.png';
 
 export const Navbar =(props)=> {
     const [openDropdown, setOpenDropdown] = useState(null); // Estado para controlar qué dropdown está abierto
@@ -32,7 +33,7 @@ export const Navbar =(props)=> {
     return (
         <div className="w-100 bg-white">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid mx-3">
+                <div className="container-fluid mx-4">
                     <a className="navbar-brand" href="#">
                         <img style={{height: "4rem"}} src={Logo} alt="logo turismo urbano" />
                     </a>
@@ -148,7 +149,12 @@ export const Navbar =(props)=> {
                                 </a>
                             </li>
                             <li className='mx-4'>
-                                <button className="btn btn-primary" type="button">Contacto</button>
+                                <button className="btn btn-primary" type="button">
+                                    Contacto
+                                    <span className="ms-2">
+                                        <img style={{height: "0.8rem"}} src={Mail} alt="icono mail" />
+                                    </span>
+                                </button>
                             </li>
                         </ul>
                     </div>

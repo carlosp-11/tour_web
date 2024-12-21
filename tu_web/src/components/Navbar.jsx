@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef  } from 'react';
-import Logo from '../assets/logos/navbar-tu-logo.png';
-import Mail from '../assets/icons/envelope-regular.png';
 import {DropdownArrow} from './DropdownArrow';
 import { ButtonImage } from './ButtonImage';
+import Logo from '../assets/logos/navbar-tu-logo.png';
+import RightArrow from '../assets/icons/right-arrow.png';
 
 export const Navbar =(props)=> {
     const [openDropdown, setOpenDropdown] = useState(null); // Estado para controlar qué dropdown está abierto
@@ -73,14 +73,26 @@ export const Navbar =(props)=> {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a className="dropdown-item" href="#"  onClick={() => toggleDropdown("")}>
-                                            Corta temporada
+                                        <a className="dropdown-item pb-2" href="#"  onClick={() => toggleDropdown("")}>
+                                            <span className="link-text">Corta temporada 
+                                                <span className="arrow-icon">
+                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
+                                                </span> 
+                                            </span>
+                                            <span className="tooltip-text mx-5 mb-2 pb-1">1 - 6 meses</span>
+                                            <span className="arrow-icon"></span>
                                         </a>
                                     </li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li>
-                                        <a className="dropdown-item" href="#"  onClick={() => toggleDropdown("")}>
-                                            Larga temporada
+                                        <a className="dropdown-item pb-2" href="#"  onClick={() => toggleDropdown("")}>
+                                            <span className="link-text">Larga temporada 
+                                                <span className="arrow-icon">
+                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
+                                                </span> 
+                                            </span>
+                                            <span className="tooltip-text mx-5 mb-2 pb-1"> {'>'} 1 año</span>
+                                            <span className="arrow-icon"></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -108,19 +120,31 @@ export const Navbar =(props)=> {
                                 <ul className="dropdown-menu">
                                     <li>
                                         <a className="dropdown-item" href="#" onClick={() => toggleDropdown("")}>
-                                            Asesoria
+                                            <span className="link-text"> Asesoría 
+                                                <span className="arrow-icon">
+                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
+                                                </span> 
+                                            </span>
                                         </a>
                                     </li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li>
                                         <a className="dropdown-item" href="#" onClick={() => toggleDropdown("")}>
-                                            Gestión
+                                        <span className="link-text">Gestión
+                                                <span className="arrow-icon">
+                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
+                                                </span> 
+                                            </span>
                                         </a>
                                     </li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li>
                                         <a className="dropdown-item" href="#"  onClick={() => toggleDropdown("")}>
-                                            Seguros
+                                            <span className="link-text"> Seguros 
+                                                <span className="arrow-icon">
+                                                    <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
+                                                </span> 
+                                            </span>
                                         </a>
                                     </li>
                                 </ul>

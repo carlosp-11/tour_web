@@ -33,6 +33,31 @@
   color: green !important;
 }
 
+/* Asegurarte de que el contenido del navbar está centrado */
+.navbar-collapse {
+  text-align: center;
+}
+
+/* Centrar el contenido dentro de los dropdowns */
+.custom-dropdown {
+  text-align: center; /* Centrar el contenido de los enlaces */
+}
+
+/* Eliminar la flecha de Bootstrap */
+.navbar-nav .dropdown-toggle::after {
+  content: none; 
+}
+
+.dropdown-arrow {
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-arrow.rotate {
+    transform: rotate(180deg);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

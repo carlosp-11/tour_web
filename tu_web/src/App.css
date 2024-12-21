@@ -58,6 +58,59 @@
     transform: rotate(180deg);
 }
 
+/* Estilo para el contenedor del enlace */
+.nav-item .dropdown-item {
+  position: relative;
+  display: inline-flex;  /* Necesario para que los elementos dentro se alineen de forma flexible */
+}
+
+/* Contenedor del texto del enlace que se moverá */
+.nav-item .dropdown-item .link-text {
+  transition: transform 0.3s ease, font-weight 0.3s ease;  /* Animación para mover y poner en negrita */
+}
+
+/* Estilo para el texto adicional debajo del link */
+.tooltip-text {
+  opacity: 0;  /* Inicialmente invisible */
+  visibility: hidden;  /* Ocultar el texto cuando no está visible */
+  font-size: 0.9rem;
+  color: #888;
+  padding-top: 5px;
+  margin-top: 5px;
+  position: absolute;
+  left: 0;
+  bottom: -20px;  /* Posicionar el texto debajo del link */
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;  /* Animación suave */
+}
+
+/* Estilo para la flecha que aparecerá a la derecha */
+.arrow-icon {
+  opacity: 0;  /* Inicialmente invisible */
+  visibility: hidden;  /* Ocultar la flecha cuando no está visible */
+  margin-left: 10px;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;  /* Animación suave */
+}
+
+/* Hover sobre el link: mueve el texto y cambia a negrita */
+.nav-item .dropdown-item:hover .link-text {
+  transform: translateX(5px);  /* Mover el texto a la derecha */
+  font-weight: bold;  /* Poner el texto en negrita */
+}
+
+.nav-item .dropdown-item:hover .tooltip-text {
+  opacity: 1;  /* Hacer visible el texto */
+  visibility: visible;  /* Hacer visible el texto */
+  transition: opacity 0.3s ease, visibility 0s;  /* Animación suave */
+}
+
+.nav-item .dropdown-item:hover .arrow-icon {
+  opacity: 1;  /* Hacer visible la flecha */
+  visibility: visible;  /* Hacer visible la flecha */
+  transform: translateX(5px);  /* Mover la flecha a la derecha */
+  transition: opacity 0.3s ease, visibility 0s, transform 0.3s ease;  /* Animación suave */
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

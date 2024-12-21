@@ -22,13 +22,11 @@ export const Navbar =(props)=> {
             setOpenDropdown(null); // Cerrar el dropdown si el clic está fuera
           }
         };
+        
+        document.addEventListener('click', handleClickOutside); // Agregar el evento de escucha para clics
     
-        // Agregar el evento de escucha para clics
-        document.addEventListener('click', handleClickOutside);
-    
-        // Limpiar el evento cuando el componente se desmonte
         return () => {
-          document.removeEventListener('click', handleClickOutside);
+          document.removeEventListener('click', handleClickOutside); // Limpiar el evento cuando el componente se desmonte
         };
       }, []);
 
@@ -52,9 +50,7 @@ export const Navbar =(props)=> {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item mx-1">
-                                <a className="nav-link" href="#">
-                                    Comprar
-                                </a>
+                                <a className="nav-link" href="#">Comprar</a>
                             </li>
                             <li className="nav-item dropdown mx-1"  ref={alquileresRef}>
                                 <a
@@ -81,9 +77,7 @@ export const Navbar =(props)=> {
                                 </ul>
                             </li>
                             <li className="nav-item mx-1">
-                                <a className="nav-link" href="#">
-                                    Vender
-                                </a>
+                                <a className="nav-link" href="#">Vender</a>
                             </li>
                             <li className="nav-item dropdown mx-1"  ref={serviciosRef}>
                                 <a
@@ -114,9 +108,7 @@ export const Navbar =(props)=> {
                                 </ul>
                             </li>
                             <li className="nav-item mx-1">
-                                <a className="nav-link" href="#">
-                                    Nosotros
-                                </a>
+                                <a className="nav-link" href="#"> Nosotros </a>
                             </li>
                             <li className='mx-4'>
                                 <ButtonImage text='Contacto' icon= 'mail' />

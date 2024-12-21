@@ -111,6 +111,32 @@
   transition: opacity 0.3s ease, visibility 0s, transform 0.3s ease;  /* Animación suave */
 }
 
+/* Sobrescribir el color primary en Bootstrap */
+:root {
+  --bs-primary: #0089ad; /* Cambiar el valor de primary */
+}
+
+/* También puedes sobrescribir otros elementos si es necesario */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+/* Cambiar el color al hacer hover */
+.btn-primary:hover {
+  background-color: #006f7b; /* Color más oscuro para el fondo */
+  border-color: #006f7b; /* Color más oscuro para el borde */
+  color: white; /* Asegurarte de que el color del texto sea visible */
+}
+
+/* Si deseas también modificar el estado activo o enfocado del botón */
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #006f7b; /* Color de fondo para el estado activo */
+  border-color: #006f7b; /* Color de borde para el estado activo */
+}
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

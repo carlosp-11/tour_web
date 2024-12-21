@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef  } from 'react';
 import Logo from '../assets/logos/navbar-tu-logo.png';
 import Mail from '../assets/icons/envelope-regular.png';
+import {DropdownArrow} from './DropdownArrow';
+import { ButtonImage } from './ButtonImage';
 
 export const Navbar =(props)=> {
     const [openDropdown, setOpenDropdown] = useState(null); // Estado para controlar qué dropdown está abierto
@@ -66,17 +68,7 @@ export const Navbar =(props)=> {
                                 >
                                     Alquileres
                                     <span className={`dropdown-arrow ${openDropdown === "alquileres" ? "rotate" : ""}`}>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="14"
-                                            height="14"
-                                            fill="currentColor"
-                                            viewBox="0 0 16 16"
-                                        >
-                                            <path
-                                                d="M1.5 3.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .354.854l-6 6a.5.5 0 0 1-.708 0l-6-6A.5.5 0 0 1 1.5 3.5z"
-                                            />
-                                        </svg>
+                                        <DropdownArrow/>
                                     </span>
                                 </a>
                                 <ul className="dropdown-menu">
@@ -110,17 +102,7 @@ export const Navbar =(props)=> {
                                 >
                                     Servicios
                                     <span className={`dropdown-arrow ${openDropdown === "servicios" ? "rotate" : ""}`}>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="14"
-                                            height="14"
-                                            fill="currentColor"
-                                            viewBox="0 0 16 16"
-                                        >
-                                            <path
-                                                d="M1.5 3.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .354.854l-6 6a.5.5 0 0 1-.708 0l-6-6A.5.5 0 0 1 1.5 3.5z"
-                                            />
-                                        </svg>
+                                       <DropdownArrow/>
                                     </span>
                                 </a>
                                 <ul className="dropdown-menu">
@@ -149,12 +131,7 @@ export const Navbar =(props)=> {
                                 </a>
                             </li>
                             <li className='mx-4'>
-                                <button className="btn btn-primary" type="button">
-                                    Contacto
-                                    <span className="ms-2">
-                                        <img style={{height: "0.8rem"}} src={Mail} alt="icono mail" />
-                                    </span>
-                                </button>
+                                <ButtonImage text='Contacto' icon= 'mail' />
                             </li>
                         </ul>
                     </div>

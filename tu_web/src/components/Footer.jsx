@@ -1,10 +1,23 @@
 import { useEffect, useState } from 'react';
 import Logo from '../assets/logos/footer-tu-logo.png'
 import UpArrow from '../assets/icons/go-to-top.png'
+import WhiteUpArrow from '../assets/icons/white-up-arrow.png'
 
 export const Footer = () => {
 
     const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+    const [imageSrc, setImageSrc] = useState(UpArrow) // Imagen original
+
+    // Función para cambiar la imagen cuando el mouse pasa por encima
+    const handleMouseOver = () => {
+      setImageSrc(WhiteUpArrow); // Cambiar a la nueva imagen
+    };
+  
+    // Función para restaurar la imagen cuando el mouse se quita
+    const handleMouseOut = () => {
+      setImageSrc(UpArrow); // Restaurar la imagen original
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -56,27 +69,27 @@ export const Footer = () => {
                     <h5>CONTÁCTANOS Y HAZ REALIDAD TU ESTANCIA IDEAL</h5>
                     <form className="row g-2">
                         <div className="form col-md-6">
-                            <input type="text" className="form-control" id="name" placeholder='Nombre'/>
+                            <input type="text" className="form-control bg-light border border-0 text-primary" id="name" placeholder='Nombre'/>
                         </div>
                         <div className="form col-md-6">
-                            <input type="email" className="form-control" id="email" placeholder='Email'/>
+                            <input type="email" className="form-control bg-light border border-0" id="email" placeholder='Email'/>
                         </div>
                         <div className="form col-md-6">
-                            <input type="text" className="form-control" id="phone" placeholder='Teléfono'/>
+                            <input type="text" className="form-control bg-light border border-0" id="phone" placeholder='Teléfono'/>
                         </div>
                         <div className="col-md-6">
-                            <select id="inputState" className="form-select">
-                            <option selected>Quiero alquilar</option>
-                            <option>Quiero comprar</option>
-                            <option>Quiero vender</option>
-                            <option>Quiero información</option>
+                            <select id="inputState" className="form-select bg-light border border-0">
+                                <option selected>Quiero alquilar</option>
+                                <option>Quiero comprar</option>
+                                <option>Quiero vender</option>
+                                <option>Quiero información</option>
                             </select>
                         </div>
                         <div className="form col-12">
-                            <textarea type="text" className="form-control" id="message" placeholder='Mensaje' style={{height: 120, resize: "none"}} />
+                            <textarea type="text" className="form-control bg-light border border-0" id="message" placeholder='Mensaje' style={{height: 120, resize: "none"}} />
                         </div>
                         <div className="col-12">
-                            <button type="submit" className="btn btn-primary w-100 mb-3">Enviar</button>
+                            <button type="submit" className="btn btn-info w-100 mb-3">Enviar</button>
                             <p className='text-center' style={{fontSize: '0.9rem'}}>
                                 Al hacer click en Enviar aceptas nuestros {' '}
                                 <a href="#" className='link-light link-underline-light'> 
@@ -105,7 +118,11 @@ export const Footer = () => {
                 <div className="col-12 col-lg-1 mb-3 d-flex justify-content-center ms-auto order-md-4 order-lg-3" 
                     style={{marginTop: isLargeScreen ? -20 : "initial",}}
                 >
-                    <a onClick={()=>goToTop()}> <img src={UpArrow} style={{height:'4rem'}}/> </a>
+                    <a onClick={()=>goToTop()}> 
+                        <img src={imageSrc} style={{height:'4rem'}} onMouseOver={handleMouseOver}
+                            onMouseOut={handleMouseOut}
+                        /> 
+                    </a>
                 </div>
             </div>
 

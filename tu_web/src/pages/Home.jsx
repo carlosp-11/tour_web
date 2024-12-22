@@ -3,7 +3,7 @@ import { ReviewCarrousel } from "../components/ReviewCarrousel";
 
 export const Home = () => {
     return (
-        <div className="d-flex flex-column vh-95">
+        <div className="" style={{maxHeight: "91vh"}}>
             <ReviewCarrousel/>
         </div>
     );

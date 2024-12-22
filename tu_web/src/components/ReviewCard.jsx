@@ -10,7 +10,7 @@ export const ReviewCard =(props)=> {
     const secondData= {
         name:"María", 
         date: "Diciembre 2024",
-        text:"Integer condimentum vestibulum odio at mattis. Donec pharetra sem in porttitor mattis. Nam pellentesque nunc in dignissim tempor. Nullam pharetra posuere varius. Proin vitae magna eu erat facilisis interdum. Mauris vel massa sed felis auctor eleifend. Donec ultricies elit id metus aliquam congue. Ut consectetur leo a ornare egestas. Maecenas eu tortor aliquet, aliquam arcu nec, aliquam augue. Mauris non massa laoreet, rutrum massa vel, tincidunt lorem. ", 
+        text:"Integer condimentum vestibulum odio at mattis. Donec pharetra sem in porttitor mattis. Nam pellentesque nunc in dignissim tempor. Nullam pharetra posuere varius. Proin vitae magna eu erat facilisis interdum. ", 
     };
     
     const thirdData= {
@@ -28,7 +28,7 @@ export const ReviewCard =(props)=> {
     }, [props.number]);
 
     return(
-        <div className="card mx-5 bg-secondary rounded-5" style={{height: "35rem"}}>
+        <div className="card mx-5 bg-secondary rounded-5" style={{height: "30rem"}}>
             <div className="card-body d-flex row align-items-center">
                 <p className="card-text align-self-end">{cardData.text} </p>
                 <div className="d-flex justify-content-center align-self-end">

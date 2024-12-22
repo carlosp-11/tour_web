@@ -1,9 +1,23 @@
 import { useState, useEffect } from "react";
+import Photo from '../assets/pictures/review-pic.png'
 
 export const ReviewCard =(props)=> {
-    const firstData= {name:"José", text:"Lorem ipsum 1", date: "Agosto 2024"};
-    const secondData= {name:"María", text:"Lorem ipsum 2", date: "Diciembre 2024"};
-    const thirdData= {name:"Jesús", text:"Lorem ipsum 3", date: "Junio 2024"};
+    const firstData= {
+        name:"José", 
+        date: "Agosto 2024",
+        text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat lacus a purus rhoncus pellentesque eu nec mauris. Maecenas at lacus nunc. Quisque pellentesque metus dui, in blandit nisl pulvinar quis. Sed eget erat rhoncus, commodo dui sit amet, sagittis arcu. Curabitur maximus ex sit amet posuere laoreet. Quisque tempor quis enim quis consectetur. Integer ac venenatis odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras lobortis metus dui, sit amet vestibulum tortor sagittis ut. Sed faucibus lectus ipsum, vitae auctor massa porta pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris fringilla iaculis dictum. Vestibulum fringilla elit vel neque pulvinar congue. Vivamus sit amet laoreet diam, in facilisis justo."
+    };
+    const secondData= {
+        name:"María", 
+        date: "Diciembre 2024",
+        text:"Integer condimentum vestibulum odio at mattis. Donec pharetra sem in porttitor mattis. Nam pellentesque nunc in dignissim tempor. Nullam pharetra posuere varius. Proin vitae magna eu erat facilisis interdum. Mauris vel massa sed felis auctor eleifend. Donec ultricies elit id metus aliquam congue. Ut consectetur leo a ornare egestas. Maecenas eu tortor aliquet, aliquam arcu nec, aliquam augue. Mauris non massa laoreet, rutrum massa vel, tincidunt lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis at nunc vel tincidunt. Nunc vel elementum metus.", 
+    };
+    
+    const thirdData= {
+        name:"Jesús", 
+        date: "Junio 2024",
+        text:"Cras facilisis libero sem, id bibendum mauris dictum quis. Nunc ac malesuada est. Morbi mollis ipsum vel eros hendrerit, quis fermentum orci porta. In elementum risus quis justo luctus, quis lobortis est vestibulum. Vivamus vestibulum enim lacus. Donec interdum volutpat vulputate. Fusce maximus fermentum lorem et scelerisque. Aliquam porta lectus. ", 
+    };
 
     const [cardData, setCardData] = useState(firstData);
 
@@ -14,12 +28,16 @@ export const ReviewCard =(props)=> {
     }, [props.number]);
 
     return(
-        <div class="card mx-5 bg-secondary rounded-5" style={{minHeight: "35rem"}}>
-            <div class="card-body">
-                <p class="card-text">{cardData.text} </p>
-                <h3 class="card-title">{cardData.name}</h3>
-                <p class="card-text">{cardData.date} </p>
-                <p></p>
+        <div className="card mx-5 bg-secondary rounded-5" style={{minHeight: "35rem"}}>
+            <div className="card-body d-flex row align-items-center">
+                <p className="card-text align-self-end">{cardData.text} </p>
+                <div className="d-flex justify-content-center align-self-end">
+                    <img src={Photo} alt="foto de usuario" style={{height: "4rem"}} className=""/>
+                    <div className="ms-3 text-start">
+                        <h3 className="card-title">{cardData.name}</h3>
+                        <p className="card-text">{cardData.date} </p>
+                    </div>
+                </div>
             </div>
         </div>
     );

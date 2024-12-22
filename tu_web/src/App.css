@@ -136,6 +136,34 @@
   border-color: #006f7b; /* Color de borde para el estado activo */
 }
 
+/* Define el color principal para btn-secondary */
+.btn-secondary {
+  background-color: #257226;
+  border-color: #257226;
+  color: #fff; /* Ajusta el texto para que contraste con el fondo */
+}
+
+/* Cambios en el estado hover */
+.btn-secondary:hover {
+  background-color: #1e5e1f;
+  border-color: #1e5e1f;
+  color: #fff; /* Opcional, ajusta si quieres otro color */
+}
+
+/* Cambios en el estado active */
+.btn-secondary:active,
+.btn-secondary:focus {
+  background-color: #194c1a;
+  border-color: #194c1a;
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(37, 114, 38, 0.5); /* Un ejemplo de focus outline */
+}
+
+/* Cambiar el color base de bg-secondary */
+.bg-secondary {
+  background-color: #257226 !important;
+  color: #fff; /* Ajusta el color del texto si es necesario */
+}
 
 @keyframes logo-spin {
   from {

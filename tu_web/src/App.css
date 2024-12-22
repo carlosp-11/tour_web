@@ -165,6 +165,33 @@
   color: #fff; /* Ajusta el color del texto si es necesario */
 }
 
+/* Cambiar el color base de bg-light */
+.bg-light {
+  background-color: #7aa97a !important;
+}
+
+.btn-info {
+  background-color: #99c942 !important;
+  border-color: #99c942 !important;
+  color: #fff !important; /* Asegúrate de que el texto sea legible */
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.show > .btn-info.dropdown-toggle {
+  background-color: #86b236 !important; /* Un tono más oscuro para estados interactivos */
+  border-color: #86b236 !important;
+  color: #fff !important;
+}
+
+.btn-info:disabled,
+.btn-info[disabled] {
+  background-color: #c7dfa0 !important; /* Tono más claro para estado deshabilitado */
+  border-color: #c7dfa0 !important;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

@@ -5,12 +5,12 @@ export const ReviewCard =(props)=> {
     const firstData= {
         name:"José", 
         date: "Agosto 2024",
-        text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat lacus a purus rhoncus pellentesque eu nec mauris. Maecenas at lacus nunc. Quisque pellentesque metus dui, in blandit nisl pulvinar quis. Sed eget erat rhoncus, commodo dui sit amet, sagittis arcu. Curabitur maximus ex sit amet posuere laoreet. Quisque tempor quis enim quis consectetur. Integer ac venenatis odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras lobortis metus dui, sit amet vestibulum tortor sagittis ut. Sed faucibus lectus ipsum, vitae auctor massa porta pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris fringilla iaculis dictum. Vestibulum fringilla elit vel neque pulvinar congue. Vivamus sit amet laoreet diam, in facilisis justo."
+        text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat lacus a purus rhoncus pellentesque eu nec mauris. Maecenas at lacus nunc. Quisque pellentesque metus dui, in blandit nisl pulvinar quis. Sed eget erat rhoncus, commodo dui sit amet, sagittis arcu."
     };
     const secondData= {
         name:"María", 
         date: "Diciembre 2024",
-        text:"Integer condimentum vestibulum odio at mattis. Donec pharetra sem in porttitor mattis. Nam pellentesque nunc in dignissim tempor. Nullam pharetra posuere varius. Proin vitae magna eu erat facilisis interdum. Mauris vel massa sed felis auctor eleifend. Donec ultricies elit id metus aliquam congue. Ut consectetur leo a ornare egestas. Maecenas eu tortor aliquet, aliquam arcu nec, aliquam augue. Mauris non massa laoreet, rutrum massa vel, tincidunt lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis at nunc vel tincidunt. Nunc vel elementum metus.", 
+        text:"Integer condimentum vestibulum odio at mattis. Donec pharetra sem in porttitor mattis. Nam pellentesque nunc in dignissim tempor. Nullam pharetra posuere varius. Proin vitae magna eu erat facilisis interdum. Mauris vel massa sed felis auctor eleifend. Donec ultricies elit id metus aliquam congue. Ut consectetur leo a ornare egestas. Maecenas eu tortor aliquet, aliquam arcu nec, aliquam augue. Mauris non massa laoreet, rutrum massa vel, tincidunt lorem. ", 
     };
     
     const thirdData= {
@@ -28,7 +28,7 @@ export const ReviewCard =(props)=> {
     }, [props.number]);
 
     return(
-        <div className="card mx-5 bg-secondary rounded-5" style={{minHeight: "35rem"}}>
+        <div className="card mx-5 bg-secondary rounded-5" style={{height: "35rem"}}>
             <div className="card-body d-flex row align-items-center">
                 <p className="card-text align-self-end">{cardData.text} </p>
                 <div className="d-flex justify-content-center align-self-end">

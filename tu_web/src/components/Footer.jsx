@@ -110,10 +110,10 @@ export const Footer = () => {
             </div>
 
             <div className="row pt-3 mt-5 border-top mx-4">
-                <div className='col-12 col-lg-6 text-center text-lg-start'> 
+                <div className='col-12 col-lg-4 text-center text-lg-start'> 
                     <p> Copyright  &copy; 2024 Turismo URBANO</p>
                 </div>
-                <div div className='col-12 col-lg-4 ms-auto d-flex justify-content-center justify-content-lg-end'> 
+                <div div className='col-12 col-lg-8 ms-auto d-flex justify-content-center justify-content-lg-end'> 
                     <ul className="list-unstyled d-flex">
                         <li className="ms-3"><a className='link-light link-underline-light' href="#">Política de privacidad</a></li>
                         <li className="ms-3"><a className='link-light link-underline-light' href="#">Política de Cookies</a></li>

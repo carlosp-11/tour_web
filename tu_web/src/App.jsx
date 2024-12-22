@@ -14,7 +14,7 @@ function App() {
   const basename = "";
   
   return (
-    <div className="bg-info-subtle vh-100">
+    <div className="bg-info-subtle d-flex flex-column min-vh-100">
       <BrowserRouter basename={basename}>
         <ScrollToTop>
             <Navbar />

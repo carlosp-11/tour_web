@@ -8,7 +8,7 @@ export const DropdownLink = (props) => {
                     <img src={RightArrow} alt="flecha" style={{height: '0.7rem'}}/> 
                 </span> 
             </span>
-            {props.subtitle && (<span className="tooltip-text mx-5 mb-2 pb-1">{props.subtitle}</span>)}
+                {props.subtitle && (<span className="tooltip-text mx-5 mb-2 pb-1">{props.subtitle}</span>)}
             <span className="arrow-icon"></span>
         </a>
     );

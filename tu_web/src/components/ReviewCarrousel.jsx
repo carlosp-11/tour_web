@@ -40,7 +40,7 @@ export const ReviewCarrousel = () => {
         }, []);
 
     return(
-        <div id="carouselExampleAutoplaying" className="carousel slide text-center row pb-5 d-flex justify-content-center" data-bs-ride="carousel" data-bs-interval="10000">
+        <div id="carouselExampleAutoplaying" className="carousel slide text-center row pb-5 d-flex justify-content-center" data-bs-ride="carousel" data-bs-interval="10000" style={{maxHeight: "91vh"}}>
             <h1 className="col-12 pt-5 mt-lg-5" style={!isLargeScreen? {paddingBottom: "1.5rem"}: {}}> Calidad Ejemplar</h1>
             <h5 className="col-12 pt-2 pb-5" style={!isLargeScreen? {display:"none"}: {}} >¿Qué opinan nuestros clientes?</h5>
             <div className="order-md-2 col-6 col-lg-2 d-flex justify-content-end align-items-center order-2">

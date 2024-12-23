@@ -77,8 +77,8 @@ export const Footer = () => {
                             <input type="text" className="form-control bg-light border border-0" id="phone" placeholder='Teléfono'/>
                         </div>
                         <div className="col-md-6">
-                            <select id="inputState" className="form-select bg-light border border-0">
-                                <option selected>Quiero alquilar</option>
+                            <select id="inputState" className="form-select bg-light border border-0" defaultValue="Quiero alquilar">
+                                <option>Quiero alquilar</option>
                                 <option>Quiero comprar</option>
                                 <option>Quiero vender</option>
                                 <option>Quiero información</option>
@@ -129,7 +129,7 @@ export const Footer = () => {
                 <div className='col-12 col-lg-4 text-center text-lg-start'> 
                     <p> Copyright  &copy; 2024 Turismo URBANO</p>
                 </div>
-                <div div className='col-12 col-lg-8 ms-auto d-flex justify-content-center justify-content-lg-end'> 
+                <div className='col-12 col-lg-8 ms-auto d-flex justify-content-center justify-content-lg-end'> 
                     <ul className="list-unstyled d-flex">
                         <li className="ms-3"><a className='link-light link-underline-light' href="#">Política de privacidad</a></li>
                         <li className="ms-3"><a className='link-light link-underline-light' href="#">Política de Cookies</a></li>

@@ -226,6 +226,38 @@
   pointer-events: none; /* Evita interferencia con eventos */
 }
 
+/* Estilo base para btn-danger */
+.btn-danger {
+  background-color: #25d366;
+  border-color: #25d366;
+  color: white;
+}
+
+/* Estado hover */
+.btn-danger:hover {
+  background-color: #20c85e; /* Color más oscuro al pasar el cursor */
+  border-color: #1c9f54;
+}
+
+/* Estado focus (cuando el botón está seleccionado) */
+.btn-danger:focus, .btn-danger.focus {
+  box-shadow: 0 0 0 0.2rem rgba(37, 211, 102, 0.5); /* Efecto de foco */
+  background-color: #20c85e;
+  border-color: #1c9f54;
+}
+
+/* Estado active (cuando el botón está presionado) */
+.btn-danger:active, .btn-danger.active {
+  background-color: #1c9f54;
+  border-color: #178c47;
+}
+
+/* Estado disabled (cuando el botón está deshabilitado) */
+.btn-danger:disabled, .btn-danger.disabled {
+  background-color: #a8d8b9;
+  border-color: #a8d8b9;
+  color: #ccc;
+}
 
 .card {
   padding: 2em;

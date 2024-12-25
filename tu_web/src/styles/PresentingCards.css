@@ -1,0 +1,62 @@
+.presenting-card {
+    position: relative;
+    background-color: #efefef;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 400px;
+    overflow: hidden; /* Evita que los elementos salgan fuera de los bordes */
+    transition: transform 0.3s ease;
+  }
+  
+  .presenting-card:hover {
+    transform: scale(1.05); /* Hace un leve zoom al hacer hover */
+  }
+  
+  .green-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 128, 0, 0); /* Verde transparente inicialmente */
+    transition: background-color 0.3s ease;
+    z-index: 1; /* Asegura que la superposición esté encima del fondo */
+  }
+  
+  .presenting-card:hover .green-overlay {
+    background-color: rgba(0, 128, 0, 0.5); /* Verde con opacidad del 50% al hacer hover */
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    transition: bottom 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Asegura que el texto esté encima de la superposición */
+  }
+  
+  .presenting-card:hover .overlay {
+    bottom: 50%; /* Mueve el texto al centro */
+    transform: translateY(50%);
+  }
+  
+  .text-content {
+    color: #ffffff; /* Mantén el texto blanco o ajusta según el fondo */
+    transition: transform 0.3s ease, color 0.3s ease;
+    transform: translateY(0);
+    transform: translateX(0);
+    text-align: center;
+  }
+  
+  .presenting-card:hover .text-content {
+    transform: translateY(-50%);
+    transform: translateX(60%);
+    color: #ffffff; /* Mantén el texto blanco o ajusta según el fondo */
+    text-align: center;
+  }
+  
+  

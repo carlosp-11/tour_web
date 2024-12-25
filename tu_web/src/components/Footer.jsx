@@ -8,15 +8,6 @@ export const Footer = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
     const [imageSrc, setImageSrc] = useState(UpArrow) // Imagen original
 
-    // Función para cambiar la imagen cuando el mouse pasa por encima
-    const handleMouseOver = () => {
-      setImageSrc(WhiteUpArrow); // Cambiar a la nueva imagen
-    };
-  
-    // Función para restaurar la imagen cuando el mouse se quita
-    const handleMouseOut = () => {
-      setImageSrc(UpArrow); // Restaurar la imagen original
-    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -34,10 +25,13 @@ export const Footer = () => {
     }, []);
 
     const goToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        // document.documentElement.scrollTop = 0; // Prueba este
+        // document.body.scrollTop = 0;           // O este, dependiendo del navegador
+        // window.scrollTo({ top: 0, behavior: "smooth",});
+
+       const scrollContainer = document.body.scrollTop > 0 ? document.body : document.documentElement;
+
+       scrollContainer.scrollTo({top: 0, behavior: "smooth",});
     };
 
     return(
@@ -117,11 +111,13 @@ export const Footer = () => {
                 <div className="col-12 col-lg-1 mb-3 d-flex justify-content-center ms-auto order-md-4 order-lg-3 order-4" 
                     style={{marginTop: isLargeScreen ? -20 : "initial",}}
                 >
-                    <a onClick={()=>goToTop()}> 
-                        <img src={imageSrc} style={{height:'4rem'}} onMouseOver={handleMouseOver}
-                            onMouseOut={handleMouseOut}
+                    <div> 
+                        <img src={imageSrc} alt='botón' style={{height:'4rem'}} 
+                            onMouseOver={()=>setImageSrc(WhiteUpArrow)}
+                            onMouseOut={()=>setImageSrc(UpArrow)}
+                            onClick={goToTop}
                         /> 
-                    </a>
+                    </div>
                 </div>
             </div>
 

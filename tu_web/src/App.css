@@ -1,8 +1,21 @@
-#root {
-  margin: 0 auto;
-  padding: 0;
-    width: 100%;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegúrate de que el contenido permita el desplazamiento */
     overflow-x: hidden;
+    overflow-y: auto; /* Asegura el desplazamiento vertical */
+}
+
+
+
+#root {
+  /* margin: 0 auto;
+  padding: 0;
+  width: 100%; */
+
+  /* overflow-x: hidden;
+  overflow-y: visible;
+  height: auto; */
   /*
   max-width: 1280px; 
   padding: 2rem;

@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Dashboard } from "../src/pages/Dashboard"
 import { Footer } from '../src/components/Footer'
 import { Home } from '../src/pages/Home.jsx'
+import { LegalAdvice } from "./pages/LegalAdvice.jsx"
 import { Login } from "../src/pages/Login"
 import { Navbar } from '../src/components/Navbar'
 import ProtectedRoute from "../src/pages/ProtectedRoute.jsx"
@@ -27,6 +28,9 @@ function App() {
             <Routes>
               <Route element={<Home />} path="/" />
               <Route element={<Login />} path="/login" />
+              <Route element={<LegalAdvice />} path="/aviso-legal" />
+              <Route element={<LegalAdvice />} path="/politica-cookies" />
+              <Route element={<LegalAdvice />} path="/politica-privacidad" />
               <Route path="/dashboard"
                 element={
                   <ProtectedRoute> <Dashboard /> </ProtectedRoute>

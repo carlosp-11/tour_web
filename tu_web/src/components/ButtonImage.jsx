@@ -11,10 +11,16 @@ export const ButtonImage = (props) => {
     
         window.open(whatsappUrl, '_blank'); // Abre WhatsApp en una nueva pestaña o aplicación móvil.
       };
+      const handleSendEmail = () => {
+        const email = "example@example.com";
+        const subject = "Consulta de contacto";
+        const body = "Hola, estoy interesado en obtener más información.";
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
 
     return(   
         <button className={`btn btn-primary ${ props.icon === 'mail' ? "btn-primary": props.icon === 'scope' ? "btn-secondary": "btn-danger" }`} type="button"
-            onClick={()=> props.icon=== 'whatsapp' ? openWhatsApp() : props.someFunction()}
+            onClick={()=> props.icon=== 'whatsapp' ? openWhatsApp() : props.icon=== 'mail'? handleSendEmail(): props.someFunction()}
         >
             <span> {props.text} </span>
             <span className="">

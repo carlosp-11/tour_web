@@ -6,10 +6,7 @@ import GreenPicture from '../assets/pictures/green-picture.png';
 
 export const FirstJumbotron =()=>{
     const [isLargeScreen, setIsLargeScreen] = useState(false);
-    const openContact =()=> {
-        console.log('contacto');
-    }
-    
+
     useEffect(() => {
         const handleResize = () => {
             setIsLargeScreen(window.innerWidth >= 992); // Bootstrap 'lg' breakpoint (≥992px)
@@ -44,7 +41,7 @@ export const FirstJumbotron =()=>{
                             <SimpleSearchbar/>
                         </div>
                         <div className={`col-6 d-flex align-items-center justify-content-center ${isLargeScreen? 'd-none': ''}`}>
-                            <ButtonImage text= "Contacto" icon="mail" someFunction={openContact}/>
+                            <ButtonImage text= "Contacto" icon="mail"/>
                         </div>
                         <div className={`col-6 col-lg-2 d-flex ${isLargeScreen? 'justify-content-end': 'justify-content-center'} pe-4`}>
                             <WhatsAppButton/>

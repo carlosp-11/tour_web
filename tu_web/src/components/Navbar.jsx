@@ -5,7 +5,7 @@ import { DropdownLink } from './DropdownLink';
 import { ButtonImage } from './ButtonImage';
 import Logo from '../assets/logos/navbar-tu-logo.png';
 
-export const Navbar =()=> {
+export const Navbar =({ bottomRef })=> {
     const navigate =useNavigate();
     const [openDropdown, setOpenDropdown] = useState(null); // Estado para controlar qué dropdown está abierto
     const alquileresRef = useRef(null); // Referencia para el dropdown de "alquileres"
@@ -14,6 +14,7 @@ export const Navbar =()=> {
     const toggleDropdown = (dropdownName) => {
         setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
     };
+    
     
     useEffect(() => {
         const handleClickOutside = (event) => {

@@ -19,7 +19,7 @@ export const ServicesJumbotron = () => {
                     </div>
                     <div className="col-12">
                         <button type="button" className="btn btn-secondary me-3">Saber más</button>
-                        <ButtonImage text="Consulta rápida" icon="ws"/>
+                        <ButtonImage text="Consulta rápida" icon="whatsapp"/>
                     </div>
                 </div>
             </div>

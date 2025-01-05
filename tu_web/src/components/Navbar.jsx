@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef  } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {DropdownArrow} from './DropdownArrow';
 import { DropdownLink } from './DropdownLink';
 import { ButtonImage } from './ButtonImage';
 import Logo from '../assets/logos/navbar-tu-logo.png';
 
-export const Navbar =(props)=> {
+export const Navbar =()=> {
+    const navigate =useNavigate();
     const [openDropdown, setOpenDropdown] = useState(null); // Estado para controlar qué dropdown está abierto
     const alquileresRef = useRef(null); // Referencia para el dropdown de "alquileres"
     const serviciosRef = useRef(null);
@@ -33,7 +35,7 @@ export const Navbar =(props)=> {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid mx-4">
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand" role='button' onClick={()=>navigate('/')}>
                     <img style={{height: "4rem"}} src={Logo} alt="logo turismo urbano" />
                 </a>
                 <button className="navbar-toggler" 

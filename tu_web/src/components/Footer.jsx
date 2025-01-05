@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import Logo from '../assets/logos/footer-tu-logo.png'
-import UpArrow from '../assets/icons/go-to-top.png'
-import WhiteUpArrow from '../assets/icons/white-up-arrow.png'
+import { useNavigate } from 'react-router-dom';
+import Logo from '../assets/logos/footer-tu-logo.png';
+import UpArrow from '../assets/icons/go-to-top.png';
+import WhiteUpArrow from '../assets/icons/white-up-arrow.png';
 
 export const Footer = () => {
 
     const [isLargeScreen, setIsLargeScreen] = useState(false);
     const [imageSrc, setImageSrc] = useState(UpArrow) // Imagen original
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
@@ -23,6 +24,11 @@ export const Footer = () => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+
+    const getCurrentYear = () => {
+        const currentDate = new Date();
+        return currentDate.getFullYear();
+      };
 
     const goToTop = () => {
         // document.documentElement.scrollTop = 0; // Prueba este
@@ -84,9 +90,9 @@ export const Footer = () => {
                         <div className="col-12">
                             <button type="submit" className="btn btn-info w-100 mb-3">Enviar</button>
                             <p className='text-center' style={{fontSize: '0.9rem'}}>
-                                Al hacer click en Enviar aceptas nuestros {' '}
-                                <a href="#" className='link-light link-underline-light'> 
-                                    Términos y condiciones y políticas de privacidad
+                                Al hacer click en Enviar aceptas nuestras {' '}
+                                <a className='link-light link-underline-light' onClick={()=>navigate('politica-privacidad')} role='button'> 
+                                    Políticas de privacidad
                                 </a>
                             </p>
                         </div>
@@ -123,13 +129,13 @@ export const Footer = () => {
 
             <div className="row pt-3 mt-5 border-top mx-4">
                 <div className='col-12 col-lg-4 text-center text-lg-start'> 
-                    <p> Copyright  &copy; 2024 Turismo URBANO</p>
+                    <p> Copyright  &copy; {getCurrentYear()} Turismo URBANO</p>
                 </div>
                 <div className='col-12 col-lg-8 ms-auto d-flex justify-content-center justify-content-lg-end'> 
                     <ul className="list-unstyled d-flex">
-                        <li className="ms-3"><a className='link-light link-underline-light' href="#">Política de privacidad</a></li>
-                        <li className="ms-3"><a className='link-light link-underline-light' href="#">Política de Cookies</a></li>
-                        <li className="ms-3"><a className='link-light link-underline-light' href="#">Términos y Condiciones</a></li>
+                        <li className="ms-3"><a className='link-light link-underline-light' onClick={()=>navigate('aviso-legal')} role='button'>Aviso Legal</a></li>
+                        <li className="ms-3"><a className='link-light link-underline-light' onClick={()=>navigate('politica-cookies')} role='button'>Política de Cookies</a></li>
+                        <li className="ms-3"><a className='link-light link-underline-light' onClick={()=>navigate('politica-privacidad')} role='button'>Política de privacidad</a></li>
                     </ul>
                 </div>
             </div>

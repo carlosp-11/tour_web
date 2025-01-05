@@ -1,10 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Home } from './pages/home'
-import ScrollToTop from "./components/scrollToTop"
-import { Navbar } from './components/Navbar'
-import { Footer } from './components/Footer'
+import { Dashboard } from "../src/pages/Dashboard"
+import { Footer } from '../src/components/Footer'
+import { Home } from '../src/pages/Home.jsx'
+import { Login } from "../src/pages/Login"
+import { Navbar } from '../src/components/Navbar'
+import ProtectedRoute from "../src/pages/ProtectedRoute.jsx"
+import { AuthProvider } from "../src/store/AuthContext.jsx"
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
+import ScrollToTop from "../src/components/scrollToTop"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css'
@@ -15,15 +19,25 @@ function App() {
   
   return (
     <div className="bg-white d-flex flex-column min-vh-100">
+      <AuthProvider>
+
       <BrowserRouter basename={basename}>
         <ScrollToTop>
             <Navbar />
             <Routes>
               <Route element={<Home />} path="/" />
+              <Route element={<Login />} path="/login" />
+              <Route path="/dashboard"
+                element={
+                  <ProtectedRoute> <Dashboard /> </ProtectedRoute>
+                }
+              />
             </Routes>
             <Footer />
         </ScrollToTop>
       </BrowserRouter>
+      </AuthProvider>
+
     </div>
   )
 }

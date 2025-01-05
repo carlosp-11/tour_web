@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 export const SimpleSearchbar = () => {
 
     const [isLargeScreen, setIsLargeScreen] = useState(false);
+    const SearchResults =()=>{
+        console.log('buscar')
+    }
     
      useEffect(() => {
                 const handleResize = () => {
@@ -23,23 +26,23 @@ export const SimpleSearchbar = () => {
     return (
         <div className="bg-white row py-4 d-flex justify-content-center rounded-4">
             <div className="col-3 row">
-                <label for="propertyType" className="form-label">Transacción</label>
+                <label htmlFor="propertyType" className="form-label">Transacción</label>
                 <div className="form-check col-12 col-lg-6">
                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="isPurchase"/>
-                    <label className="form-check-label" for="isPurchase">
+                    <label className="form-check-label" htmlFor="isPurchase">
                         Comprar
                     </label>
                 </div>
                 <div className="form-check col-12 col-lg-6">
                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="isRental" checked/>
-                    <label className="form-check-label" for="isRental">
+                    <label className="form-check-label" htmlFor="isRental">
                         Alquilar
                     </label>
                 </div>
             </div>
             <div className="col-7 row">
                 <div className="col-6 col-lg-4">
-                    <label for="propertyType" className="form-label">Tipo de </label>
+                    <label htmlFor="propertyType" className="form-label">Tipo de </label>
                     <select id="propertyType" className="form-select bg-secondary-subtle" aria-label="Default select example">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -48,7 +51,7 @@ export const SimpleSearchbar = () => {
                     </select>
                 </div>
                 <div className="col-6 col-lg-4">
-                    <label for="location" className="form-label">Ubicación</label>
+                    <label htmlFor="location" className="form-label">Ubicación</label>
                     <select id="location" className="form-select bg-secondary-subtle" aria-label="Default select example">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -58,7 +61,7 @@ export const SimpleSearchbar = () => {
                 </div>
                 <div className="col-4 row gx-1" style={!isLargeScreen? {display:"none"}: {}}>
                     <span className="col-6" >
-                        <label for="location" className="form-label">Precio</label>
+                        <label htmlFor="location" className="form-label">Precio</label>
                         <select id="location" className="form-select bg-secondary-subtle" aria-label="Default select example">
                             <option selected>Open this select menu</option>
                             <option value="1">One</option>
@@ -77,7 +80,7 @@ export const SimpleSearchbar = () => {
                 </div>
             </div>
             <div className="col-2 align-self-center d-flex justify-content-center">
-                <ButtonImage text={isLargeScreen ? 'Buscar': ''} icon="scope" onClick={console.log('hola')}/>
+                <ButtonImage text={isLargeScreen ? 'Buscar': ''} icon="scope" someFunction={SearchResults}/>
             </div>
         </div>
     );

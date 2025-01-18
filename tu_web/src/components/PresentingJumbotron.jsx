@@ -7,8 +7,9 @@ import PurchasePic from '../assets/pictures/purchase-pic.png';
 export const PresentingJumbotron =() => {
     return (
         <div className="row gx-4 mx-auto py-5 mb-5">
-            <div className="col-12">
-                <h2>Encuentra tu espacio perfecto</h2>
+            <div className="col-12 text-center">
+                <h2 className="raleway-bold">Encuentra Tu Espacio Perfecto</h2>
+                <h6 className="tu-font nunito-light"> Descubre el apartamento ideal que se adapta a cada una de tus necesidades.</h6>
             </div>
             <span className="col-12 col-md-6 col-lg-3 d-flex justify-content-center my-3">
                 <PresentingCard image={PurchasePic} text='Comprar'/>

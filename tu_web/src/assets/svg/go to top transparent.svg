@@ -1,0 +1,9 @@
+<svg id="Componente_55_51" data-name="Componente 55 – 51" xmlns="http://www.w3.org/2000/svg" width="82" height="82" viewBox="0 0 82 82">
+  <g id="Elipse_1365" data-name="Elipse 1365" transform="translate(0 82) rotate(-90)" fill="none" stroke="#fff" stroke-width="1">
+    <circle cx="41" cy="41" r="41" stroke="none"/>
+    <circle cx="41" cy="41" r="40.5" fill="none"/>
+  </g>
+  <g id="Grupo_371258" data-name="Grupo 371258" transform="translate(30.049 51.952) rotate(-90)">
+    <path id="arrow-right-solid" d="M21.194,11.4a1.7,1.7,0,0,0,0-2.406L12.7.5A1.7,1.7,0,1,0,10.29,2.9l5.6,5.6H1.7C.76,8.5,0,10.2,0,10.2s.76,1.7,1.7,1.7H15.888L10.3,17.5A1.7,1.7,0,0,0,12.7,19.905l8.5-8.5Z" transform="translate(0 0)" fill="#fff"/>
+  </g>
+</svg>

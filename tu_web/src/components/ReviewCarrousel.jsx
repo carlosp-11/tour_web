@@ -42,8 +42,8 @@ export const ReviewCarrousel = () => {
     return(
         <div id="carouselExampleAutoplaying" className="carousel slide " data-bs-ride="carousel" data-bs-interval="10000" style={{minHeight: "91vh"}}>
             <div className="text-center row pb-5 d-flex justify-content-center">
-                <h1 className="col-12 pt-5 mt-lg-5" style={!isLargeScreen? {paddingBottom: "1.5rem"}: {}}> Calidad Ejemplar</h1>
-                <h5 className="col-12 pt-2 pb-5" style={!isLargeScreen? {display:"none"}: {}} >¿Qué opinan nuestros clientes?</h5>
+                <h1 className="col-12 pt-5 mt-lg-5 raleway-bold" style={!isLargeScreen? {paddingBottom: "1.5rem"}: {}}> Calidad Ejemplar</h1>
+                <h5 className="col-12 pt-2 pb-5 tu-font nunito-light" style={!isLargeScreen? {display:"none"}: {}} >¿Qué opinan nuestros clientes?</h5>
                 <div className="order-md-2 col-6 col-lg-2 d-flex justify-content-end align-items-center order-2">
                     <button className="btn btn-outline-secondary rounded-circle border-0" 
                         type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev"
@@ -69,7 +69,7 @@ export const ReviewCarrousel = () => {
                         <img className="" src={SwitchRight} alt="flecha derecha" style={{height: "3rem"}}/>
                     </button>
                 </div>
-                <p className="order-last py-2 fs-4" style={!isLargeScreen? {display:"none"}: {}}> {currentSlide}/3 </p>
+                <p className="order-last py-2 fs-4 text-secondary" style={!isLargeScreen? {display:"none"}: {}}> {currentSlide}/3 </p>
             </div>
         </div>
     );

@@ -284,3 +284,41 @@ html, body {
 .read-the-docs {
   color: #888;
 }
+
+/* App.css */
+.nunito-light {
+  font-family: 'Nunito Sans', sans-serif;
+  letter-spacing: 2.5px; /* Más espacio entre letras */
+  font-weight: 300;
+}
+
+.nunito-compact {
+  font-family: 'Nunito Sans', sans-serif;
+  /*font-weight: 300;*/
+  letter-spacing: -0.5px;
+}
+
+.nunito{
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.raleway{
+  font-family: 'Raleway', sans-serif;
+}
+
+.raleway-bold {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+.raleway-bold {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+.tu-font {
+  color: #257226;
+  font-weight: 500 !important;
+}
+/*257226 --> verde
+FDE101 --> amarillo*/

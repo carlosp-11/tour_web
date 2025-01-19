@@ -306,6 +306,10 @@ html, body {
   font-family: 'Raleway', sans-serif;
 }
 
+.spaced-letter{
+  letter-spacing: 3px;
+}
+
 .raleway-bold {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;

@@ -1,5 +1,4 @@
 import Mail from '../assets/icons/envelope-regular.png';
-import Scope from '../assets/icons/scope.png';
 import WSBusiness from '../assets/icons/small-ws-bussiness.png';
 import ScopeSVG from '../assets/svg/scope.svg';
 

@@ -2,15 +2,15 @@ import '../styles/Pills.css';
 
 export const PillsComponent =()=> {
     return (
-        <div className="px-2 py-3" role="group" aria-label="Vertical radio toggle button group">
-            <input type="radio" className="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked/>
-            <label className="btn btn-outline-dark rounded-4 mx-2" htmlFor="vbtn-radio1">Mostrar todos</label>
-            <input type="radio" className="btn-check " name="vbtn-radio" id="vbtn-radio2" autocomplete="off"/>
-            <label className="btn btn-outline-dark rounded-4 mx-2" htmlFor="vbtn-radio2">Casas</label>
-            <input type="radio" className="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off"/>
-            <label className="btn btn-outline-dark rounded-4 mx-2" htmlFor="vbtn-radio3">Apartamentos</label>
-            <input type="radio" className="btn-check" name="vbtn-radio" id="vbtn-radio4" autocomplete="off"/>
-            <label className="btn btn-outline-dark rounded-4 mx-2" htmlFor="vbtn-radio4">Locales</label>
+        <div className="py-3 overflow-auto w-100 d-flex flex-nowrap raleway" role="group" aria-label="Vertical radio toggle button group">
+            <input type="radio" className="btn-check d-none" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" defaultChecked/>
+            <label className="btn btn-outline-dark rounded-5 mx-2" htmlFor="vbtn-radio1" style={{minWidth:'11rem'}}>MOSTRAR TODOS</label>
+            <input type="radio" className="btn-check d-none" name="vbtn-radio" id="vbtn-radio2" autocomplete="off"/>
+            <label className="btn btn-outline-dark rounded-5 mx-2" htmlFor="vbtn-radio2"  style={{minWidth:'6rem'}}>CASAS</label>
+            <input type="radio" className="btn-check d-none" name="vbtn-radio" id="vbtn-radio3" autocomplete="off"/>
+            <label className="btn btn-outline-dark rounded-5 mx-2" htmlFor="vbtn-radio3"  style={{minWidth:'10rem'}}>APARTAMENTOS</label>
+            <input type="radio" className="btn-check d-none" name="vbtn-radio" id="vbtn-radio4" autocomplete="off"/>
+            <label className="btn btn-outline-dark rounded-5 mx-2" htmlFor="vbtn-radio4"  style={{minWidth:'7rem'}}>LOCALES</label>
         </div>
     );
 }

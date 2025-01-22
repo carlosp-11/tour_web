@@ -23,7 +23,7 @@ export const FirstJumbotron =()=>{
             }, []);
 
     return (
-         <div className='py-5 d-flex align-items-center' 
+         <div className='py-5 container-fluid d-flex justify-content-center align-items-center' 
             style={{
                 backgroundColor: "#efefef",
                 backgroundImage: `url(${GreenPicture})`,
@@ -35,22 +35,22 @@ export const FirstJumbotron =()=>{
                 //width: "100%",
             }}
         >
-            <div className='row'>
+            <div className='row d-flex align-items-center justify-content-center'>
                 <div className='col-12 text-center text-white'>
-                    <h1 className='raleway-bold'>Descubre Tu <br/> Hogar en Tenerife </h1>
-                    <h6 className='nunito-light small' style={!isLargeScreen? {display:'none'}: {}}> 
+                    <h1 className='raleway-bold pb-3' style={{fontSize: 40}}>Descubre Tu <br/> Hogar en Tenerife </h1>
+                    <h6 className='nunito-light small pb-5' style={!isLargeScreen? {display:'none'}: {}}> 
                         Encuentra el lugar perfecto para alquilar o comprar, adaptado a tus necesidades. 
                     </h6>
                 </div>
-                <div className='col-11 col-lg-8 mx-auto'>
+                <div className='col-11 col-lg-10 d-flex align-items-center justify-content-around w-100 px-3'>
                     <SimpleSearchbar/>
                 </div>
-                <div className='col-12 text-center'>
+                {/* <div className='col-12 text-center'>
                     <span style={isLargeScreen? {display:'none'}: {}}>
                         <ButtonImage text= "Contacto" icon="mail"/>
                     </span>
                     <WhatsAppButton/>
-                </div>
+                </div> */}
             </div>
         </div>
     );

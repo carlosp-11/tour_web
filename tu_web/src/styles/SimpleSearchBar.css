@@ -1,0 +1,7 @@
+/* Estilos para cuando el radio button está marcado */
+input[type="radio"]:checked + label {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: black !important;
+  }
+  

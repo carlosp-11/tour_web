@@ -19,15 +19,30 @@ export const ButtonImage = (props) => {
     };
 
     return(   
-        <button className={`btn btn-primary fw-light ${ props.icon === 'mail' ? "btn-primary": props.icon === 'scope' ? "btn-secondary": "btn-danger" }`} type="button"
+        <button 
+            className={`btn btn-primary fw-light nunito px-4 
+                ${ props.icon === 'mail' ? "btn-primary": props.icon === 'scope' ? "btn-secondary": "btn-danger" }`
+            } 
+            type="button"
             onClick={()=> props.icon=== 'whatsapp' ? openWhatsApp() : props.icon=== 'mail'? handleSendEmail(): props.someFunction()}
         >
-            <span> {props.text} </span>
-            <span className="ms-2">
-                <img style={currentIcon=== Mail? {height: "0.8rem"}: currentIcon=== ScopeSVG? {height: "1.1rem"}:{height: "2.3rem", marginTop: -15, marginBottom: -10} } 
+            <span> {props.text} 
+                <img className={`
+                    ${props.icon === 'mail' || props.icon === 'scope'? "ms-2 mb-1": ''} `} 
+                    style={ 
+                        currentIcon=== Mail? 
+                        {height: "0.8rem"}: currentIcon=== ScopeSVG ? 
+                        {height: "1.1rem"} :
+                        {height: "2.3rem", marginTop: -15, marginBottom: -10}
+                    } 
                     src={currentIcon} alt="icono mail" 
                 />
             </span>
+            {/* <span className="ms-2">
+                <img style={currentIcon=== Mail? {height: "0.8rem"}: currentIcon=== ScopeSVG? {height: "1.1rem"}:{height: "2.3rem", marginTop: -15, marginBottom: -10} } 
+                    src={currentIcon} alt="icono mail" 
+                />
+            </span> */}
         </button>
     );
 }

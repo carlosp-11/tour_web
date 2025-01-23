@@ -26,7 +26,7 @@ export const SimpleSearchbar = () => {
             }, []);
     
     return (
-        <div className={`bg-white py-3 d-flex justify-content-center rounded-3 nunito container-fluid ${isLargeScreen? 'px-3':'px-1 gx-0'}`}>
+        <div className={`bg-white py-3 d-flex justify-content-center rounded-3 nunito container-fluid simplesearchbar ${isLargeScreen? 'px-3':'px-1 gx-0'}`}>
             <div className="row w-100 px-0 mx-0 d-flex justify-content-around">
                 <div className="col-3 col-lg-3 p-0 m-0 g-0 row">
                     <label htmlFor="checkbox" className="form-label tu-font" style={{ fontSize: 12,}}>Transacción</label>

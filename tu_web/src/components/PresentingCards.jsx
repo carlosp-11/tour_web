@@ -10,10 +10,9 @@ export const PresentingCard = (props) => {
             }}
         >
             <div className="green-overlay"></div>
-            <div className="card-texts">
+            <div className="card-texts ">
                 <p 
                     className="card-text-bottom" 
-                    style={{ textAlign: 'left', marginLeft: '-10px', marginBottom: '0px', backgroundColor: '' }}
                 >
                     {props.text}
                 </p>

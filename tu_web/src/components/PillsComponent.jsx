@@ -2,7 +2,7 @@ import '../styles/Pills.css';
 
 export const PillsComponent =()=> {
     return (
-        <div className="py-3 overflow-auto w-100 d-flex flex-nowrap raleway" role="group" aria-label="Vertical radio toggle button group">
+        <div className="py-3 overflow-auto w-100 d-flex flex-nowrap raleway pillscomponent" role="group" aria-label="Vertical radio toggle button group">
             <input type="radio" className="btn-check d-none" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" defaultChecked/>
             <label className="btn btn-outline-dark rounded-5 mx-2" htmlFor="vbtn-radio1" style={{minWidth:'11rem'}}>MOSTRAR TODOS</label>
             <input type="radio" className="btn-check d-none" name="vbtn-radio" id="vbtn-radio2" autocomplete="off"/>

@@ -26,7 +26,7 @@ export const SimpleSearchbar = () => {
             }, []);
     
     return (
-        <div className="bg-white px-1 py-3 gx-0 d-flex justify-content-center rounded-3 nunito container-fluid">
+        <div className={`bg-white py-3 d-flex justify-content-center rounded-3 nunito container-fluid ${isLargeScreen? 'px-3':'px-1 gx-0'}`}>
             <div className="row w-100 px-0 mx-0 d-flex justify-content-around">
                 <div className="col-3 col-lg-3 p-0 m-0 g-0 row">
                     <label htmlFor="checkbox" className="form-label tu-font" style={{ fontSize: 12,}}>Transacción</label>
@@ -43,13 +43,13 @@ export const SimpleSearchbar = () => {
                         </label>
                     </div>
                 </div>
-                <div className="col-3 row px-0 mx-0 gx-0 col-lg-2">
+                <div className={`col-3 col-lg-2 ${isLargeScreen? '': 'row px-0 mx-0 gx-0'}`}>
                     <label htmlFor="propertyType" className="form-label tu-font" style={{ fontSize: 12,}}>Tipo de Propiedad</label>
                     <select 
                         id="propertyType" 
                         className="form-select bg-secondary-subtle text-secondary fw-light" 
                         aria-label="Default select example" 
-                        style={ !isLargeScreen? {height: 40,}: {}}
+                        style={ !isLargeScreen? {height: 40,  alignSelf:'flex-end'}: {}}
                     >
                         <option selected> { isLargeScreen ? 'Mostrar todos': 'Todos'}</option>
                         <option value="1">Apartamento</option>
@@ -57,7 +57,7 @@ export const SimpleSearchbar = () => {
                         <option value="3">Locales</option>
                     </select>
                 </div>
-                <div className="col-3 row px-0 mx-0 gx-0 col-lg-3">
+                <div className={`col-3 col-md-4 ${isLargeScreen? 'col-lg-2':'row px-0 mx-0 gx-0 col-lg-3'}`}>
                     <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 12}}>Ubicación</label>
                     <select 
                         id="location" 
@@ -71,10 +71,14 @@ export const SimpleSearchbar = () => {
                         <option value="3">Los Gigantes</option>
                     </select>
                 </div>
-                <div className="col-2 row px-0 mx-0 gx-0 gx-1" style={!isLargeScreen? {display:"none"}: {}}>
-                    <span className="col" >
+                <div className={`col-3 row ${!isLargeScreen? 'd-none':''}`}>
+                    <span className="col align-self-end" >
                         <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 12}}>Precio</label>
-                        <select id="location" className="form-select bg-secondary-subtle text-secondary fw-light" aria-label="Default select example" >
+                        <select 
+                            id="location"
+                            className="form-select bg-secondary-subtle text-secondary fw-light" 
+                            aria-label="Default select example" 
+                        >
                             <option className="text-secondary fw-lighter nunito" selected>Desde</option>
                             <option className="text-secondary fw-lighter nunito" value="1">100</option>
                             <option className="text-secondary fw-lighter nunito" value="2">200</option>
@@ -82,7 +86,11 @@ export const SimpleSearchbar = () => {
                         </select>
                     </span>
                     <span className="col align-self-end">
-                        <select id="priceEnd" className="form-select bg-secondary-subtle text-secondary fw-light" aria-label="Default select example">
+                        <select 
+                            id="priceEnd" 
+                            className="form-select bg-secondary-subtle text-secondary fw-light" 
+                            aria-label="Default select example"
+                        >
                             <option selected>Hasta</option>
                             <option value="1">100</option>
                             <option value="2">200</option>
@@ -90,9 +98,9 @@ export const SimpleSearchbar = () => {
                         </select>
                     </span>
                 </div>
-                <div className="col-2 col-lg-2 gx-0 d-flex justify-content-end">
+                <div className={`col-2 col-md-1 col-lg-auto gx-0 d-flex ${isLargeScreen? 'mt-3 justify-content-center': 'justify-content-end'}`}>
                     {!isLargeScreen && (
-                        <button type="button" className="btn-secondary rounded my-2 w-100" children={<img src={Scope}/>} />
+                        <button type="button" className="btn-secondary rounded my-2 w-100 " children={<img src={Scope} className=""/>} />
                     )}
                     {isLargeScreen && (
                         <ButtonImage id='searchButton' text={'Buscar'} icon="scope" someFunction={SearchResults} />

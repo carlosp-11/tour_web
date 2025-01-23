@@ -23,7 +23,7 @@ export const FirstJumbotron =()=>{
             }, []);
 
     return (
-         <div className='py-5 container-fluid d-flex justify-content-center align-items-center' 
+         <div className={`py-5 px-0 container-fluid d-flex justify-content-center align-items-center ${!isLargeScreen?'w-100':'' }`} 
             style={{
                 backgroundColor: "#efefef",
                 backgroundImage: `url(${GreenPicture})`,
@@ -37,12 +37,12 @@ export const FirstJumbotron =()=>{
         >
             <div className='row d-flex align-items-center justify-content-center'>
                 <div className='col-12 text-center text-white'>
-                    <h1 className='raleway-bold pb-3' style={{fontSize: 40}}>Descubre Tu <br/> Hogar en Tenerife </h1>
+                    <h1 className='raleway-bold pb-3' style={{fontSize: 45}}>Descubre Tu <br/> Hogar en Tenerife </h1>
                     <h6 className='nunito-light small pb-5' style={!isLargeScreen? {display:'none'}: {}}> 
                         Encuentra el lugar perfecto para alquilar o comprar, adaptado a tus necesidades. 
                     </h6>
                 </div>
-                <div className='col-11 col-lg-10 d-flex align-items-center justify-content-around w-100 px-3'>
+                <div className={`col-11 col-lg-10 d-flex align-items-center justify-content-around`}>
                     <SimpleSearchbar/>
                 </div>
                 {/* <div className='col-12 text-center'>

@@ -1,4 +1,5 @@
-import { ReviewCarrousel } from "../components/ReviewCarrousel";
+// import { ReviewCarrousel } from "../components/ReviewCarrousel";
+import { ReviewJumbotron } from "../components/ReviewJumbotron";
 import { ServicesJumbotron } from "../components/ServicesJumbotron";
 import { FinalJumbotron } from "../components/FinalJumbotron";
 import { FirstJumbotron } from "../components/Firstjumbotron";
@@ -12,7 +13,7 @@ export const Home = () => {
             <PresentingJumbotron/>
             <PropertiesJumbotron/>
             <ServicesJumbotron/>
-            <ReviewCarrousel/>
+            <ReviewJumbotron/>
             <FinalJumbotron/>
         </div>
     );

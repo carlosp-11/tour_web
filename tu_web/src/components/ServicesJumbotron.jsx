@@ -1,25 +1,64 @@
 import { ButtonImage } from "./ButtonImage";
 import ServicesPic from '../assets/pictures/services-pic.png';
+import { useEffect, useState } from "react";
 
 export const ServicesJumbotron = () => {
+    const [isLargeScreen, setIsLargeScreen] = useState(false);
+        
+    useEffect(() => {
+        const handleResize = () => {
+            setIsLargeScreen(window.innerWidth >= 992); // Bootstrap 'lg' breakpoint (≥992px)
+        };
+
+        // Inicializar y escuchar cambios en el tamaño de la ventana
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        // Limpieza del evento al desmontar
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
-        <div className="bg-dark-subtle  py-5">
-            <div className="d-flex justify-content-center row">
-                <div className="col-12 col-md-6 col-lg-6 d-flex justify-content-center px-5 my-lg-5">
-                    <img src={ServicesPic} alt="Servicios" className="px-2" style={{height: '20rem', width:'auto'}}/>
+        <div className="d-flex flex-wrap justify-content-center align-items-center row bg-dark-subtle py-5 px-5">
+            <div className="col-12 col-lg d-flex justify-content-center my-lg-5 mx-2">
+                <img 
+                    src={ServicesPic} 
+                    alt="Servicios" 
+                    className="" 
+                    style={{height: 'auto', width:'100%', minWidth: isLargeScreen? 620 : '', maxWidth: 720 , maxHeight: 415}
+                }/>
+            </div>
+            <div className="col-12 col-lg d-flex justify-content-center my-3 my-lg-5 row">
+                <div className="col-12">
+                    <h2 className="raleway-bold fs-1">Servicios Personalizados para Compradores, Inquilinos y Propietarios</h2>
+                    <h5 className="d-none d-lg-block py-2 nunito-light tu-font">
+                        Gestionamos propiedades, asesoramos en compra-venta, y ofrecemos mantenimiento completo.
+                    </h5>
+                    <p className=" pb-5 pt-3 pt-lg-1 pb-lg-4"> 
+                        Sed purus ex, dapibus condimentum facilisis a, ullamcorper sed augue. Ut augue velit, vehicula sed 
+                        justo vitae, condimentum consectetur magna. Proin quis molestie sapien, nec eleifend dui. Nulla 
+                        elementum feugiat blandit. Vestibulum nec lectus dignissim leo bibendum lobortis.
+                    </p>
                 </div>
-                <div className="col-12 col-md6 col-lg-6 d-flex justify-content-center my-3 px-5 my-lg-5 row">
-                    <div className="col-12">
-                        <h2 className="raleway-bold">Servicios Personalizados para Compradores, Inquilinos y Propietarios</h2>
-                        <h5 className="d-none d-lg-block py-2 nunito-light tu-font">Gestionamos propiedades, asesoramos en compra-venta, y ofrecemos mantenimiento completo.</h5>
-                        <p className=" pb-5 pt-3 pt-lg-1 pb-lg-4"> 
-                            Sed purus ex, dapibus condimentum facilisis a, ullamcorper sed augue. Ut augue velit, vehicula sed justo vitae, condimentum consectetur magna. Proin quis molestie sapien, nec eleifend dui. Nulla elementum feugiat blandit. Vestibulum nec lectus dignissim leo bibendum lobortis. Praesent gravida metus at libero porttitor luctus. Cras a eros vitae odio ornare malesuada a eget risus. Duis sed dolor scelerisque, fermentum nunc sed, molestie est. Aenean ornare nunc et diam commodo hendrerit.
-                            In interdum, neque ut commodo cursus, metus ante iaculis urna, fringilla dictum enim nibh non massa. Mauris sit amet cursus nisl. In bibendum ac dui nec hendrerit. Nam sed. 
-                        </p>
-                    </div>
-                    <div className="col-12">
-                        <button type="button" className="btn btn-secondary me-3 fw-light">Saber más</button>
-                        <ButtonImage text="Consulta rápida" icon="ws"/>
+                <div className="col-12 row mx-0 px-0 gx-1 d-flex justify-content-center ">
+                    {isLargeScreen && (
+                        <div className="col d-flex justify-content-center text-nowrap">
+                            <button type="button" className="btn btn-secondary fw-light px-5" style={{minWidth: ''}}> 
+                                <p className="my-1">Saber más </p>
+                            </button>
+                        </div>
+                    )}
+                    {!isLargeScreen && (
+                        <div className="col-6 d-flex justify-content-center">
+                            <ButtonImage text='Contacto' icon='mail2'/>
+                        </div>
+                    )}
+                    <div className="col d-flex  justify-content-center">
+                        <span className="">
+                            <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="ws"/>
+                        </span>
                     </div>
                 </div>
             </div>

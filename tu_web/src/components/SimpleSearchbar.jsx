@@ -26,10 +26,10 @@ export const SimpleSearchbar = () => {
             }, []);
     
     return (
-        <div className={`bg-white py-3 d-flex justify-content-center rounded-3 nunito container-fluid simplesearchbar ${isLargeScreen? 'px-3':'px-1 gx-0'}`}>
-            <div className="row w-100 px-0 mx-0 d-flex justify-content-around">
-                <div className="col-3 col-lg-3 p-0 m-0 g-0 row">
-                    <label htmlFor="checkbox" className="form-label tu-font" style={{ fontSize: 12,}}>Transacción</label>
+        // <div className={`bg-white py-3 d-flex justify-content-center rounded-3 nunito container-fluid simplesearchbar ${isLargeScreen? 'px-3':'px-1 gx-0'}`}>
+            <div className="row w-100 gx-0 px-2 py-3 mx-0 d-flex justify-content-around bg-white rounded-3  nunitocontainer-fluid simplesearchbar">
+                <div className="col-3 col-lg-3 p-0 m-0 gy-0 gx-1 row">
+                    <label htmlFor="checkbox" className="form-label tu-font" style={{ fontSize: 13,}}>Transacción</label>
                     <div id="checkbox" className="form-check col">
                         <input className="form-check-input" type="radio" name="flexRadioDefault" id="isPurchase"/>
                         <label className="form-check-label fw-light" htmlFor="isPurchase">
@@ -44,12 +44,12 @@ export const SimpleSearchbar = () => {
                     </div>
                 </div>
                 <div className={`col-3 col-lg-2 ${isLargeScreen? '': 'row px-0 mx-0 gx-0'}`}>
-                    <label htmlFor="propertyType" className="form-label tu-font" style={{ fontSize: 12,}}>Tipo de Propiedad</label>
+                    <label htmlFor="propertyType" className="form-label tu-font" style={{ fontSize: 13,}}>Tipo de Propiedad</label>
                     <select 
                         id="propertyType" 
                         className="form-select bg-secondary-subtle text-secondary fw-light" 
                         aria-label="Default select example" 
-                        style={ !isLargeScreen? {height: 40,  alignSelf:'flex-end'}: {}}
+                        style={ !isLargeScreen? {height: 40,  alignSelf:'flex-end', paddingLeft: 5}: {}}
                     >
                         <option selected> { isLargeScreen ? 'Mostrar todos': 'Todos'}</option>
                         <option value="1">Apartamento</option>
@@ -58,12 +58,12 @@ export const SimpleSearchbar = () => {
                     </select>
                 </div>
                 <div className={`col-3 col-md-4 ${isLargeScreen? 'col-lg-2':'row px-0 mx-0 gx-0 col-lg-3'}`}>
-                    <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 12}}>Ubicación</label>
+                    <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 13}}>Ubicación</label>
                     <select 
                         id="location" 
                         className="form-select bg-secondary-subtle text-secondary fw-light" 
                         aria-label="Default select example" 
-                        style={ !isLargeScreen? {height: 40, alignSelf:'flex-end'}: {}}
+                        style={ !isLargeScreen? {height: 40, alignSelf:'flex-end', paddingLeft: 5}: {}}
                     >
                         <option selected>{ isLargeScreen ? 'Mostrar todos': 'Todos'}</option>
                         <option value="1">Arona</option>
@@ -73,7 +73,7 @@ export const SimpleSearchbar = () => {
                 </div>
                 <div className={`col-3 row ${!isLargeScreen? 'd-none':''}`}>
                     <span className="col align-self-end" >
-                        <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 12}}>Precio</label>
+                        <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 13}}>Precio</label>
                         <select 
                             id="location"
                             className="form-select bg-secondary-subtle text-secondary fw-light" 
@@ -107,6 +107,6 @@ export const SimpleSearchbar = () => {
                     )}
                 </div>
             </div>
-        </div>
+        // </div>
     );
 }

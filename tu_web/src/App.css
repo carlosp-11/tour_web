@@ -326,3 +326,16 @@ html, body {
 }
 /*257226 --> verde
 FDE101 --> amarillo*/
+
+.image-container {
+  overflow: hidden; /* Limita la imagen al contenedor */
+  border-radius: 0.5rem; /* Igual al borde de la imagen */
+}
+
+.zoomable-image {
+  transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+
+.zoomable-image:hover {
+  transform: scale(1.1); /* Aplica el zoom */
+}

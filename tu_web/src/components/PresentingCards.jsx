@@ -1,12 +1,33 @@
 import '../styles/PresentingCards.css'
-import CircleArrow from '../assets/svg/circle-arrow-right-grey.svg';
+import { useEffect, useState } from 'react';
 
 export const PresentingCard = (props) => {
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth <= 768); // Bootstrap 'lg' breakpoint (≥992px)
+        };
+
+        // Inicializar y escuchar cambios en el tamaño de la ventana
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        // Limpieza del evento al desmontar
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <div
             className="presenting-card rounded-5 d-flex align-items-end raleway"
             style={{
                 backgroundImage: `url(${props.image})`,
+                width: '23rem',
+                //width: '100%',
+                maxWidth: 320,
+                minWidth: isSmallScreen? 370: '',
             }}
         >
             <div className="green-overlay"></div>

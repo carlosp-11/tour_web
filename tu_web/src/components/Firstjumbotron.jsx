@@ -8,22 +8,22 @@ export const FirstJumbotron =()=>{
     const [isLargeScreen, setIsLargeScreen] = useState(false);
     
      useEffect(() => {
-                const handleResize = () => {
-                    setIsLargeScreen(window.innerWidth >= 992); // Bootstrap 'lg' breakpoint (≥992px)
-                };
-        
-                // Inicializar y escuchar cambios en el tamaño de la ventana
-                handleResize();
-                window.addEventListener("resize", handleResize);
-        
-                // Limpieza del evento al desmontar
-                return () => {
-                    window.removeEventListener("resize", handleResize);
-                };
-            }, []);
+            const handleResize = () => {
+                setIsLargeScreen(window.innerWidth >= 992); // Bootstrap 'lg' breakpoint (≥992px)
+            };
+    
+            // Inicializar y escuchar cambios en el tamaño de la ventana
+            handleResize();
+            window.addEventListener("resize", handleResize);
+    
+            // Limpieza del evento al desmontar
+            return () => {
+                window.removeEventListener("resize", handleResize);
+            };
+        }, []);
 
     return (
-         <div className={`py-5 px-0 container-fluid d-flex justify-content-center align-items-center ${!isLargeScreen?'w-100':'' }`} 
+         <div className={`py-5 px-lg-5 px-4 mx-0 flex-column container-fluid d-flex justify-content-center position-relative `} 
             style={{
                 backgroundColor: "#efefef",
                 backgroundImage: `url(${GreenPicture})`,
@@ -31,27 +31,26 @@ export const FirstJumbotron =()=>{
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 maxHeight: "91vh",
-                height: isLargeScreen? "85vh": "",
-                //width: "100%",
+                height: isLargeScreen? "85vh": "62vh",
             }}
         >
-            <div className='row d-flex align-items-center justify-content-center'>
-                <div className='col-12 text-center text-white'>
-                    <h1 className='raleway-bold pb-3' style={{fontSize: 45}}>Descubre Tu <br/> Hogar en Tenerife </h1>
+                <div className='col-12 text-center text-white py-0 my-0'>
+                    <h1 className='raleway-bold pb-3' style={{fontSize: 47}}>Descubre Tu <br/> Hogar en Tenerife </h1>
                     <h6 className='nunito-light small pb-5' style={!isLargeScreen? {display:'none'}: {}}> 
                         Encuentra el lugar perfecto para alquilar o comprar, adaptado a tus necesidades. 
                     </h6>
                 </div>
-                <div className={`col-11 col-lg-10 d-flex align-items-center justify-content-around`}>
+                <div className={`col-12 py-0 my-0 px-lg-5`}>
                     <SimpleSearchbar/>
                 </div>
-                {/* <div className='col-12 text-center'>
-                    <span style={isLargeScreen? {display:'none'}: {}}>
-                        <ButtonImage text= "Contacto" icon="mail"/>
-                    </span>
-                    <WhatsAppButton/>
-                </div> */}
+                { !isLargeScreen && (
+                    <div className='col-12 d-flex justify-content-around gx-0 mx-0 px-0 position-absolute bottom-0'>
+                        <span className='align-self-center'>
+                            <ButtonImage text= "Contacto" icon="mail"/>
+                        </span>
+                        <WhatsAppButton/>
+                    </div>
+                )}
             </div>
-        </div>
     );
 }

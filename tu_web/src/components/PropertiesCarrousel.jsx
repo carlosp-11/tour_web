@@ -48,14 +48,14 @@ export const PropertiesCarrousel  = () => {
         area: '100'
     },
     {
-        number: 1, 
+        number: 4, 
         location:'LAS GALLETAS', 
         price:'850€', 
         type: 'Apartamento',
         area: '60'
     },
     {
-        number: 2, 
+        number: 5, 
         location:'EL MÉDANO', 
         price:'1.800€', 
         type: 'Local',
@@ -65,21 +65,33 @@ export const PropertiesCarrousel  = () => {
 
   const handleNext = () => {
     //setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
-    setStartIndex((prevIndex) =>
-        prevIndex + 3 >= cards.length ? prevIndex : prevIndex + 1
-      );
+    // setStartIndex((prevIndex) =>
+    //     prevIndex + 3 >= cards.length ? prevIndex : prevIndex + 1
+    //   );
+    const maxVisibleCards = isSmallScreen ? 1 : isLargeScreen ? 3 : 2;
+        setStartIndex((prevIndex) =>
+        (prevIndex + 1) % cards.length
+        );
   };
 
   const handlePrev = () => {
     //setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
-    setStartIndex((prevIndex) => (prevIndex - 1 < 0 ? prevIndex : prevIndex - 1));
+    // setStartIndex((prevIndex) => (prevIndex - 1 < 0 ? prevIndex : prevIndex - 1));
+    const maxVisibleCards = isSmallScreen ? 1 : isLargeScreen ? 3 : 2;
+    setStartIndex((prevIndex) =>
+      (prevIndex - 1 + cards.length) % cards.length
+    );
   };
 // if(currentIndex>cards.length-3) {
 //   setCurrentIndex(0)
 // }
 
 const visibleCardsCount = isSmallScreen ? 1 : isLargeScreen ? 3 : 2;
-const displayedCards = cards.slice(startIndex, startIndex + visibleCardsCount);
+// const displayedCards = cards.slice(startIndex, startIndex + visibleCardsCount);
+const displayedCards = [];
+for (let i = 0; i < visibleCardsCount; i++) {
+  displayedCards.push(cards[(startIndex + i) % cards.length]);
+}
 
   return (
     <div className="mt-2 mx-0 px-0">
@@ -102,7 +114,7 @@ const displayedCards = cards.slice(startIndex, startIndex + visibleCardsCount);
             <button className="btn rounded-5 my-0 mx-4 p-0" onClick={handlePrev} disabled={startIndex === 0} >
                 <img src={LeftArrowSVG} alt="flecha a la derecha"/> 
             </button>
-            <button className="btn rounded-5 my-0 mx-4 p-0" onClick={handleNext} disabled={startIndex + 3 >= cards.length}> 
+            <button className="btn rounded-5 my-0 mx-4 p-0" onClick={handleNext} disabled={startIndex + visibleCardsCount >= cards.length}> 
                 <img src={RightArrowSVG} alt="flecha a la derecha"/> 
             </button>
         </div>

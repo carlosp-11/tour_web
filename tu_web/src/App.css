@@ -324,8 +324,6 @@ html, body {
   color: #257226;
   font-weight: 500 !important;
 }
-/*257226 --> verde
-FDE101 --> amarillo*/
 
 .image-container {
   overflow: hidden; /* Limita la imagen al contenedor */
@@ -338,4 +336,64 @@ FDE101 --> amarillo*/
 
 .zoomable-image:hover {
   transform: scale(1.1); /* Aplica el zoom */
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.5s forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.5s forwards;
+}
+
+.fade-out-left {
+  animation: fadeOutLeft 0.5s forwards;
+}
+
+.fade-out-right {
+  animation: fadeOutRight 0.5s forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }

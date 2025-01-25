@@ -5,72 +5,115 @@ import SwitchRight from '../assets/icons/switch-right-arrow.png'
 
 export const ReviewCarrousel = () => {
 
-    const [isLargeScreen, setIsLargeScreen] = useState(false);
-    const [currentSlide, setCurrentSlide] = useState(1); // Estado para la diapositiva actual
+    const cards =[
+        {
+            number: 1,
+            name:"José", 
+            date: "AGOSTO 2024",
+            text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat lacus a purus rhoncus pellentesque eu nec mauris. Maecenas at lacus nunc. Quisque pellentesque metus dui, in blandit nisl pulvinar quis. "
+        },
+        {
+            number: 2,
+            name:"María", 
+            date: "DICIEMBRE 2024",
+            text:"Integer condimentum vestibulum odio at mattis. Donec pharetra sem in porttitor mattis. Nam pellentesque nunc in dignissim tempor. Nullam pharetra posuere varius. Proin vitae magna eu erat facilisis interdum. ", 
+        },
+        {
+            number: 3,
+            name:"Jesús", 
+            date: "JUNIO 2024",
+            text:"Cras facilisis libero sem, id bibendum mauris dictum quis. Nunc ac malesuada est. Morbi mollis ipsum vel eros hendrerit, quis fermentum orci porta. In elementum risus quis justo luctus, quis lobortis est vestibulum. ", 
+        },
+    ];
 
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [animationClass, setAnimationClass] = useState("");
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    
     useEffect(() => {
-        const carouselElement = document.querySelector("#carouselExampleAutoplaying");
-
-        const handleSlideChange = (event) => {
-            setCurrentSlide(event.to + 1); // Actualiza el estado con el índice de la nueva diapositiva
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth <= 768); // Bootstrap 'lg' breakpoint (≥992px)
         };
 
-        // Escucha el evento `slid.bs.carousel`
-        carouselElement.addEventListener("slid.bs.carousel", handleSlideChange);
+        // Inicializar y escuchar cambios en el tamaño de la ventana
+        handleResize();
+        window.addEventListener("resize", handleResize);
 
-        // Limpieza del evento
+        // Limpieza del evento al desmontar
         return () => {
-            carouselElement.removeEventListener("slid.bs.carousel", handleSlideChange);
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
-    
-     useEffect(() => {
-            const handleResize = () => {
-                setIsLargeScreen(window.innerWidth >= 992); // Bootstrap 'lg' breakpoint (≥992px)
-            };
-    
-            // Inicializar y escuchar cambios en el tamaño de la ventana
-            handleResize();
-            window.addEventListener("resize", handleResize);
-    
-            // Limpieza del evento al desmontar
-            return () => {
-                window.removeEventListener("resize", handleResize);
-            };
-        }, []);
-
-    return(
-        <div id="carouselExampleAutoplaying" className="carousel slide " data-bs-ride="carousel" data-bs-interval="10000" style={{minHeight: "91vh"}}>
-            <div className="text-center row pb-5 d-flex justify-content-center">
-                <h1 className="col-12 pt-5 mt-lg-5 raleway-bold" style={!isLargeScreen? {paddingBottom: "1.5rem"}: {}}> Calidad Ejemplar</h1>
-                <h5 className="col-12 pt-2 pb-5 tu-font nunito-light" style={!isLargeScreen? {display:"none"}: {}} >¿Qué opinan nuestros clientes?</h5>
-                <div className="order-md-2 col-6 col-lg-2 d-flex justify-content-end align-items-center order-2">
-                    <button className="btn btn-outline-secondary rounded-circle border-0" 
-                        type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev"
-                        >
+  
+    const nextCard = () => {
+      setAnimationClass("fade-out-right");
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+        setAnimationClass("fade-in-left");
+      }, 500);
+    };
+  
+    const prevCard = () => {
+      setAnimationClass("fade-out-left");
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+        setAnimationClass("fade-in-right");
+      }, 500);
+    };
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        nextCard();
+      }, 9000);
+  
+      return () => clearInterval(interval);
+    }, []);
+  
+    return (
+        <div className="d-flex row justify-content-center align-items-center w-100 mx-0 px-0 container-fluid">
+            <div className="d-flex justify-content-center align-items-center">            
+                <div className="pe-4" style={{display: isSmallScreen? 'none': ''}}>
+                    <button className="btn btn-outline-secondary rounded-circle border-0 p-0" 
+                        type="button" onClick={prevCard}
+                    >
                         <img className="" src={SwitchLeft} alt="flecha izquierda" style={{height: "3rem"}}/>
                     </button>
                 </div>
-                <div className="carousel-inner col-12 col-lg-8 order-1 order-md-1 order-lg-2 mb-4" style={isLargeScreen? {maxWidth: "60%"} : {}}>
-                    <div className="carousel-item active">
-                        <ReviewCard number="first"/>
-                    </div>
-                    <div className="carousel-item">
-                        <ReviewCard number="second"/>
-                    </div>
-                    <div className="carousel-item">
-                        <ReviewCard number="third"/>
-                    </div>
+                <div
+                    className={`transition ${animationClass}`}
+                >
+                    <ReviewCard 
+                        name={cards[currentIndex].name}
+                        date={cards[currentIndex].date}
+                        text={cards[currentIndex].text}
+                    />
                 </div>
-                <div className="order-md-2 col-6 col-lg-2 d-flex justify-content-start align-items-center order-2">
-                    <button className="btn btn-outline-secondary rounded-circle border-0" 
-                        type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next"
+                <div className="ps-4" style={{display: isSmallScreen? 'none': ''}}>
+                    <button className="btn btn-outline-secondary rounded-circle border-0 p-0" 
+                        type="button"  onClick={nextCard}
                     >
                         <img className="" src={SwitchRight} alt="flecha derecha" style={{height: "3rem"}}/>
                     </button>
                 </div>
-                <p className="order-last py-2 fs-4 text-secondary" style={!isLargeScreen? {display:"none"}: {}}> {currentSlide}/3 </p>
             </div>
-        </div>
+            <div className=" d-flex justify-content-center py-3">
+                <div className="pe-3" style={{display: !isSmallScreen? 'none': ''}}>
+                    <button className="btn btn-outline-secondary rounded-circle border-0 p-0" 
+                        type="button" onClick={prevCard}
+                    >
+                        <img className="" src={SwitchLeft} alt="flecha izquierda" style={{height: "3rem"}}/>
+                    </button>
+                </div>
+
+                <div className="ps-3" style={{display: !isSmallScreen? 'none': ''}}>
+                    <button className="btn btn-outline-secondary rounded-circle border-0 p-0" 
+                        type="button"  onClick={nextCard}
+                    >
+                        <img className="" src={SwitchRight} alt="flecha derecha" style={{height: "3rem"}}/>
+                    </button>
+                </div>
+
+            </div>
+      </div>
     );
 }

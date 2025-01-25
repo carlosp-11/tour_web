@@ -26,7 +26,7 @@ export const ButtonImage = (props) => {
             type="button"
             onClick={()=> props.icon=== 'whatsapp' ? openWhatsApp() : props.icon=== 'mail'? handleSendEmail(): props.someFunction()}
         >
-            <p className='my-1'> {props.text} 
+            <p className='my-1 text-center'> {props.text} 
                 <img className={`
                     ${props.icon === 'mail' || props.icon === 'scope'? "ms-2 mb-1": ''} `} 
                     style={

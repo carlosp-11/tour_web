@@ -1,7 +1,7 @@
 import { ButtonImage } from "./ButtonImage";
 import Scope from "../assets/svg/scope.svg";
 import { useEffect, useState } from "react";
-import '../styles/SimpleSearchbar.css'
+import '../styles/SimpleSearchBar.css'
 
 export const SimpleSearchbar = () => {
 

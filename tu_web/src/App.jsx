@@ -7,6 +7,9 @@ import { Login } from "../src/pages/Login"
 import { Navbar } from '../src/components/Navbar'
 import ProtectedRoute from "../src/pages/ProtectedRoute.jsx"
 import { AuthProvider } from "../src/store/AuthContext.jsx"
+import { Contact } from "./pages/Contact.jsx"
+import { About } from "./pages/About.jsx"
+import { Services } from "./pages/Services.jsx"
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 import ScrollToTop from "../src/components/scrollToTop"
@@ -27,6 +30,9 @@ function App() {
             <Navbar />
             <Routes>
               <Route element={<Home />} path="/" />
+              <Route element={<Contact />} path="/contacto" />
+              <Route element={<About />} path="/nosotros" />
+              <Route element={<Services />} path="/servicios" />
               <Route element={<Login />} path="/login" />
               <Route element={<LegalAdvice />} path="/aviso-legal" />
               <Route element={<LegalAdvice />} path="/politica-cookies" />

@@ -97,7 +97,9 @@ export const Navbar =({ bottomRef })=> {
                             </a>
                             <ul className="dropdown-menu">
                                 <li>
-                                    <DropdownLink text="Asesoría" linkFunction={toggleDropdown}/>
+                                    <a role='button' onClick={()=>navigate('/servicios')}>
+                                        <DropdownLink text="Asesoría" linkFunction={toggleDropdown}/>
+                                    </a>
                                 </li>
                                 <li><hr className="dropdown-divider"/></li>
                                 <li>
@@ -110,10 +112,10 @@ export const Navbar =({ bottomRef })=> {
                             </ul>
                         </li>
                         <li className="nav-item mx-1">
-                            <a className="nav-link" href="#"> Nosotros </a>
+                            <a className="nav-link"  role='button'  onClick={()=>navigate('/nosotros')}> Nosotros </a>
                         </li>
                         <li className='mx-4'>
-                            <ButtonImage text='Contacto' icon= 'mail' />
+                            <ButtonImage text='Contacto' icon= 'mail'/>
                         </li>
                     </ul>
                 </div>

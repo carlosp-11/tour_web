@@ -1,12 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import Mail from '../assets/icons/envelope-regular.png';
 import WSBusiness from '../assets/icons/small-ws-bussiness.png';
+//import WSBusiness from '../assets/icons/other-ws-business-icon.png';
 import ScopeSVG from '../assets/svg/scope.svg';
 
 export const ButtonImage = (props) => {
+    console.log(props);
     const navigate = useNavigate();
     const currentIcon = props.icon === 'mail' || props.icon === 'mail2' ? Mail : props.icon === 'scope' ? ScopeSVG : props.icon === 'none'? '' : WSBusiness;
     const openWhatsApp = () => {
+        console.log(props);
         const phoneNumber = '1234567890'; // Reemplaza con el número de teléfono (incluyendo el código del país, pero sin signos como '+').
         const message = encodeURIComponent('¡Hola! Quiero más información.'); // Opcional: mensaje predefinido.
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -26,7 +29,7 @@ export const ButtonImage = (props) => {
             onClick={()=> props.icon=== 'whatsapp' ? openWhatsApp() : props.icon=== 'mail'? handleSendEmail(): props.someFunction()}
         >
             <p className='my-1 text-center'> {props.text}
-                {props.icon !== 'none' || props.icon === 'none-blue' && (
+                {(props.icon !== 'none' || props.icon === 'none-blue') && (
                     <img className={`
                         ${props.icon === 'mail' || props.icon === 'scope'? "ms-2 mb-1": ''} `} 
                         style={

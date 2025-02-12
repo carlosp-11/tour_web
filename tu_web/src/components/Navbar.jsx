@@ -52,7 +52,7 @@ export const Navbar =({ bottomRef })=> {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item mx-1">
-                            <a className="nav-link" href="#">Comprar</a>
+                            <a className="nav-link" role='button' onClick={()=>navigate('/comprar')}>Comprar</a>
                         </li>
                         <li className="nav-item dropdown mx-1"  ref={alquileresRef}>
                             <a
@@ -70,7 +70,9 @@ export const Navbar =({ bottomRef })=> {
                             </a>
                             <ul className="dropdown-menu">
                                 <li>
-                                    <DropdownLink text="Corta temporada" subtitle="1 - 6 meses" linkFunction={toggleDropdown}/>
+                                    <a role='button' onClick={()=>navigate('/alquilar')}>
+                                        <DropdownLink text="Corta temporada" subtitle="1 - 6 meses" linkFunction={toggleDropdown}/>
+                                    </a>
                                 </li>
                                 <li><hr className="dropdown-divider"/></li>
                                 <li>
@@ -79,7 +81,7 @@ export const Navbar =({ bottomRef })=> {
                             </ul>
                         </li>
                         <li className="nav-item mx-1">
-                            <a className="nav-link" href="#">Vender</a>
+                            <a role='button' className="nav-link" onClick={()=>navigate('/vender')}>Vender</a>
                         </li>
                         <li className="nav-item dropdown mx-1"  ref={serviciosRef}>
                             <a

@@ -37,26 +37,42 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
-      {error && <p>{error}</p>}
+    <div className='d-flex row justify-content-center align-items-center py-5 my-5'>
+      <div className='d-flex row justify-content-center align-items-center bg-secondary-subtle rounded-3 py-4 animate__fadeInDown' 
+        animate__fadeInDown
+        style={{width: 600, maxWidth: '80%'}}
+      >
+        <h2 className='raleway text-center fs-1'>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-floating mb-3">
+            <input
+              type="email"
+              id="email"
+              className='form-control raleway'
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              />
+            <label for="email">Email</label>
+
+          </div>
+          <div className="form-floating mb-3">
+          <input
+            type="password"
+            id='password'
+            className='form-control'
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            />
+            <label for="password">Contraseña</label>
+            </div>
+          <button className='btn-primary w-100' type="submit" disabled={loading}>
+              {loading ? 'Cargando...' : 'Acceder'}
+          </button>
+        </form>
+        {error && <p>{error}</p>}
+      </div>
     </div>
   );
 };

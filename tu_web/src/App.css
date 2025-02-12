@@ -329,6 +329,11 @@ p{
   font-weight: 500 !important;
 }
 
+.tu-bigger-font {
+  color: #257226;
+  font-weight: 700 !important;
+}
+
 .image-container {
   overflow: hidden; /* Limita la imagen al contenedor */
   border-radius: 0.5rem; /* Igual al borde de la imagen */

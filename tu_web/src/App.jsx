@@ -10,6 +10,9 @@ import { AuthProvider } from "../src/store/AuthContext.jsx"
 import { Contact } from "./pages/Contact.jsx"
 import { About } from "./pages/About.jsx"
 import { Services } from "./pages/Services.jsx"
+import { Selling } from "./pages/Selling.jsx"
+import { Renting } from "./pages/Renting.jsx"
+import { Purchasing } from "./pages/Purchasing.jsx"
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 import ScrollToTop from "../src/components/scrollToTop"
@@ -34,6 +37,9 @@ function App() {
               <Route element={<About />} path="/nosotros" />
               <Route element={<Services />} path="/servicios" />
               <Route element={<Login />} path="/login" />
+              <Route element={<Selling />} path="/vender" />
+              <Route element={<Renting />} path="/alquilar" />
+              <Route element={<Purchasing />} path="/comprar" />
               <Route element={<LegalAdvice />} path="/aviso-legal" />
               <Route element={<LegalAdvice />} path="/politica-cookies" />
               <Route element={<LegalAdvice />} path="/politica-privacidad" />

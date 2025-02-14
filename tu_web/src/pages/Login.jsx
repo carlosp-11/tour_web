@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../store/AuthContext';
+//import { useAuth } from '../store/AuthContext';
+import { GlobalContext } from "../store/GlobalContext.jsx";
+import 'animate.css';
+
 
 export const Login = () => {
+  const { store, actions } = useContext(GlobalContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  //const { login } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -26,7 +30,7 @@ export const Login = () => {
       if (!response.ok) throw new Error('Invalid credentials');
 
       const data = await response.json();
-      login(data.token); // Guarda el token
+      actions.login(data.token); // Guarda el token
       console.log('Token:', data.token); // Guardar el token de forma segura
       navigate('/dashboard'); // Redirige al dashboard
     } catch (err) {
@@ -38,7 +42,8 @@ export const Login = () => {
 
   return (
     <div className='d-flex row justify-content-center align-items-center py-5 my-5'>
-      <div className='d-flex row justify-content-center align-items-center bg-secondary-subtle rounded-3 py-4 animate__fadeInDown' 
+      <div className='d-flex row justify-content-center align-items-center 
+        bg-secondary-subtle rounded-3 py-4 animate__animated animate__repeat-1 animate__fadeInDown' 
         animate__fadeInDown
         style={{width: 600, maxWidth: '80%'}}
       >

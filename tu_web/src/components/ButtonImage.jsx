@@ -25,8 +25,10 @@ export const ButtonImage = (props) => {
             className={`btn btn-primary fw-light nunito px-3
                 ${ props.icon === 'mail' || props.icon === 'none-blue'? "btn-primary": props.icon === 'scope' || props.icon === 'mail2' || props.icon === 'none'  ? "btn-secondary": "btn-danger" }`
             } 
-            type="button"
-            onClick={()=> props.icon=== 'whatsapp' ? openWhatsApp() : props.icon=== 'mail'? handleSendEmail(): props.someFunction()}
+            type={props.submit? 'submit':'button'}
+            onClick={(e) => props.icon === 'whatsapp' ? openWhatsApp() : 
+                props.icon === 'mail' ? handleSendEmail() : 
+                props.someFunction(e)}
         >
             <p className='my-1 text-center'> {props.text}
                 {(props.icon !== 'none' || props.icon === 'none-blue') && (

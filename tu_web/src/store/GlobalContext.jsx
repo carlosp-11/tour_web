@@ -5,26 +5,28 @@ export const GlobalContext = createContext(null);
 
 // 2️⃣ Crear el proveedor del contexto
 export const GlobalProvider = ({ children }) => {
-    const [isTownsLoaded, setIsTownsLoaded] = useState(false);
-    const [isTownsPropertiesLoaded, setIsPropertiesLoaded] = useState(false);
     const [store, setStore] = useState({
         propertiesList: [],
         townsList: [],
         municipalitiesList: [],
         availableTowns: [],
         user: {},
-        filterOptions: {transactionType: "rental",
+        filterOptions: {
+            transactionType: "rental",
             propertyType: "",
             location: "",
             priceStart: 0,
             priceEnd: 99999999
         },
-        filteredProperties: [],
+        filterRentalProperties: [],
+        rentalProperties: [],
+        forSaleProperties: [],
+        filterForSaleProperties: [],
         session: false,
     });
 
     const actions = {
-        getMessage: () => console.log("🔹 Contexto cargado correctamente"),
+        // getMessage: () => console.log("🔹 Contexto cargado correctamente"),
         getMunicipalities: async ()=>{
             if (store.municipalitiesList.length < 1){
                 const url = `${import.meta.env.VITE_BACKEND_URL}/municipalities`;
@@ -42,9 +44,9 @@ export const GlobalProvider = ({ children }) => {
                     ...prevStore,
                     municipalitiesList: data,
                   }))
-                  console.log(data);
+                  console.log('municipalities', data);
                 } else {
-                  console.log('Error:', response.status, response.statusText);
+                  console.log('Error:[municipalities]', response.status, response.statusText);
                 }
             }
         },
@@ -65,10 +67,9 @@ export const GlobalProvider = ({ children }) => {
                         ...prevStore,
                         townsList: data,
                     }))
-                  console.log(data);
-                  setIsTownsLoaded(true);
+                  console.log('towns', data);
                 } else {
-                    console.log('Error:', response.status, response.statusText);
+                    console.log('Error[towns]:', response.status, response.statusText);
                 }
             }
         },
@@ -89,10 +90,11 @@ export const GlobalProvider = ({ children }) => {
                         ...prevStore,
                         propertiesList: data,
                     }))
-                    setIsPropertiesLoaded(true);
                   console.log('propiedades', data);
+                  actions.updateAvailableTowns();
+                  actions.categorizeProperties();
                 } else {
-                    console.log('Error:', response.status, response.statusText);
+                    console.log('Error [properties]:', response.status, response.statusText);
                 }
             }
         },
@@ -118,36 +120,14 @@ export const GlobalProvider = ({ children }) => {
         updateAvailableTowns: () => {
             setStore((prevStore) => {
                 // Obtener una lista de IDs de las poblaciones que tienen propiedades
-                const propertyTownIds = [...new Set(prevStore.propertiesList.map(property => property.town))];
+                const propertyTownIds = [...new Set(prevStore.propertiesList.map(property => property.town.name))];
                 // Filtrar townsList para dejar solo los que coinciden con los IDs anteriores
                 const availableTowns = propertyTownIds.sort(); // Ordenar alfabéticamente
                 return {...prevStore, availableTowns,};
             });
         },
-        updatePropertiesWithTowns: async () => {
-            if (store.propertiesList.length > 0 && store.townsList.length > 0) {
-                await setStore((prevStore) => {
-                    const updatedProperties = prevStore.propertiesList.map(property => {
-                        // Buscar el town en townsList que coincida con el id_town
-                        const town = prevStore.townsList.find(town => town.id === property.id_town);
-
-                        // Retornar la propiedad con el name del town en lugar del id_town
-                        return {
-                            ...property,
-                            town: town ? town.name : "Desconocido", // Si no encuentra el town, asigna "Desconocido"
-                        };
-                    });
-        
-                    return {
-                        ...prevStore,
-                        propertiesList: updatedProperties
-                    };
-                });
-                actions.updateAvailableTowns();
-                console.log('properties with towns', store.propertiesList);
-            }
-        },
         setFilters: (data) => {
+            console.log('setfilters', data)
             setStore((prevStore)=>{
                 return{
                     ...prevStore,
@@ -155,16 +135,109 @@ export const GlobalProvider = ({ children }) => {
                 }
             });
         },
-        useFilters: () => {
+        categorizeProperties: () => {
             setStore((prevStore) => {
-                const { transactionType, propertyType, location, priceStart, priceEnd } = store.filterOptions;
-                const searchedProperties = prevStore.propertiesList.filter(property => property.type === propertyType);
-                console.log('buscamos', propertyType, 'en ', prevStore.propertiesList);
+                const rentProperties = prevStore.propertiesList.filter(property => property.transaction === 'alquiler');
+                const saleProperties = prevStore.propertiesList.filter(property => property.transaction === 'compra');
                 return {
                     ...prevStore,
-                    filteredProperties: searchedProperties
+                    rentalProperties: rentProperties,
+                    forSaleProperties: saleProperties,
+                    filterRentalProperties: rentProperties,
+                    filterForSaleProperties: saleProperties,
                 };
             });
+        },
+        useFilters: (data) => {
+            console.log('usefilters:', data);
+            setStore((prevStore) => {
+                //let searchedProperties = [];
+                let searchedProperties = data.set === 'alquiler' ? 
+                [...prevStore.rentalProperties] : 
+                [...prevStore.forSaleProperties];
+                const { 
+                    propertyType, 
+                    location, 
+                    priceStart, 
+                    priceEnd, 
+                    area, 
+                    bathrooms, 
+                    bedrooms, 
+                    amenities, 
+                    buiildingStatus 
+                } = store.filterOptions;
+
+                if (data?.type === 'reset'){
+                    searchedProperties = data.set === 'alquiler' 
+                    ? [...prevStore.rentalProperties] 
+                    : [...prevStore.forSaleProperties];
+                    console.log('reset', searchedProperties);
+                }
+                if (data?.type === 'order'){
+                    searchedProperties = [...(data.set === 'alquiler' ? prevStore.rentalProperties : prevStore.forSaleProperties)]
+                    .sort((a, b) => (data.criteria !== 'asc' ? a.price - b.price : b.price - a.price));
+                    console.log('ordering', searchedProperties);
+                }
+                if(data?.type === 'filter'){
+                    console.log('filtramos por ', propertyType, location, priceStart, priceEnd, area, bathrooms, bedrooms, amenities, buiildingStatus );
+                    //searchedProperties = data.set === 'alquiler' ? prevStore.rentalProperties : prevStore.forSaleProperties;
+                    if (propertyType){
+                        console.log('filtramos por propiedad');
+                        searchedProperties = data.set === 'alquiler' ? prevStore.rentalProperties : prevStore.forSaleProperties;
+                        if (propertyType !== 'todos') {
+                            searchedProperties =  searchedProperties.filter(property => property.type === propertyType);
+                        }                     
+                    }
+                    if (location){
+                        console.log('filtramos por locacion');
+                        if (location !== 'todos') {
+                            searchedProperties =  searchedProperties.filter(property => property.location === location);
+                        }                     
+                    }
+                    if (priceStart){
+                        console.log('filtramos por precio');
+                        searchedProperties =  searchedProperties.filter(property => property.price >= priceStart);
+                    }
+                    if (priceEnd){
+                        console.log('filtramos por precio');
+                        searchedProperties =  searchedProperties.filter(property => property.price <= priceEnd);
+                    }
+                    if (area){
+                        console.log('filtramos por area');
+                        if (area !== 'todos') {
+                            searchedProperties =  searchedProperties.filter(property => property.area <= area);
+                        }     
+                    }
+                    if (bathrooms){
+                        console.log('filtramos por baños');
+                        if (area !== 'todos') {
+                            searchedProperties =  searchedProperties.filter(property => property.bathrooms <= bathrooms);
+                        }     
+                    }
+                    if (bedrooms){
+                        console.log('filtramos por habitaciones');
+                        if (area !== 'todos') {
+                            searchedProperties =  searchedProperties.filter(property => property.bedrooms <= bedrooms);
+                        }     
+                    }
+                    if (buiildingStatus){
+                        console.log('filtramos por estado');
+                        if (area !== 'todos') {
+                            searchedProperties =  searchedProperties.filter(property => property.buiildingStatus <= buiildingStatus);
+                        }     
+                    }
+                    
+                    if (searchedProperties.length === 0) searchedProperties = [{message:'no hay resultados'}]
+                    console.log('resultado del filtro', searchedProperties);
+                } 
+                //console.log('buscamos', propertyType, 'en ', prevStore.propertiesList);
+                return {
+                    ...prevStore,
+                    filterRentalProperties: data.set==='alquiler'? [...searchedProperties] : prevStore.filterRentalProperties,
+                    filterForSaleProperties: data.set==='compra'? [...searchedProperties] : prevStore.filterForSaleProperties,
+                };
+            });
+            console.log('aplicamos', store.filterForSaleProperties);
         },
     };
 
@@ -176,23 +249,11 @@ export const GlobalProvider = ({ children }) => {
                 session: true,
             }));
         }
-        actions.getMessage();
+       // actions.getMessage();
         actions.getMunicipalities();
-        actions.getTowns();
+        //actions.getTowns();
         actions.getProperties();
-        if (store.townsList.length > 0 && store.propertiesList.length > 0) actions.updateAvailableTowns();
     }, []);
-
-    useEffect(() => {
-        if (isTownsLoaded && isTownsPropertiesLoaded) {
-            actions.updatePropertiesWithTowns();
-        }
-    }, [isTownsLoaded, isTownsPropertiesLoaded]);
-   
-    useEffect(() => {
-        console.log('availabletowns', store.availableTowns);
-    }, [actions.updatePropertiesWithTowns]);
-    
     
     return (
         <GlobalContext.Provider value={{ store, actions }}>

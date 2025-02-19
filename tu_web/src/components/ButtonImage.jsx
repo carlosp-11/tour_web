@@ -5,15 +5,12 @@ import WSBusiness from '../assets/icons/small-ws-bussiness.png';
 import ScopeSVG from '../assets/svg/scope.svg';
 
 export const ButtonImage = (props) => {
-    console.log(props);
     const navigate = useNavigate();
     const currentIcon = props.icon === 'mail' || props.icon === 'mail2' ? Mail : props.icon === 'scope' ? ScopeSVG : props.icon === 'none'? '' : WSBusiness;
     const openWhatsApp = () => {
-        console.log(props);
         const phoneNumber = '1234567890'; // Reemplaza con el número de teléfono (incluyendo el código del país, pero sin signos como '+').
         const message = encodeURIComponent('¡Hola! Quiero más información.'); // Opcional: mensaje predefinido.
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
         window.open(whatsappUrl, '_blank'); // Abre WhatsApp en una nueva pestaña o aplicación móvil.
       };
       const handleSendEmail = () => {
@@ -22,13 +19,15 @@ export const ButtonImage = (props) => {
 
     return(   
         <button 
-            className={`btn btn-primary fw-light nunito px-3
+            className={`btn btn-primary fw-light nunito px-3 w-100
                 ${ props.icon === 'mail' || props.icon === 'none-blue'? "btn-primary": props.icon === 'scope' || props.icon === 'mail2' || props.icon === 'none'  ? "btn-secondary": "btn-danger" }`
             } 
             type={props.submit? 'submit':'button'}
+            disabled= {props.isDisabled? !props.isDisabled: false}
             onClick={(e) => props.icon === 'whatsapp' ? openWhatsApp() : 
                 props.icon === 'mail' ? handleSendEmail() : 
-                props.someFunction(e)}
+                props.someFunction ? props.someFunction(e) : console.log("No function provided")
+            }
         >
             <p className='my-1 text-center'> {props.text}
                 {(props.icon !== 'none' || props.icon === 'none-blue') && (

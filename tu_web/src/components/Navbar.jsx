@@ -34,7 +34,7 @@ export const Navbar =({ bottomRef })=> {
       }, []);
 
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary raleway">
             <div className="container-fluid mx-4">
                 <a className="navbar-brand" role='button' onClick={()=>navigate('/')}>
                     <img style={{height: "4rem"}} src={Logo} alt="logo turismo urbano" />

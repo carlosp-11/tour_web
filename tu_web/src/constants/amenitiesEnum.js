@@ -1,0 +1,33 @@
+export const amenitiesEnum = [
+    'Horno',
+    'Refrigerador',
+    'Wifi',
+    'Secador de pelo',
+    'Tostador',
+    'Tetera',
+    'No fumadores',
+    'Se permite fumar',
+    'No se admiten mascotas',
+    'Se aceptan mascotas',
+    'Calentador',
+    'Ascensor',
+    'Cafetera',
+    'Lavavajillas',
+    'Microondas',
+    'Secadora',
+    'Smart TV',
+    'Lavadora',
+    'Plancha',
+    'Aire acondicionado',
+    'Terraza',
+    'Piscina',
+];
+
+export const selectedAmenitiesEnum = [
+    'Wifi',
+    'Piscina',
+    'Terraza',
+    'Aire acondicionado',
+    'Amueblado',
+    'Electrodomésticos',
+]

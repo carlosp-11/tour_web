@@ -17,7 +17,7 @@ export const PropertiesCard =(props)=> {
 
     const goingTo =() => {
         console.log('enviaremos estos props', props, thisProps);
-        navigate('/detalles', {state: props.data });
+        navigate(`/propiedades/${props.data.id}`);
     };
 
      useEffect(()=>{

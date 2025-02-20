@@ -83,19 +83,19 @@ export const Purchasing = () => {
                                 {' '}propiedades 
                             </p>
                             <div className="col-auto align-self-start">
-                                <div class="dropdown">
+                                <div className="dropdown">
                                     <button 
-                                        class="btn form-select raleway fs-6" 
+                                        className="btn form-select raleway fs-6" 
                                         type="button" 
                                         data-bs-toggle="dropdown" 
                                         aria-expanded="false"
                                     >
                                         Ordenar por
                                     </button>
-                                    <ul class="dropdown-menu">
+                                    <ul className="dropdown-menu">
                                         <li>
                                             <a 
-                                                class="dropdown-item" 
+                                                className="dropdown-item" 
                                                 role="button" 
                                                 onClick={()=> actions.useFilters({set: 'compra', type: 'order', criteria:'des'})}
                                             >
@@ -104,7 +104,7 @@ export const Purchasing = () => {
                                         </li>
                                         <li>
                                             <a 
-                                                class="dropdown-item" 
+                                                className="dropdown-item" 
                                                 role="button" 
                                                 onClick={()=> actions.useFilters({set: 'compra', type: 'order', criteria:'asc'})}
                                             >

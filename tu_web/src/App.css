@@ -4,6 +4,7 @@ html, body {
     height: 100%; /* Asegúrate de que el contenido permita el desplazamiento */
     overflow-x: hidden;
     overflow-y: auto; /* Asegura el desplazamiento vertical */
+    scroll-behavior: auto !important;
 }
 
 
@@ -327,6 +328,10 @@ p{
 .tu-font {
   color: #257226;
   font-weight: 500 !important;
+}
+
+.tu-secondary {
+  color: #0089ad;
 }
 
 .tu-bigger-font {

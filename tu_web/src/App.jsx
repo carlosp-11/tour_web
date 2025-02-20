@@ -42,7 +42,7 @@ function App() {
                 <Route element={<Login />} path="/login" />
                 <Route element={<Selling />} path="/vender" />
                 <Route element={<Renting />} path="/alquilar" />
-                <Route element={<Details />} path="/detalles" />
+                <Route element={<Details />} path="/propiedades/:id" />
                 <Route element={<Purchasing />} path="/comprar" />
                 <Route element={<LegalAdvice />} path="/aviso-legal" />
                 <Route element={<LegalAdvice />} path="/politica-cookies" />

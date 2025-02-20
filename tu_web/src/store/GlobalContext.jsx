@@ -6,27 +6,40 @@ export const GlobalContext = createContext(null);
 // 2️⃣ Crear el proveedor del contexto
 export const GlobalProvider = ({ children }) => {
     const [store, setStore] = useState({
-        propertiesList: [],
-        townsList: [],
-        municipalitiesList: [],
         availableTowns: [],
-        user: {},
+        currentProperty: {},
+        filterForSaleProperties: [],
         filterOptions: {
-            transactionType: "rental",
+            transactionType: "",
             propertyType: "",
             location: "",
             priceStart: 0,
             priceEnd: 99999999
         },
         filterRentalProperties: [],
-        rentalProperties: [],
         forSaleProperties: [],
-        filterForSaleProperties: [],
+        municipalitiesList: [],
+        propertiesList: [],
+        rentalProperties: [],
         session: false,
+        townsList: [],
+        user: {},
     });
 
     const actions = {
-        // getMessage: () => console.log("🔹 Contexto cargado correctamente"),
+        categorizeProperties: () => {
+            setStore((prevStore) => {
+                const rentProperties = prevStore.propertiesList.filter(property => property.transaction === 'alquiler');
+                const saleProperties = prevStore.propertiesList.filter(property => property.transaction === 'compra');
+                return {
+                    ...prevStore,
+                    rentalProperties: rentProperties,
+                    forSaleProperties: saleProperties,
+                    filterRentalProperties: rentProperties,
+                    filterForSaleProperties: saleProperties,
+                };
+            });
+        },
         getMunicipalities: async ()=>{
             if (store.municipalitiesList.length < 1){
                 const url = `${import.meta.env.VITE_BACKEND_URL}/municipalities`;
@@ -49,6 +62,55 @@ export const GlobalProvider = ({ children }) => {
                   console.log('Error:[municipalities]', response.status, response.statusText);
                 }
             }
+        },
+        getProperties: async ()=>{
+            if (store.propertiesList.length < 1){
+                const url = `${import.meta.env.VITE_BACKEND_URL}/properties`;
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        //'Authorization': `Bearer ${store.token}`
+                    },
+                }
+                const response = await fetch(url, options);
+                if (response.ok) {
+                    const data = await response.json();
+                    setStore((prevStore)=> ({
+                        ...prevStore,
+                        propertiesList: data,
+                    }))
+                    console.log('propiedades', data);
+                    actions.updateAvailableTowns();
+                    actions.categorizeProperties();
+                } else {
+                    console.log('Error [properties]:', response.status, response.statusText);
+                }
+            }
+        },
+        getPropertyDetails: async (id) =>{
+            const url = `${import.meta.env.VITE_BACKEND_URL}/properties/${id}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    //'Authorization': `Bearer ${store.token}`
+                },
+            }
+            const response = await fetch(url, options);
+            if (response.ok) {
+                const data = await response.json();
+                setStore((prevStore)=> ({
+                    ...prevStore,
+                    currentProperty: data,
+                }))
+              console.log('detalle de propiedad', data);
+            } else {
+                console.log('Error [propertyDetails]:', response.status, response.statusText);
+            }
+        },
+        getToken: () => {
+            return localStorage.getItem("token");
         },
         getTowns: async ()=>{
             if (store.townsList.length < 1){
@@ -73,34 +135,6 @@ export const GlobalProvider = ({ children }) => {
                 }
             }
         },
-        getProperties: async ()=>{
-            if (store.propertiesList.length < 1){
-                const url = `${import.meta.env.VITE_BACKEND_URL}/properties`;
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        //'Authorization': `Bearer ${store.token}`
-                    },
-                }
-                const response = await fetch(url, options);
-                if (response.ok) {
-                    const data = await response.json();
-                    setStore((prevStore)=> ({
-                        ...prevStore,
-                        propertiesList: data,
-                    }))
-                  console.log('propiedades', data);
-                  actions.updateAvailableTowns();
-                  actions.categorizeProperties();
-                } else {
-                    console.log('Error [properties]:', response.status, response.statusText);
-                }
-            }
-        },
-        getToken: () => {
-            return localStorage.getItem("token");
-        },
         login: (token) => {
             setStore((prevStore) => ({
                 ...prevStore,
@@ -117,15 +151,6 @@ export const GlobalProvider = ({ children }) => {
             }));
             localStorage.removeItem('token');
         },
-        updateAvailableTowns: () => {
-            setStore((prevStore) => {
-                // Obtener una lista de IDs de las poblaciones que tienen propiedades
-                const propertyTownIds = [...new Set(prevStore.propertiesList.map(property => property.town.name))];
-                // Filtrar townsList para dejar solo los que coinciden con los IDs anteriores
-                const availableTowns = propertyTownIds.sort(); // Ordenar alfabéticamente
-                return {...prevStore, availableTowns,};
-            });
-        },
         setFilters: (data) => {
             console.log('setfilters', data)
             setStore((prevStore)=>{
@@ -135,17 +160,13 @@ export const GlobalProvider = ({ children }) => {
                 }
             });
         },
-        categorizeProperties: () => {
+        updateAvailableTowns: () => {
             setStore((prevStore) => {
-                const rentProperties = prevStore.propertiesList.filter(property => property.transaction === 'alquiler');
-                const saleProperties = prevStore.propertiesList.filter(property => property.transaction === 'compra');
-                return {
-                    ...prevStore,
-                    rentalProperties: rentProperties,
-                    forSaleProperties: saleProperties,
-                    filterRentalProperties: rentProperties,
-                    filterForSaleProperties: saleProperties,
-                };
+                // Obtener una lista de IDs de las poblaciones que tienen propiedades
+                const propertyTownIds = [...new Set(prevStore.propertiesList.map(property => property.town.name))];
+                // Filtrar townsList para dejar solo los que coinciden con los IDs anteriores
+                const availableTowns = propertyTownIds.sort(); // Ordenar alfabéticamente
+                return {...prevStore, availableTowns,};
             });
         },
         useFilters: (data) => {

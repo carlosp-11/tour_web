@@ -56,7 +56,7 @@ export const SimpleSearchbar = () => {
     
     return (
         // <div className={`bg-white py-3 d-flex justify-content-center rounded-3 nunito container-fluid simplesearchbar ${isLargeScreen? 'px-3':'px-1 gx-0'}`}>
-            <form onSubmit={handleSubmit} className="row w-100 gx-0 px-2 py-3 mx-0 d-flex justify-content-around bg-white rounded-3  nunitocontainer-fluid simplesearchbar">
+            <form onSubmit={handleSubmit} className="row w-100 gx-0 px-2 py-3 mx-0 d-flex justify-content-around bg-white rounded-3 nunito container-fluid ">
                 <div className="col-3 col-lg-3 p-0 m-0 gy-0 gx-1 row">
                     <label htmlFor="checkbox" className="form-label tu-font" style={{ fontSize: 13,}}>Transacción</label>
                     <div id="checkbox" className="form-check col">
@@ -126,7 +126,7 @@ export const SimpleSearchbar = () => {
                             value={formValues.priceStart} 
                         >
                             <option className="text-secondary fw-lighter nunito" value={0.1} selected>Desde</option>
-                            {formValues.transactionType === 'rental'? 
+                            {formValues.transactionType === 'alquiler'? 
                                 rentPrices.slice(0, -1).map(({ value, label }, index) => (
                                     <option key={index} value={value}>{label}</option>
                                 )) :
@@ -146,7 +146,7 @@ export const SimpleSearchbar = () => {
                             value={formValues.priceEnd}
                         >
                             <option selected value={99999998}>Hasta</option>
-                            {formValues.transactionType === 'rental'?  
+                            {formValues.transactionType === 'alquiler'?  
                                 rentPrices.slice(1).map(({ value, label }, index) => (
                                     <option key={index} value={value}>{label}</option>
                                 )) :

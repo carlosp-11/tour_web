@@ -6,7 +6,7 @@ import ScopeSVG from '../assets/svg/scope.svg';
 
 export const ButtonImage = (props) => {
     const navigate = useNavigate();
-    const currentIcon = props.icon === 'mail' || props.icon === 'mail2' ? Mail : props.icon === 'scope' ? ScopeSVG : props.icon === 'none'? '' : WSBusiness;
+    const currentIcon = props.icon === 'mail' || props.icon === 'mail2' ? Mail : props.icon === 'scope' ? ScopeSVG : props.icon === 'none' || props.icon === 'none-blue'? '' : WSBusiness;
     const openWhatsApp = () => {
         const phoneNumber = '1234567890'; // Reemplaza con el número de teléfono (incluyendo el código del país, pero sin signos como '+').
         const message = encodeURIComponent('¡Hola! Quiero más información.'); // Opcional: mensaje predefinido.
@@ -30,17 +30,18 @@ export const ButtonImage = (props) => {
             }
         >
             <p className='my-1 text-center'> {props.text}
-                {(props.icon !== 'none' || props.icon === 'none-blue') && (
+                { props.icon !== 'none' && props.icon !== 'none-blue' && (
                     <img className={`
                         ${props.icon === 'mail' || props.icon === 'scope'? "ms-2 mb-1": ''} `} 
                         style={
-                            props.icon === 'mail2'?{height: "0.8rem", paddingLeft: 10} :
-                            currentIcon=== Mail? 
+                            props.icon === 'mail2'?
+                            {height: "0.8rem", paddingLeft: 10} :
+                            currentIcon=== Mail ? 
                             {height: "0.8rem",}: currentIcon=== ScopeSVG ? 
-                            {height: "1.1rem"} : 
+                            {height: "1.1rem"} :
                             {height: "1.7rem", paddingLeft: 5, marginTop: -5}
                         } 
-                        src={currentIcon} alt="icono mail" 
+                        src={currentIcon} alt="" 
                     />
                 )} 
             </p>

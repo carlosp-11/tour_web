@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ButtonImage } from "./ButtonImage";
 import ServicesPic from '../assets/pictures/services-pic.png';
-import { useEffect, useState } from "react";
 
 export const ServicesJumbotron = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
+    const navigate = useNavigate();
         
     useEffect(() => {
         const handleResize = () => {
@@ -21,44 +23,33 @@ export const ServicesJumbotron = () => {
     }, []);
 
     return (
-        <div className="d-flex flex-wrap justify-content-center align-items-center row bg-dark-subtle py-5 px-5">
-            <div className="col-12 col-lg d-flex justify-content-center my-lg-5 mx-2">
+        <div className="d-flex flex-wrap justify-content-center align-items-center row bg-dark-subtle px-lg-5 px-xl-5 px-md-5 py-5">
+            <div className="col-12 col-lg-auto d-flex justify-content-center my-lg-5">
                 <img 
                     src={ServicesPic} 
                     alt="Servicios" 
-                    className="" 
+                    className="mx-4" 
                     style={{height: 'auto', width:'100%', minWidth: isLargeScreen? 620 : '', maxWidth: 720 , maxHeight: 415}
                 }/>
             </div>
-            <div className="col-12 col-lg d-flex justify-content-center my-3 my-lg-5 row">
+            <div className="col-12 col-lg d-flex justify-content-center my-3 my-lg-5 row mx-lg-5 mx-xl-5 px-4 px-lg-0 px-xl-0 px-md-0" style={{minWidth: 450}}>
                 <div className="col-12">
                     <h2 className="raleway-bold fs-1">Servicios Personalizados para Compradores, Inquilinos y Propietarios</h2>
                     <h5 className="d-none d-lg-block py-2 nunito-light tu-font">
                         Gestionamos propiedades, asesoramos en compra-venta, y ofrecemos mantenimiento completo.
                     </h5>
                     <p className=" pb-5 pt-3 pt-lg-1 pb-lg-4"> 
-                        Sed purus ex, dapibus condimentum facilisis a, ullamcorper sed augue. Ut augue velit, vehicula sed 
-                        justo vitae, condimentum consectetur magna. Proin quis molestie sapien, nec eleifend dui. Nulla 
-                        elementum feugiat blandit. Vestibulum nec lectus dignissim leo bibendum lobortis.
+                        Ofrecemos soluciones a medida para compradores, inquilinos y propietarios. Desde la gestión integral de 
+                        propiedades hasta asesoría experta en compra-venta y servicios de mantenimiento, nos encargamos de cada 
+                        detalle para que tengas tranquilidad y confianza en cada operación inmobiliaria.
                     </p>
                 </div>
-                <div className="col-12 row mx-0 px-0 gx-1 d-flex justify-content-center ">
-                    {isLargeScreen && (
-                        <div className="col d-flex justify-content-center text-nowrap">
-                            <button type="button" className="btn btn-secondary fw-light px-5" style={{minWidth: ''}}> 
-                                <p className="my-1">Saber más </p>
-                            </button>
-                        </div>
-                    )}
-                    {!isLargeScreen && (
-                        <div className="col-6 d-flex justify-content-center">
-                            <ButtonImage text='Contacto' icon='mail2'/>
-                        </div>
-                    )}
-                    <div className="col d-flex  justify-content-center">
-                        <span className="">
-                            <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="ws"/>
-                        </span>
+                <div className="col-12 row mx-0 px-0 d-flex justify-content-center "> 
+                    <div className="col d-flex justify-content-center">
+                        <ButtonImage text='Saber más' icon='none' someFunction={(e)=>navigate('/servicios')}/>
+                    </div>
+                    <div className="col d-flex justify-content-center">
+                        <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="ws"/>
                     </div>
                 </div>
             </div>

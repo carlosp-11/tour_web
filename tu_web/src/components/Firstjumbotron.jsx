@@ -23,18 +23,18 @@ export const FirstJumbotron =()=>{
         }, []);
 
     return (
-         <div className={`py-5 px-lg-5 px-4 mx-0 flex-column container-fluid d-flex justify-content-center position-relative `} 
+         <div className={`py-5 px-lg-5 px-4 mx-0 flex-column container-fluid d-flex  position-relative `} 
             style={{
                 backgroundColor: "#efefef",
                 backgroundImage: `url(${GreenPicture})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                maxHeight: "91vh",
-                height: isLargeScreen? "85vh": "62vh",
+                //maxHeight: "90rem",
+                height: "40rem",
             }}
         >
-                <div className='col-12 text-center text-white py-0 my-0'>
+                <div className='col-12 text-center text-white py-0 my-0 pt-5 mt-5'>
                     <h1 className='raleway-bold pb-3' style={{fontSize: 47}}>Descubre Tu <br/> Hogar en Tenerife </h1>
                     <h6 className='nunito-light small pb-5' style={!isLargeScreen? {display:'none'}: {}}> 
                         Encuentra el lugar perfecto para alquilar o comprar, adaptado a tus necesidades. 

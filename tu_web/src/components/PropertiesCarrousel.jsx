@@ -98,7 +98,7 @@ for (let i = 0; i < visibleCardsCount; i++) {
         <div className="row mx-0 px-0">
             {/* {cards.slice(currentIndex, currentIndex + 2).map((card, index) => ( */}
             {displayedCards.map((card, index) => (
-                <div className={`col-${12 / visibleCardsCount} d-flex justify-content-center`}>
+                <div className="col-auto mx-auto" style={{maxWidth: 395}} key={index}>
                     <PropertiesCard
                         number={card.number} 
                         location={card.location} 

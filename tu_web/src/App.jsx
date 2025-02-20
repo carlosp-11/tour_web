@@ -15,6 +15,7 @@ import { Services } from "./pages/Services.jsx"
 import { Selling } from "./pages/Selling.jsx"
 import { Renting } from "./pages/Renting.jsx"
 import { Purchasing } from "./pages/Purchasing.jsx"
+import { Details } from "./pages/Details.jsx";
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 import ScrollToTop from "../src/components/scrollToTop"
@@ -31,7 +32,7 @@ function App() {
       {/* <AuthProvider> */}
       <GlobalProvider>
         <BrowserRouter basename={basename}>
-          <ScrollToTop>
+          <ScrollToTop />
               <Navbar />
               <Routes>
                 <Route element={<Home />} path="/" />
@@ -41,6 +42,7 @@ function App() {
                 <Route element={<Login />} path="/login" />
                 <Route element={<Selling />} path="/vender" />
                 <Route element={<Renting />} path="/alquilar" />
+                <Route element={<Details />} path="/detalles" />
                 <Route element={<Purchasing />} path="/comprar" />
                 <Route element={<LegalAdvice />} path="/aviso-legal" />
                 <Route element={<LegalAdvice />} path="/politica-cookies" />
@@ -54,7 +56,6 @@ function App() {
 
               </Routes>
               <Footer />
-          </ScrollToTop>
         </BrowserRouter>
       </GlobalProvider>
       {/* </AuthProvider> */}

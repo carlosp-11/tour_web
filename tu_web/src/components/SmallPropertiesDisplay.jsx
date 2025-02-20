@@ -27,7 +27,7 @@ export const SmallPropertiesDisplay = () => {
     return(
         <div className="">
             {cards.map((card, index) => (
-                <div className={`col d-flex justify-content-center`}>
+                <div className="col-auto mx-auto" style={{maxWidth: 390}}>
                     <PropertiesCard
                         number={card.number} 
                         location={card.location} 

@@ -22,10 +22,10 @@ export const PropertiesJumbotron =()=> {
     }, []);
 
     return (
-        <div className="row py-5 w-100 px-5 mx-0 container-flex d-flex justify-content-center">
-            <h2 className="col-12 raleway-bold fs-1 px-0">Inmuebles destacados</h2>
-            <h6 className="col-12 nunito-light tu-font d-none d-lg-block">Viviendas amuebladas y acogedoras para estadías de corta y mediana duración.</h6>
-            <div className="col-12 col-lg-9 px-3">
+        <div className="row py-5 w-100 px-0 mx-0 container-flex d-flex justify-content-center">
+            <h2 className="col-12 raleway-bold fs-1 px-4 px-lg-5 px-md-5 px-xl-5">Inmuebles destacados</h2>
+            <h6 className="col-12 nunito-light tu-font d-none d-lg-block px-4 px-lg-5 px-md-5 px-xl-5">Viviendas amuebladas y acogedoras para estadías de corta y mediana duración.</h6>
+            <div className="col-12 col-lg-9 px-4 px-lg-5 px-md-5 px-xl-5">
                 <PillsComponent/>
             </div>
             <div className="col-12 col-lg-3 d-flex align-items-center order-4 order-md-4 order-lg-0 justify-content-lg-end justify-content-center py-4">

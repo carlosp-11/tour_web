@@ -5,9 +5,9 @@ import SwitchRight from '../assets/icons/switch-right-arrow.png'
 export const PaginationComponent = (props) => {
     return(
         <div>
-            <div className="row col-12 justify-content-center">
+            <div className="row col-12 justify-content-center mx-0">
                  {props.properties.map((item, index) => (
-                    <div className="col-auto">
+                    <div className="col-auto" style={{maxWidth: 394}}>
                         <PropertiesCard 
                             key={index}
                             number={index}
@@ -19,6 +19,7 @@ export const PaginationComponent = (props) => {
                             bathrooms={item.bathrooms}
                             location={item.town?.name}
                             image={item.media !== undefined? item.media[0]?.url: ''}
+                            data={item}
                         />
                     </div>
                 ))}

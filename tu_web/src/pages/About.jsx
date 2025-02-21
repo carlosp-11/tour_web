@@ -5,9 +5,11 @@ import CoupleBreakfast from '../assets/pictures/couple-breakfast.png';
 import CoupleWalking from '../assets/pictures/couple-walking.png'
 import { ButtonImage } from "../components/ButtonImage";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const About = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
+    const navigate = useNavigate();
         
     useEffect(() => {
         const handleResize = () => {
@@ -77,7 +79,7 @@ export const About = () => {
                         inquilinos. Con inmuebles ubicados estratégicamente en Valle San Lorenzo y Las Galletas, te 
                         ofrecemos comodidad y accesibilidad en cada detalle.
                     </p>
-                    <ButtonImage text='Contacto' icon='mail2'/>
+                    <ButtonImage text='Contacto' icon='mail2' someFunction={()=>navigate('/contacto')}/>
                 </div>
                 <div className="col order-2">
                     <img 

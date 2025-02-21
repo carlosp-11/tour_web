@@ -54,19 +54,19 @@ export const Footer = () => {
                 </div>
                 <div className="col-6 col-lg-2 mb-3 order-3 order-md-3 pt-5 ps-5 raleway">
                     <ul className="nav flex-column">
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-5 mb-5 fw-semibold">Comprar</a></li>
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-5 mb-2 fw-semibold">Alquileres</a></li>
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-6">Corta Temporada</a></li>
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-6">Larga Temporada</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-5 mb-5 fw-semibold" onClick={()=>navigate('/comprar')}>Comprar</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-5 mb-2 fw-semibold" onClick={()=>navigate('/alquilar')}>Alquileres</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-6" onClick={()=>navigate('/alquilar')}>Corta Temporada</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-6" onClick={()=>navigate('/alquilar')}>Larga Temporada</a></li>
                     </ul>
                 </div>
                 <div className="col-6 col-lg-2 mb-3 order-3 order-md-3 pt-5 ps-5 raleway">
                     <ul className="nav flex-column">
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-5 mb-5 fw-semibold">Vender</a></li>
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-5 mb-2 fw-semibold">Servicios</a></li>
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-6">Asesoría</a></li>
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-6">Gestión</a></li>
-                        <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-white fs-6">Seguros</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-5 mb-5 fw-semibold" onClick={()=>navigate('/vender')}>Vender</a></li>
+                        <li className="nav-item mb-2"><a role='button'className="nav-link p-0 text-white fs-5 mb-2 fw-semibold" onClick={()=>navigate('/servicios')}>Servicios</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-6" onClick={()=>navigate('/servicios')}>Asesoría</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-6" onClick={()=>navigate('/servicios')}>Gestión</a></li>
+                        <li className="nav-item mb-2"><a role='button' className="nav-link p-0 text-white fs-6" onClick={()=>navigate('/servicios')}>Seguros</a></li>
                     </ul>
                 </div>
                 <div className="col-12 col-lg-4 mb-3 order-2 order-md-2 order-lg-3 order-2">
@@ -85,7 +85,7 @@ export const Footer = () => {
                 </div>
 
                 <div className="col-12 col-lg-2 mb-3 ps-5 order-1 order-md-1 order-lg-3 raleway">
-                    <a href="#" className="nav-link p-0 text-white fs-5 mb-5 fw-semibold">Nosotros</a>
+                    <a role='button' className="nav-link p-0 text-white fs-5 mb-5 fw-semibold" onClick={()=>navigate('/nosotros')}>Nosotros</a>
                 </div>
 
                 <div className="col-12 col-lg-2 mb-3 ps-5 order-2 order-md-2 order-lg-3 mb-5 raleway row">

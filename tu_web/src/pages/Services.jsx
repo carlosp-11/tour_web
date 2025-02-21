@@ -7,9 +7,11 @@ import HighBuildings from '../assets/pictures/high-buildings.png';
 import ColonialTown from '../assets/pictures/colonial-town.png'; 
 import { ButtonImage } from "../components/ButtonImage";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Services = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
+    const navigate = useNavigate();
         
     useEffect(() => {
         const handleResize = () => {
@@ -62,7 +64,7 @@ export const Services = () => {
                         <li>Mantenimiento de Propiedades</li>
                         <li>Servicios de Reforma</li>
                     </ul>
-                    <ButtonImage text='Solicitar Gestión' icon='none' />
+                    <ButtonImage text='Solicitar Gestión' icon='none' someFunction={()=>navigate('/contacto')}/>
                 </div>
                 <div className="col text-center align-self-center">
                     <img 
@@ -104,7 +106,7 @@ export const Services = () => {
                     </p>
                     <h5 className="raleway fw-bold pb-5"> Explora Propiedades a la Venta </h5>
                     <span>
-                        <ButtonImage text='Ver Propiedades' icon='none' />
+                        <ButtonImage text='Ver Propiedades' icon='none'  someFunction={()=>navigate('/comprar')}/>
                     </span>
                 </div>
                 <div className="col text-center align-self-center">
@@ -132,10 +134,10 @@ export const Services = () => {
                     </p>
                     <span className="row">
                         <span className="col">
-                            <ButtonImage text={isLargeScreen? 'Conoce nuestro proceso de venta': 'Saber más'} icon="none-blue"/>
+                            <ButtonImage text={isLargeScreen? 'Conoce nuestro proceso de venta': 'Saber más'} icon="none-blue" someFunction={()=>navigate('/vender')}/>
                         </span>
                         <span className="col">
-                            <ButtonImage text='Solicitar evaluación' icon="none"/>
+                            <ButtonImage text='Solicitar evaluación' icon="none"  someFunction={()=>navigate('/contacto')}/>
                         </span>
                     </span>
                 </div>

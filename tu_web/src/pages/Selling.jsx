@@ -4,10 +4,12 @@ import SellingHeader from '../assets/headers/selling-header.png';
 import GivingKeys from '../assets/pictures/giving-keys.png'
 import AttendingPhone from '../assets/pictures/attending-phone.png'
 import { ButtonImage } from "../components/ButtonImage";
+import { useNavigate } from "react-router-dom";
 
 
 export const Selling = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
+    const navigate = useNavigate();
             
         useEffect(() => {
             const handleResize = () => {
@@ -68,7 +70,7 @@ export const Selling = () => {
                         </div>
                     </div>
                     <div className="pt-5 ">
-                        <ButtonImage text={isLargeScreen? 'Solicitar Evaluación': 'Evaluación'} icon="none"/>
+                        <ButtonImage text={isLargeScreen? 'Solicitar Evaluación': 'Evaluación'} icon="none" someFunction={()=>navigate('/contacto')}/>
                     </div>
                 </div>
                 <div className="col text-center mx-0 px-0 gx-0">
@@ -110,7 +112,7 @@ export const Selling = () => {
                             Soporte integral
                         </li>
                     </ul>
-                    <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="whatsapp"/>
+                    <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="ws"/>
                 </div>
             </div>
         </div>

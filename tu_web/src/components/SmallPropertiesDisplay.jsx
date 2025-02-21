@@ -1,29 +1,18 @@
 import { PropertiesCard } from "./PropertiesCard";
+import { useContext } from 'react';
+import { GlobalContext } from '../store/GlobalContext';
+import React, {useState, useEffect} from 'react';
+
 
 export const SmallPropertiesDisplay = () => {
-    const cards =[
-        {
-            number: 3, 
-            location:'LOS CRISTIANOS', 
-            price:'1.500€', 
-            type: 'Local',
-            area: '100'
-        },
-        {
-            number: 4, 
-            location:'LAS GALLETAS', 
-            price:'850€', 
-            type: 'Apartamento',
-            area: '60'
-        },
-        {
-            number: 5, 
-            location:'EL MÉDANO', 
-            price:'1.800€', 
-            type: 'Local',
-            area: '80'
-        },
-    ]
+    const {store} =useContext(GlobalContext);
+    const [cards, setCards] = useState([]);
+    
+     useEffect(()=> {
+        console.log('cards', cards);
+            setCards(store.propertiesList.slice(0, 5))
+        }, [store.propertiesList])
+
     return(
         <div className="">
             {cards.map((card, index) => (

@@ -27,8 +27,8 @@ export const SimpleSearchbar = () => {
         event.preventDefault();
         console.log("Valores del formulario:", formValues);
         // Aquí puedes enviar los datos a tu backend o contexto global
-        actions.setFilters(formValues);
-        actions.useFilters();
+        // actions.setFilters(formValues);
+        // actions.useFilters();
         console.log('filter values', store.filterOptions, );
         console.log('resultados: ', store.filteredProperties);
     };

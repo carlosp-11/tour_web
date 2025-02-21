@@ -91,7 +91,7 @@ export const Footer = () => {
                 <div className="col-12 col-lg-2 mb-3 ps-5 order-2 order-md-2 order-lg-3 mb-5 raleway row">
                     <h5 className="fw-semibold col-12 pb-0 mb-0" >Síguenos</h5>
                     <span className='col-12 d-flex'>
-                        <a href="#" className='pe-2 link-underline link-underline-opacity-0'><img src={FacebookIconSVG} /> </a>
+                        <a href="https://www.facebook.com/turismourbanosl?locale=es_ES" className='pe-2 link-underline link-underline-opacity-0'><img src={FacebookIconSVG} /> </a>
                         <a href="#" className='px-2 link-underline link-underline-opacity-0'><img src={InstagramIconSVG} /> </a>
                         <a href="#" className='px-2 link-underline link-underline-opacity-0'><img src={LinkedInIconSVG} /> </a>
                     </span>

@@ -34,8 +34,9 @@ export const Services = () => {
                 <div className="col text-center">
                     <img 
                         src={WorkingLaptop} 
-                        alt="trabajando en la laptop" 
-                        style={{minWidth: '23rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        alt="trabajando en la laptop"
+                        className="rounded-4"
+                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">
@@ -68,18 +69,20 @@ export const Services = () => {
                 </div>
                 <div className="col text-center align-self-center">
                     <img 
-                        src={UnderConstruction} 
+                        src={UnderConstruction}
+                        className="rounded-4" 
                         alt="trabajo en obras" 
-                        style={{minWidth: '23rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>
             <div className="row mx-0 px-lg-5 px-4 py-5" id="segurosJumbotron">
                 <div className="col text-center">
                     <img 
-                        src={HouseKeys} 
+                        src={HouseKeys}
+                        className="rounded-4"
                         alt="llaves y contrato de vivienda" 
-                        style={{minWidth: '23rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">
@@ -112,8 +115,9 @@ export const Services = () => {
                 <div className="col text-center align-self-center">
                     <img 
                         src={ColonialTown} 
-                        alt="trabajo en obras" 
-                        style={{minWidth: '23rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        alt="trabajo en obras"
+                        className="rounded-4" 
+                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>
@@ -121,8 +125,9 @@ export const Services = () => {
                 <div className="col text-center">
                     <img 
                         src={HighBuildings} 
-                        alt="zona residencial" 
-                        style={{minWidth: '23rem', height: '32rem', objectFit: 'cover', width:'auto', minHeight:'25rem'}}
+                        alt="zona residencial"
+                        className="rounded-4" 
+                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5 flex-column d-flex justify-content-center">

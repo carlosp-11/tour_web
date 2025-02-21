@@ -34,7 +34,7 @@ export const PropertiesCard =(props)=> {
                 </div>
             </div>
             <div className="card-body px-4 pb-3" style={{marginTop: -20}}>
-                <h5 className="card-title fw-bold fs-3 pb-2">{props.price || '0 €'}</h5>
+                <h5 className="card-title fw-bold fs-3 pb-2"> € {props.price || '0'}</h5>
                 <h5 className="card-title fw-bold fs-5 pb-1 text-truncate">{props.name || 'Nombre de la propiedad'}</h5>
                 <p className="card-text text-primary">{props.location || 'UBICACIÓN'}</p>
                 <div className='row gx-0'>

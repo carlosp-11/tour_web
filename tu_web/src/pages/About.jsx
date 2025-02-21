@@ -42,18 +42,20 @@ export const About = () => {
                 </div>
                 <div className="col order-2">
                     <img 
-                        src={BlueHouse} 
+                        src={BlueHouse}
+                        className="rounded-4" 
                         alt="fotografía vivienda al sur de Tenerife" 
-                        style={{minWidth: '23rem', height:'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{minWidth: '20rem', height:'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>
             <div className="row mx-0 px-lg-5 px-4 py-5">
-                <div className="col text-center">
+                <div className="col text-center" style={{maxHeight: '40%'}}>
                     <img 
-                        src={CoupleBreakfast} 
+                        src={CoupleBreakfast}
+                        classNcame="rounded-4"
                         alt="pareja desayunando en su nueva casa" 
-                        style={{minWidth: '23rem', maxHeight:'32rem', objectFit: 'cover', width:'auto',}}
+                        style={{ objectFit: 'cover', width:'100%', height: '100%'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">
@@ -66,7 +68,9 @@ export const About = () => {
                         mercado de alquileres temporales en Tenerife, ofreciendo soluciones personalizadas
                         que se adaptan a las necesidades de cada cliente.
                     </p>
-                    <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="ws"/>
+                    <div className="col-lg-6 col-xl-6 col-auto">
+                        <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="ws"/>
+                    </div>
                 </div>
             </div>
             <div className="row mx-0 px-lg-5 px-4 py-5 bg-secondary-subtle">
@@ -84,8 +88,9 @@ export const About = () => {
                 <div className="col order-2">
                     <img 
                         src={CoupleWalking} 
+                        className="rounded-4"
                         alt="pareja caminando a casa" 
-                        style={{minWidth: '23rem', height:'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{minWidth: '20rem', height:'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>

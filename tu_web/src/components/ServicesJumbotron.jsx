@@ -29,7 +29,7 @@ export const ServicesJumbotron = () => {
                     src={ServicesPic} 
                     alt="Servicios" 
                     className="mx-4" 
-                    style={{height: 'auto', width:'100%', minWidth: isLargeScreen? 620 : '', maxWidth: 720 , maxHeight: 415}
+                    style={{height: 'auto', width:'100%', minWidth: isLargeScreen? 620 : '', maxWidth: '20rem' , maxHeight: 415}
                 }/>
             </div>
             <div className="col-12 col-lg d-flex justify-content-center my-3 my-lg-5 row mx-lg-5 mx-xl-5 px-4 px-lg-0 px-xl-0 px-md-0" style={{minWidth: 450}}>
@@ -44,7 +44,7 @@ export const ServicesJumbotron = () => {
                         detalle para que tengas tranquilidad y confianza en cada operación inmobiliaria.
                     </p>
                 </div>
-                <div className="col-12 row mx-0 px-0 d-flex justify-content-center "> 
+                <div className="col-12 row d-flex justify-content-center "> 
                     <div className="col d-flex justify-content-center">
                         <ButtonImage text='Saber más' icon='none' someFunction={(e)=>navigate('/servicios')}/>
                     </div>

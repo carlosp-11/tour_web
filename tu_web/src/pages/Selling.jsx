@@ -28,7 +28,7 @@ export const Selling = () => {
     return (
         <div>
             <HeaderComponent image={SellingHeader} tag='Vender'/>
-            <div className="d-flex flex-column align-items-center text-center px-5">
+            <div className="d-flex flex-column align-items-center text-center px-4 pt-5 pt-lg-0 pt-xl-0">
                 <h1 className="raleway-bold py-2 col-12 col-lg-6 col-xl-6"> Vende tu Propiedad en Tenerife con Turismo URBANO </h1>
                 <p className=" col-12 col-lg-6 col-xl-6 text-center"> Confia en nuestra experiencia para gestionar la venta de tu propiead de 
                     forma ágil y profesional. desde la valoración inicia hasta la firma final, estamos 
@@ -75,18 +75,20 @@ export const Selling = () => {
                 </div>
                 <div className="col text-center mx-0 px-0 gx-0">
                     <img 
-                        src={GivingKeys} 
+                        src={GivingKeys}
+                        className="rounded-4"
                         alt="trabajando en la laptop" 
-                        style={{minWidth: '23rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>
             <div className="row mx-0 px-lg-5 px-4 py-5">
                 <div className="col text-center">
                     <img 
-                        src={AttendingPhone} 
+                        src={AttendingPhone}
+                        className="rounded-4"
                         alt="trabajando en la laptop" 
-                        style={{minWidth: '23rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">

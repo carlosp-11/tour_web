@@ -28,9 +28,10 @@ export const Contact = () => {
             <div className="row py-4 px-lg-5 px-4">
                 <div className="col">
                     <img 
-                        src={BlusSofaPic} 
+                        src={BlusSofaPic}
+                        className="rounded-4"
                         alt="fotografía sofá azul" 
-                        style={{minWidth: '23rem', height:'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{minWidth: '20rem', height:'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 d-flex flex-column ps-lg-5">

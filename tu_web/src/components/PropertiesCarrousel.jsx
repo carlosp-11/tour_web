@@ -47,6 +47,7 @@ export const PropertiesCarrousel  = () => {
           setDisplayedCards(newDisplayedCards);
         }
       }, [cards, startIndex, visibleCardsCount]);
+      
       const handleNext = () => {
         if (cards.length > 0) {
           setStartIndex((prevIndex) => (prevIndex + 1) % cards.length);

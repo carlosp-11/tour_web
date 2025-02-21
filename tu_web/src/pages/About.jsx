@@ -6,6 +6,7 @@ import CoupleWalking from '../assets/pictures/couple-walking.png'
 import { ButtonImage } from "../components/ButtonImage";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { WhatsAppButton } from "../components/WhatsAppButton";
 
 export const About = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -28,6 +29,9 @@ export const About = () => {
 
     return(
         <div>
+            <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 0, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
+                <WhatsAppButton/>
+            </div>
             <HeaderComponent image={AboutHeader} tag='Nosotros'/>
             <div className="row mx-0 px-lg-5 px-4 py-5">
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5 order-last order-lg-first order-xl-first">

@@ -6,7 +6,6 @@ import { SpinnerComponent } from "../components/SpinnerComponent.jsx";
 import { PaginationComponent } from "../components/PaginationComponent.jsx";
 import PurchasingHeader from '../assets/headers/purchasing-header.png';
 
-
 export const Purchasing = () => {
     const { store, actions } = useContext(GlobalContext);
     const [isSmallScreen, setIsSmallScreen] = useState(false);

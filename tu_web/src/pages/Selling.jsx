@@ -5,7 +5,7 @@ import GivingKeys from '../assets/pictures/giving-keys.png'
 import AttendingPhone from '../assets/pictures/attending-phone.png'
 import { ButtonImage } from "../components/ButtonImage";
 import { useNavigate } from "react-router-dom";
-
+import { WhatsAppButton } from "../components/WhatsAppButton";
 
 export const Selling = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -28,6 +28,9 @@ export const Selling = () => {
     return (
         <div>
             <HeaderComponent image={SellingHeader} tag='Vender'/>
+            <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 0, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
+                <WhatsAppButton/>
+            </div>
             <div className="d-flex flex-column align-items-center text-center px-4 pt-5 pt-lg-0 pt-xl-0">
                 <h1 className="raleway-bold py-2 col-12 col-lg-6 col-xl-6"> Vende tu Propiedad en Tenerife con Turismo URBANO </h1>
                 <p className=" col-12 col-lg-6 col-xl-6 text-center"> Confia en nuestra experiencia para gestionar la venta de tu propiead de 

@@ -8,6 +8,7 @@ import ColonialTown from '../assets/pictures/colonial-town.png';
 import { ButtonImage } from "../components/ButtonImage";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { WhatsAppButton } from "../components/WhatsAppButton";
 
 export const Services = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -28,8 +29,11 @@ export const Services = () => {
         };
     }, []);
     return(
-        <div>
+        <div className="">
             <HeaderComponent image={ServiceHeader} tag='Servicios'/>
+            <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 0, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
+                <WhatsAppButton/>
+            </div>
             <div className="row mx-0 px-lg-5 px-4 py-5" id="asesoriaJumbotron">
                 <div className="col text-center">
                     <img 

@@ -30,7 +30,7 @@ export const Services = () => {
     return(
         <div>
             <HeaderComponent image={ServiceHeader} tag='Servicios'/>
-            <div className="row mx-0 px-lg-5 px-4 py-5">
+            <div className="row mx-0 px-lg-5 px-4 py-5" id="asesoriaJumbotron">
                 <div className="col text-center">
                     <img 
                         src={WorkingLaptop} 
@@ -52,7 +52,7 @@ export const Services = () => {
                     <ButtonImage text={isLargeScreen? 'Consulta rápida': 'Consulta'} icon="ws"/>
                 </div>
             </div>
-            <div className="row mx-0 px-lg-5 px-4 py-5">
+            <div className="row mx-0 px-lg-5 px-4 py-5" id="gestionJumbotron">
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5 order-last order-lg-first order-xl-first">
                     <h6 className="tu-font nunito-light pt-5 pt-lg-0"> Gestión </h6>
                     <h1 className="raleway-bold py-2"> Gestión que Simplifica Tu Vida </h1>
@@ -74,7 +74,7 @@ export const Services = () => {
                     />
                 </div>
             </div>
-            <div className="row mx-0 px-lg-5 px-4 py-5">
+            <div className="row mx-0 px-lg-5 px-4 py-5" id="segurosJumbotron">
                 <div className="col text-center">
                     <img 
                         src={HouseKeys} 

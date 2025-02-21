@@ -23,13 +23,13 @@ export const DetailsCard =(props)=> (
                         />
                         <WhatsappShareButton 
                             url={`${import.meta.env.VITE_BASENAME_URL}/propiedades/${props.property.id}`}
-                            title="Encontré esta propiedad en Turismo Urbano que te puede interesar:"
+                            title="Encontré esta propiedad en Turismo URBANO que te puede interesar:"
                             children={<WhatsappIcon size={30} round={true} />} 
                         />
                         <EmailShareButton 
                             url={`${import.meta.env.VITE_BASENAME_URL}/propiedades/${props.property.id}`}
-                            body="Encontré esta propiedad en Turismo Urbano que te puede interesar:" 
-                            subject="Encontré esta propiedad en Turismo Urbano que te puede interesar:"
+                            body="Encontré esta propiedad en Turismo URBANO que te puede interesar:" 
+                            subject="Encontré esta propiedad en Turismo URBANO que te puede interesar:"
                             children={<EmailIcon size={30} round={true} />} 
                         />
                     </li>
@@ -41,7 +41,7 @@ export const DetailsCard =(props)=> (
             <p className="tu-secondary raleway fs-5 mb-2 text-uppercase pb-3">{props.property.town.name}</p>
             <p className="fs-1 raleway-bold"> 
                 € {props.property.price}  
-                <span className="fs-6 fw-normal ps-2"> {props.property.transaction ==='compra'? '(Venta)': 'Alquiler'} </span>
+                <span className="fs-6 fw-normal ps-2"> {props.property.transaction ==='compra'? '(Venta)': '(Alquiler)'} </span>
             </p>
             <div className="row pt-4">
                 <div className="col">

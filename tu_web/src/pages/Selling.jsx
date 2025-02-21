@@ -29,7 +29,7 @@ export const Selling = () => {
         <div>
             <HeaderComponent image={SellingHeader} tag='Vender'/>
             <div className="d-flex flex-column align-items-center text-center px-5">
-                <h1 className="raleway-bold py-2 col-12 col-lg-6 col-xl-6"> Vende tu Propiedad en Tenerife con Turismo Urbano </h1>
+                <h1 className="raleway-bold py-2 col-12 col-lg-6 col-xl-6"> Vende tu Propiedad en Tenerife con Turismo URBANO </h1>
                 <p className=" col-12 col-lg-6 col-xl-6 text-center"> Confia en nuestra experiencia para gestionar la venta de tu propiead de 
                     forma ágil y profesional. desde la valoración inicia hasta la firma final, estamos 
                     contigo en cada paso para maximizar el valor de tu inmueble 
@@ -91,7 +91,7 @@ export const Selling = () => {
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">
                     <h6 className="tu-font nunito-light pt-5 pt-lg-0"> ¿Por qué elegirnos para vender tu inmueble? </h6>
-                    <h1 className="raleway-bold py-2"> Beneficios de vender con Turismo Urbano </h1>
+                    <h1 className="raleway-bold py-2"> Beneficios de vender con Turismo URBANO </h1>
                     <p className="nunito"> Descubre las ventajas de confiar en una agencia local que entiende las necesidades de los propietarios en Tenerife.
                     </p>
                     <ul className="pb-5" style={{listStyle:"none"}}>

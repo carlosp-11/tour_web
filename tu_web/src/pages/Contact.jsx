@@ -34,7 +34,7 @@ export const Contact = () => {
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 d-flex flex-column ps-lg-5">
-                    <h6 className="tu-font nunito-light pt-5 pt-lg-0">En Turismo Urbano</h6>
+                    <h6 className="tu-font nunito-light pt-5 pt-lg-0">En Turismo URBANO</h6>
                     <h1 className="raleway-bold"> Estamos para ayudarte </h1>
                     <p className="nunito fw-light"> Escríbenos y cuéntanos cómo podemos ayudarte. Nuestro equipo te responderá a la brevedad.</p>
                     <ContactForm changeColor={true}/>

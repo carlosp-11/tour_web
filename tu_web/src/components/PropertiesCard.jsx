@@ -6,32 +6,22 @@ import BathtubIcon from '../assets/icons/bathtub.png';
 import BedIcon from '../assets/icons/bed.png';
 import RuleIcon from '../assets/icons/rule.png';
 import WifiIcon from '../assets/icons/wifi.png';
-import ExamplePic1 from '../assets/pictures/example-card-1.png';
-import ExamplePic2 from '../assets/pictures/example-card-2.png';
-import ExamplePic3 from '../assets/pictures/example-card-3.png';
+import Placeholder from "../assets/svg/PropertyPlaceholder.svg";
+
 
 export const PropertiesCard =(props)=> {
-    const [currentPicture, setCurrentNumber] = useState(ExamplePic1);
-    const [thisProps, setThisProps] = useState([]);
     const navigate = useNavigate();
 
     const goingTo =() => {
-        console.log('enviaremos estos props', props, thisProps);
-        navigate(`/propiedades/${props.data.id}`);
+        console.log('enviaremos estos props', props,);
+        navigate(`/propiedades/${props.data.id? props.data.id: props.data}`);
     };
-
-     useEffect(()=>{
-        setThisProps(props);
-        if(props.number === 1) setCurrentNumber(ExamplePic1)
-        if(props.number === 2) setCurrentNumber(ExamplePic2)
-        if(props.number === 3) setCurrentNumber(ExamplePic3)
-     },[props])
 
     return(
         <div className="border rounded-4 shadow raleway my-2 w-100" /*style={{width: '23rem'}}*/>
             <div className='image-container position-relative pb-5'>
                 <img 
-                    src={props.image || currentPicture} 
+                    src={props.image || Placeholder} 
                     className="card-img-top bg-dark-subtle rounded-4 zoomable-image" 
                     alt="..." 
                     style={{height: '15rem', width:'23rem', objectFit:'cover'}}

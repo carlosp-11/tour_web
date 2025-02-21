@@ -33,7 +33,7 @@ export const About = () => {
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5 order-last order-lg-first order-xl-first">
                     <h6 className="tu-font nunito-light pt-5"> Quiénes somos</h6>
                     <h1 className="raleway-bold py-2">Crea Tu Hogar en Tenerife</h1>
-                    <p className="nunito "> En Turismo Urbano S.L. ofrecemos una experiencia única de alquiler de inmuebles 
+                    <p className="nunito "> En Turismo URBANO S.L. ofrecemos una experiencia única de alquiler de inmuebles 
                         en la paradisiaca isla de Tenerife. Nuestra misión es conectar a turistas europeos, parejas que buscan un 
                         nuevo comienzo, y nómadas digitales con propiedades completamente amuebladas y equipadas para estadías 
                         temporales de 3 a 6 meses. Ya sea para disfrutar del invierno lejos del frío o para construir un futuro
@@ -60,7 +60,7 @@ export const About = () => {
                     <h6 className="tu-font nunito-light pt-5"> Nuestra Visión</h6>
                     <h1 className="raleway-bold py-2"> Espacios que Inspiran Nuevos Comienzos</h1>
                     <p className="nunito pb-5"> Creemos que cada inmueble es más que un espacio: es un punto de
-                        partida para nuevas historias. En Turismo Urbano, trabajamos bajo principios de 
+                        partida para nuevas historias. En Turismo URBANO, trabajamos bajo principios de 
                         trasparencia, comodidad y confianza, asegurando una experiencia sin complicaciones
                         tanto para los propietarios como para los inquilinos. Nuestra cisión es liderar el 
                         mercado de alquileres temporales en Tenerife, ofreciendo soluciones personalizadas
@@ -73,7 +73,7 @@ export const About = () => {
             <div className="col-12 col-lg-5 col-xl-5 px-lg-5 order-last order-lg-first order-xl-first">
                     <h6 className="tu-font nunito-light pt-5"> ¿Por Qué elegirnos?</h6>
                     <h1 className="raleway-bold py-2">Confianza, Comodidad y Compromiso </h1>
-                    <p className="nunito pb-5"> Elegir Turismo Urbano significa optar por una gestión profesional y 
+                    <p className="nunito pb-5"> Elegir Turismo URBANO significa optar por una gestión profesional y 
                         eficiente, respaldada por contratos claros y renovables. Nuestro compromiso es con la calidad:
                         respetando el marco legal vigente y garantizamos una experienca confiable para propitarios e 
                         inquilinos. Con inmuebles ubicados estratégicamente en Valle San Lorenzo y Las Galletas, te 

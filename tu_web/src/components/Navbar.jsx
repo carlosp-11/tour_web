@@ -14,6 +14,25 @@ export const Navbar =({ bottomRef })=> {
     const toggleDropdown = (dropdownName) => {
         setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
     };
+
+    const handleScrollOrNavigate = (sectionId) => {
+        if (window.location.pathname === "/servicios") {
+            // Si ya está en la página, hacer scroll suave
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+            }
+        } else {
+            // Si no está en la página, navegar primero y luego hacer scroll
+            navigate("/servicios");
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 500); // Retraso para asegurar que la página cargue primero
+        }
+    };
     
     
     useEffect(() => {
@@ -99,17 +118,21 @@ export const Navbar =({ bottomRef })=> {
                             </a>
                             <ul className="dropdown-menu">
                                 <li>
-                                    <a role='button' onClick={()=>navigate('/servicios')}>
+                                    <a role='button' onClick={() => handleScrollOrNavigate("asesoriaJumbotron")}>
                                         <DropdownLink text="Asesoría" linkFunction={toggleDropdown}/>
                                     </a>
                                 </li>
                                 <li><hr className="dropdown-divider"/></li>
                                 <li>
-                                    <DropdownLink text="Gestión" linkFunction={toggleDropdown}/>
+                                    <a role='button' onClick={() => handleScrollOrNavigate("gestionJumbotron")}>
+                                        <DropdownLink text="Gestión" linkFunction={toggleDropdown}/>
+                                    </a>
                                 </li>
                                 <li><hr className="dropdown-divider"/></li>
                                 <li>
-                                    <DropdownLink text="Seguros" linkFunction={toggleDropdown}/>
+                                    <a role='button' onClick={() => handleScrollOrNavigate("segurosJumbotron")}>
+                                        <DropdownLink text="Seguros" linkFunction={toggleDropdown}/>
+                                    </a>
                                 </li>
                             </ul>
                         </li>

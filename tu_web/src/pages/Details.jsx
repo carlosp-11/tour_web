@@ -1,12 +1,12 @@
 import { HeaderComponent } from "../components/HeaderComponent";
 import { SpinnerComponent } from "../components/SpinnerComponent";
-import { ButtonImage } from "../components/ButtonImage";
 import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../store/GlobalContext";
 import ReactPlayer from 'react-player'
 import { DetailsCard } from "../components/DetailsCard";
+//import Placeholder from "../assets/logos/tu-logo.png";
+import Placeholder from "../assets/svg/PropertyPlaceholder.svg";
 
 
 export const Details =()=> {
@@ -14,8 +14,6 @@ export const Details =()=> {
     const { id } = useParams();
     const [property, setProperty] = useState({});
     const [isLoaded, setIsLoaded] = useState(false);
-
-    const navigate = useNavigate();
     
     useEffect(()=> {
         actions.getPropertyDetails(id);
@@ -34,7 +32,7 @@ export const Details =()=> {
             {isLoaded? (
                 <div>
                     <div className="">
-                        <HeaderComponent tag={property.transaction} isDetail={true} image={property.media[0].url|| ''} />
+                        <HeaderComponent tag={property.transaction} isDetail={true} image={property.media[0]?.url|| Placeholder} />
                     </div>
                     <div className="position-relative d-flex mb-5">
                         <div className="col col-lg-6 col-xl-6 mx-auto">
@@ -47,7 +45,9 @@ export const Details =()=> {
                                 <ReactPlayer url='https://youtu.be/rjUy0huDLso?si=WBOfa1THhSYZmUjX' light={true} width={'100%'}  height={'100%'}/>
                             </div>
                             <p className="col-12 raleway-bold fs-3 px-4 px-lg-0 px-xl-0 pt-5">Características destacadas</p>
-                            <DetailsCard property={property} />
+                            <div className="d-lg-none px-4">
+                                <DetailsCard property={property} />
+                            </div>
                         </div>
                         <div className="sticky-top top-0 mx-auto d-none d-lg-block" style={{width: '40%', height: '20%' }}>
                             <DetailsCard property={property} />

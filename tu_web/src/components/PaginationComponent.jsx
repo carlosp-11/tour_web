@@ -7,7 +7,7 @@ export const PaginationComponent = (props) => {
         <div>
             <div className="row col-12 justify-content-center mx-0">
                  {props.properties.map((item, index) => (
-                    <div className="col-auto px-5" style={{maxWidth: 394}} key={index}>
+                    <div className="col-auto px-5 px-md-2 px-lg-2 px-xl-2" style={{maxWidth: 385}} key={index}>
                         <PropertiesCard 
                             key={index}
                             number={index}

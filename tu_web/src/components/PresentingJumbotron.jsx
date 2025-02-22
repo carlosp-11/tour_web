@@ -34,27 +34,27 @@ export const PresentingJumbotron =() => {
         }, []);
 
     return (
-        <div className="row container-fluid px-lg-5 px-4 mx-0 py-5">
+        <div className="row container-fluid px-lg-5 px-xl-5 px-md-5 px-4 mx-0 py-5">
             <div className="col-12 text-center">
-                <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 0, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
+                <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 10, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
                     <WhatsAppButton/>
                 </div>
                 <h2 className="raleway-bold fs-1">Encuentra Tu Espacio Perfecto</h2>
                 <h6 className="tu-font nunito-light"> Descubre el apartamento ideal que se adapta a cada una de tus necesidades.</h6>
             </div>
             <span className={`col d-flex justify-content-evenly mt-3 px-0 mx-0 ${!isLargeScreen? 'row': ''}`}>
-                <a className="col d-flex justify-content-center py-4" onClick={()=>navigate('/comprar')}>
+                <a className="col-auto d-flex justify-content-center py-4" onClick={()=>navigate('/comprar')}>
                     <PresentingCard image={PurchasePic} text='Comprar'/>
                 </a>
-                <a className="col d-flex justify-content-center py-4" onClick={()=>navigate('/alquilar')}>
+                <a className="col-auto d-flex justify-content-center py-4" onClick={()=>navigate('/alquilar')}>
                     <PresentingCard image={ShortStayPic} text='Alquiler Corta temporada' secondText="Corta Temporada"/>
                 </a>
             </span>
             <span className={`col d-flex justify-content-evenly mt-3 px-0 mx-0 ${!isLargeScreen? 'row': ''}`}>
-                <a className="col d-flex justify-content-center py-4" onClick={()=>navigate('/alquilar')}>
+                <a className="col-auto d-flex justify-content-center py-4" onClick={()=>navigate('/alquilar')}>
                     <PresentingCard image={LongStayPic} text='Alquiler Larga Temporada' secondText="Larga Temporada"/>
                 </a>
-                <a className="col d-flex justify-content-center py-4" onClick={()=>handleNavigation('/vender')}>
+                <a className="col-auto d-flex justify-content-center py-4" onClick={()=>handleNavigation('/vender')}>
                     <PresentingCard image={SellingPic} text='Vender'/>
                 </a>
             </span>

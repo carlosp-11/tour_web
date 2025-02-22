@@ -28,7 +28,7 @@ export const Selling = () => {
     return (
         <div>
             <HeaderComponent image={SellingHeader} tag='Vender'/>
-            <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 0, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
+            <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 10, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
                 <WhatsAppButton/>
             </div>
             <div className="d-flex flex-column align-items-center text-center px-4 pt-5 pt-lg-0 pt-xl-0">
@@ -81,7 +81,7 @@ export const Selling = () => {
                         src={GivingKeys}
                         className="rounded-4"
                         alt="trabajando en la laptop" 
-                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>
@@ -91,7 +91,7 @@ export const Selling = () => {
                         src={AttendingPhone}
                         className="rounded-4"
                         alt="trabajando en la laptop" 
-                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">

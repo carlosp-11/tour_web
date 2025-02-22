@@ -8,21 +8,21 @@ export const ReviewCarrousel = () => {
     const cards =[
         {
             number: 1,
-            name:"José", 
+            name:"Alejandro", 
             date: "AGOSTO 2024",
-            text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat lacus a purus rhoncus pellentesque eu nec mauris. Maecenas at lacus nunc. Quisque pellentesque metus dui, in blandit nisl pulvinar quis. "
+            text:"La atención fue excelente, siempre amable y efectiva. Es una profesional seria y comprometida, algo difícil de encontrar hoy en día. Ella realmente se interesa por ayudarte en todo lo posible. La recomiendo totalmente. "
         },
         {
             number: 2,
-            name:"María", 
+            name:"Ana", 
             date: "DICIEMBRE 2024",
-            text:"Integer condimentum vestibulum odio at mattis. Donec pharetra sem in porttitor mattis. Nam pellentesque nunc in dignissim tempor. Nullam pharetra posuere varius. Proin vitae magna eu erat facilisis interdum. ", 
+            text:"Yolanda escucha lo que necesitas para encontrar la vivienda ideal para ti. Si buscas un servicio confiable y eficiente, sin duda es la mejor opción. Recomendado 100%.", 
         },
         {
             number: 3,
-            name:"Jesús", 
+            name:"Francisco", 
             date: "JUNIO 2024",
-            text:"Cras facilisis libero sem, id bibendum mauris dictum quis. Nunc ac malesuada est. Morbi mollis ipsum vel eros hendrerit, quis fermentum orci porta. In elementum risus quis justo luctus, quis lobortis est vestibulum. ", 
+            text:"Ofrece opciones de casas y apartamentos muy bien seleccionadas. Además, la cordialidad y el compromiso que demuestra generan confianza. Sin duda, una inmobiliaria con la que vale la pena trabajar.", 
         },
     ];
 
@@ -70,7 +70,7 @@ export const ReviewCarrousel = () => {
     }, []);
   
     return (
-        <div className="d-flex row justify-content-center align-items-center w-100 mx-0 px-0 container-fluid">
+        <div className="d-flex row justify-content-center align-items-center w-100 mx-0 px-0">
             <div className="d-flex justify-content-center align-items-center">            
                 <div className="pe-4" style={{display: isSmallScreen? 'none': ''}}>
                     <button className="btn btn-outline-secondary rounded-circle border-0 p-0" 
@@ -86,6 +86,7 @@ export const ReviewCarrousel = () => {
                         name={cards[currentIndex].name}
                         date={cards[currentIndex].date}
                         text={cards[currentIndex].text}
+                        number={cards[currentIndex].number}
                     />
                 </div>
                 <div className="ps-4" style={{display: isSmallScreen? 'none': ''}}>
@@ -112,7 +113,6 @@ export const ReviewCarrousel = () => {
                         <img className="" src={SwitchRight} alt="flecha derecha" style={{height: "3rem"}}/>
                     </button>
                 </div>
-
             </div>
       </div>
     );

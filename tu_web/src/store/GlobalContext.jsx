@@ -260,7 +260,11 @@ export const GlobalProvider = ({ children }) => {
             });
             console.log('aplicamos', store.filterForSaleProperties);
         },
+        useInitialSearch: () =>{
+            actions.useFilters({...store.propertiesList, type:'filter'});
+        }
     };
+
 
     useEffect(() => {
         const token = actions.getToken();

@@ -19,8 +19,8 @@ export const ReviewJumbotron = () =>{
     }, []);
 
     return(
-        <div className="px-5 mx-0 py-5 container-fluid d-flex justify-content-center align-items-center row">
-            <h1 className="col-12 mt-lg-5 raleway-bold" style={!isLargeScreen? {paddingBottom: "1.5rem"}: {}}> Calidad Ejemplar</h1>
+        <div className="px-lg-5 px-xl-5 px-0 mx-0 py-5 container-fluid d-flex justify-content-center align-items-center row">
+            <h1 className="col-12 mt-lg-5 raleway-bold px-4 px-md-5 px-lg-5 px-xl-5" style={!isLargeScreen? {paddingBottom: "1.5rem"}: {}}> Calidad Ejemplar</h1>
             <h5 className="col-12 pt-2 pb-5 tu-font nunito-light" style={!isLargeScreen? {display:"none"}: {}} >¿Qué opinan nuestros clientes?</h5>
             <div className="col-12">
                 <ReviewCarrousel />

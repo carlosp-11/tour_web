@@ -27,8 +27,8 @@ export const SimpleSearchbar = () => {
         event.preventDefault();
         console.log("Valores del formulario:", formValues);
         // Aquí puedes enviar los datos a tu backend o contexto global
-        // actions.setFilters(formValues);
-        // actions.useFilters();
+        actions.setFilters(formValues);
+        actions.useFilters({type:'filter', set: formValues.transactionType });
         console.log('filter values', store.filterOptions, );
         console.log('resultados: ', store.filteredProperties);
     };
@@ -55,68 +55,86 @@ export const SimpleSearchbar = () => {
     }, [store.availableTowns]);
     
     return (
-        // <div className={`bg-white py-3 d-flex justify-content-center rounded-3 nunito container-fluid simplesearchbar ${isLargeScreen? 'px-3':'px-1 gx-0'}`}>
-            <form onSubmit={handleSubmit} className="row w-100 gx-0 px-2 py-3 mx-0 d-flex justify-content-around bg-white rounded-3 nunito container-fluid ">
-                <div className="col-3 col-lg-3 p-0 m-0 gy-0 gx-1 row">
-                    <label htmlFor="checkbox" className="form-label tu-font" style={{ fontSize: 13,}}>Transacción</label>
+        <form onSubmit={handleSubmit} className="row d-flex px-2 justify-content-center w-100 py-3 mx-auto bg-white rounded-3 nunito">
+            <div className="col-12 col-lg col-xl col-md-auto ps-4 pb-3 pb-md-0 pb-lg-0 pb-xl-0">
+                <label htmlFor="checkbox" className="form-label tu-font" style={{ fontSize: 13,}}>Transacción</label>
+                <div className="row">
                     <div id="checkbox" className="form-check col">
-                        <input className="form-check-input" type="radio" name="transactionType" id="isPurchase" value='comprar' checked={formValues.transactionType === "comprar"} onChange={handleChange}/>
+                        <input 
+                            checked={formValues.transactionType === "comprar"} 
+                            className="form-check-input" 
+                            id="isPurchase" 
+                            name="transactionType" 
+                            onChange={handleChange}
+                            type="radio" 
+                            value='comprar' 
+                        />
                         <label className="form-check-label fw-light" htmlFor="isPurchase">
                             Comprar
                         </label>
                     </div>
                     <div className="form-check col">
-                        <input className="form-check-input" type="radio" name="transactionType" id="isRental" value='alquiler' checked={formValues.transactionType === "alquiler"} onChange={handleChange}/>
+                        <input 
+                            checked={formValues.transactionType === "alquiler"} 
+                            className="form-check-input" 
+                            id="isRental" 
+                            name="transactionType" 
+                            onChange={handleChange}
+                            type="radio" 
+                            value='alquiler' 
+                        />
                         <label className="form-check-label fw-light" htmlFor="isRental">
                             Alquilar
                         </label>
                     </div>
                 </div>
-                <div className={`col-3 col-lg-2 ${isLargeScreen? '': 'row px-0 mx-0 gx-0'}`}>
-                    <label htmlFor="propertyType" className="form-label tu-font" style={{ fontSize: 13,}}>Tipo de Propiedad</label>
-                    <select 
-                        id="propertyType"
-                        name="propertyType"
-                        className="form-select bg-secondary-subtle text-secondary fw-light" 
-                        aria-label="Default select example" 
-                        style={ !isLargeScreen? {height: 40,  alignSelf:'flex-end', paddingLeft: 5}: {}}
-                        onChange={handleChange}
-                        value={formValues.propertyType}
-                    >
-                        <option selected value=""> { isLargeScreen ? 'Mostrar todos': 'Todos'}</option>
-                        <option value="apartamento">Apartamento</option>
-                        <option value="casa">Casa</option>
-                        <option value="local">Locales</option>
-                    </select>
-                </div>
-                <div className={`col-3 col-md-4 ${isLargeScreen? 'col-lg-2':'row px-0 mx-0 gx-0 col-lg-3'}`}>
-                    <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 13}}>Ubicación</label>
-                    <select 
-                        id="location"
-                        name="location"
-                        className="form-select bg-secondary-subtle text-secondary fw-light" 
-                        aria-label="Default select example" 
-                        onChange={handleChange}
-                        value={formValues.location}
-                        style={ !isLargeScreen? {height: 40, alignSelf:'flex-end', paddingLeft: 5}: {}}
-                    >
-                        <option value="" selected>{isLargeScreen ? 'Mostrar todos' : 'Todos'}</option>
-                        {isLoading ? 
-                            <div className="d-flex justify-content-center align-items-center">
-                                <div className="spinner-border text-secondary" role="status">
-                                    <span className="visually-hidden">Cargando...</span>
-                                </div>
+            </div>
+            <div className="col col-md-3 col-lg-2 col-xl-2">
+                <label htmlFor="propertyType" className="form-label tu-font" style={{ fontSize: 13,}}>Tipo de Propiedad</label>
+                <select 
+                    id="propertyType"
+                    name="propertyType"
+                    className="form-select bg-secondary-subtle text-secondary fw-light" 
+                    aria-label="Default select example" 
+                    style={ !isLargeScreen? {height: 40,  alignSelf:'flex-end', paddingLeft: 5}: {}}
+                    onChange={handleChange}
+                    value={formValues.propertyType}
+                >
+                    <option selected value=""> { isLargeScreen ? 'Mostrar todos': 'Todos'}</option>
+                    <option value="piso">Piso</option>
+                    <option value="casa">Casa</option>
+                    <option value="local">Local</option>
+                </select>
+            </div>
+            <div className="col">
+                <label htmlFor="location" className="form-label tu-font" style={{ fontSize: 13}}>Ubicación</label>
+                <select 
+                    id="location"
+                    name="location"
+                    className="form-select bg-secondary-subtle text-secondary fw-light" 
+                    aria-label="Default select example" 
+                    onChange={handleChange}
+                    value={formValues.location}
+                    style={ !isLargeScreen? {height: 40, alignSelf:'flex-end', paddingLeft: 5}: {}}
+                >
+                    <option value="" selected>{isLargeScreen ? 'Mostrar todos' : 'Todos'}</option>
+                    {isLoading ? 
+                        <div className="d-flex justify-content-center align-items-center">
+                            <div className="spinner-border text-secondary" role="status">
+                                <span className="visually-hidden">Cargando...</span>
                             </div>
-                            : 
-                            store.availableTowns.map((item, index) => (
-                                <option key={index} value={item}>{item}</option>
-                            ))
-                        }
-                    </select>
-                </div>
-                <div className={`col-3 row ${!isLargeScreen? 'd-none':''}`}>
-                    <span className="col align-self-end" >
-                        <label htmlFor="prices" className="form-label tu-font" style={{ fontSize: 13}}>Precio</label>
+                        </div>
+                        : 
+                        store.availableTowns.map((item, index) => (
+                            <option key={index} value={item}>{item}</option>
+                        ))
+                    }
+                </select>
+            </div>
+            <div className="col-auto d-none d-lg-block">
+                <label htmlFor="prices" className="form-label tu-font" style={{ fontSize: 13}}>Precio</label>
+                <div className="row" id="prices">
+                    <div className="col-auto" >
                         <select 
                             id="priceStart"
                             name="priceStart"
@@ -135,8 +153,8 @@ export const SimpleSearchbar = () => {
                                 ))
                             }
                         </select>
-                    </span>
-                    <span className="col align-self-end">
+                    </div>
+                    <div className="col-auto">
                         <select 
                             id="priceEnd" 
                             name="priceEnd"
@@ -155,17 +173,13 @@ export const SimpleSearchbar = () => {
                                 ))
                             }
                         </select>
-                    </span>
+                    </div>
                 </div>
-                <div className={`col-2 col-md-1 col-lg-auto gx-0 d-flex ${isLargeScreen? 'mt-3 justify-content-center': 'justify-content-end'}`}>
-                    {!isLargeScreen && (
-                        <button type="submit" className="btn-secondary rounded my-2 w-100 " children={<img src={Scope} className=""/>} />
-                    )}
-                    {isLargeScreen && (
-                        <ButtonImage id='searchButton' text={'Buscar'} icon="scope" someFunction={handleSubmit} />
-                    )}
-                </div>
-            </form>
-        // </div>
+            </div>
+            <div className=" col-12 col-lg-auto col-md-2 col-xl-auto  align-self-center px-1 pt-4 pt-md-0 pt-lg-0 pt-xl-0">   
+                <button type="submit" className="btn-secondary rounded w-100" children={<p className="text-center align-self-center fw-light fs-5 px-2 py-0 py-md-2 py-lg-1 py-xl-1 mb-0"> {isLargeScreen? 'Buscar': ''} <img src={Scope} className="align-self-center"/> </p>} />
+                        {/* <ButtonImage id='searchButton' text={'Buscar'} icon="scope" someFunction={handleSubmit} /> */}
+            </div>
+        </form>
     );
 }

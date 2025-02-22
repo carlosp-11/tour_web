@@ -47,7 +47,7 @@ export const Footer = () => {
     };
 
     return(
-        <footer className="pt-5 pb-4 px-5 bg-secondary w-100 mt-auto">
+        <footer className="pt-5 pb-4 px-4 px-lg-5 px-xl-5 bg-secondary w-100 mt-auto">
             <div className="row">
                 <div className="col-12 col-lg-3 mb-3 order-1 d-flex justify-content-center pb-3">
                     <img src={Logo} alt='logo turismo urbano' style={{height:'11rem'}} className=""/>
@@ -96,7 +96,7 @@ export const Footer = () => {
                         <a href="#" className='px-2 link-underline link-underline-opacity-0'><img src={LinkedInIconSVG} /> </a>
                     </span>
                 </div>
-                <div className="col-12 col-lg-1 mb-3 d-flex justify-content-center ms-auto order-md-4 order-lg-3 order-4" 
+                <div className="col-12 col-lg-1 mb-3 d-flex justify-content-center ms-auto pe-0 pe-lg-5 pe-xl-5 order-md-4 order-lg-3 order-4" 
                     style={{marginTop: isLargeScreen ? -20 : "initial",}}
                 >
                     <div> 
@@ -108,13 +108,12 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-        
-
-            <div className="row pt-3 mt-5 border-top mx-4">
-                <div className='col-12 col-lg-4 text-center text-lg-start'> 
-                    <p className='nunito-compact small fw-light'> Copyright  &copy; {getCurrentYear()} <span className='fw-bold'> Turismo URBANO </span></p>
+            <div className="row pt-3 mt-5 border-top">
+                <div className='col-12 col-lg row mx-0'> 
+                    <p className='nunito-compact small fw-light text-start col'> Copyright  &copy; {getCurrentYear()} <br className='d-md-none' /> <span className='fw-bold'> Turismo URBANO </span></p>
+                    <a href='#' className='nunito-compact small fw-light text-end col link-light link-underline link-underline-opacity-0 pe-lg-4'> Desarrollado por <br className='d-md-none' />  <span className='fw-bold'> 701 STUDIO </span></a>
                 </div>
-                <div className='col-12 col-lg-8 ms-auto d-flex justify-content-center justify-content-lg-end'> 
+                <div className='col-12 col-lg-auto d-flex justify-content-center justify-content-lg-end'> 
                     <ul className="list-unstyled d-flex">
                         <li className="px-2 border-end"><a className='link-light link-underline-light nunito-compact small fw-light' onClick={()=>navigate('aviso-legal')} role='button'>Aviso Legal</a></li>
                         <li className="px-2 border-end"><a className='link-light link-underline-light nunito-compact small fw-light' onClick={()=>navigate('politica-cookies')} role='button'>Política de Cookies</a></li>
@@ -122,6 +121,7 @@ export const Footer = () => {
                     </ul>
                 </div>
             </div>
+            <div className='py-5 d-lg-none'></div>
         </footer>
     );
 }

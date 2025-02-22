@@ -31,7 +31,7 @@ export const Services = () => {
     return(
         <div className="">
             <HeaderComponent image={ServiceHeader} tag='Servicios'/>
-            <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 0, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
+            <div className="position-absolute p-0 m-0 g-0" style={{top: '63%', right: 10, width: 90, zIndex: 9, display: !isLargeScreen? 'none': ''}}>
                 <WhatsAppButton/>
             </div>
             <div className="row mx-0 px-lg-5 px-4 py-5" id="asesoriaJumbotron">
@@ -40,7 +40,7 @@ export const Services = () => {
                         src={WorkingLaptop} 
                         alt="trabajando en la laptop"
                         className="rounded-4"
-                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">
@@ -76,7 +76,7 @@ export const Services = () => {
                         src={UnderConstruction}
                         className="rounded-4" 
                         alt="trabajo en obras" 
-                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>
@@ -86,7 +86,7 @@ export const Services = () => {
                         src={HouseKeys}
                         className="rounded-4"
                         alt="llaves y contrato de vivienda" 
-                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5">
@@ -121,7 +121,7 @@ export const Services = () => {
                         src={ColonialTown} 
                         alt="trabajo en obras"
                         className="rounded-4" 
-                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>
@@ -131,7 +131,7 @@ export const Services = () => {
                         src={HighBuildings} 
                         alt="zona residencial"
                         className="rounded-4" 
-                        style={{minWidth: '20rem', height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
                 <div className="col-12 col-lg-6 col-xl-6 px-lg-5 flex-column d-flex justify-content-center">

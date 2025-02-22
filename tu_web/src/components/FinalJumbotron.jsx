@@ -40,7 +40,7 @@ export const FinalJumbotron = () => {
                 //width: "100%",
             }}
         >
-            <div className='d-flex justify-content-center align-items-center row py-5'>
+            <div className='d-flex justify-content-center align-items-center row py-5 px-0 px-xl-5 px-lg-5'>
                 <div className='col-12 col-md- col-lg-4 d-flex flex-column'>
                     <h5 className='tu-font nunito-light' style={{display: !isLargeScreen? 'none': ''}}>Sobre nosotros</h5>
                     <h1 className='raleway-bold pb-5 pe-3' style={{display: !isLargeScreen? 'none':''}}> Confianza y Atención Personalizada </h1>
@@ -48,7 +48,7 @@ export const FinalJumbotron = () => {
                         <ButtonImage text='Conoce más sobre nosotros' icon='none-blue' someFunction={()=>navigate('/nosotros')} />
                     </div>
                 </div>
-                <div className='col-12 col-md- col-lg-4 d-flex justify-content-center mx-0 px-0'>
+                <div className='col-12 col-lg-4 d-flex justify-content-center mx-0 px-0'>
                     <img 
                         src={NiceSofa} 
                         alt='foto de sofá y mesa de centro'
@@ -56,15 +56,15 @@ export const FinalJumbotron = () => {
                         style={{width: "100%", height: 'auto', maxWidth: '40rem', minHeight:'24rem', objectFit: 'cover', maxHeight: '30rem'}}
                     />
                 </div>
-                <div className='col-12 col-md- col-lg-4 ps-lg-5'>
+                <div className='col-12 col-lg-4 ps-lg-5 mx-0 px-0   px-lg-4 px-xl-4 px-md-4 px-0'>
                     <img 
                         src={TuLogo} 
                         alt='foto de sofá y mesa de centro' 
-                        className='' 
+                        className='rounded-4' 
                         style={{ height: "12rem", width:"auto", objectFit: 'contain', display: !isLargeScreen? 'none':''}}
                     />
                     <h1 className='raleway-bold py-4' style={{display: isLargeScreen? 'none':''}}> Confianza y Atención Personalizada </h1>
-                    <p className='pb-5 pb-md-3 pt-lg-4'> 
+                    <p className='pb-5 pb-md-3 pt-lg-4 pe-lg-4 pe-xl-4'> 
                         En Turismo URBANO nos dedicamos a ofrecer espacios cómodos y bien equipados para 
                         quienes buscan alquilar o comprar inmuebles en Tenerife. Nuestro compromiso es 
                         brindar un servicio personalizado, centrado en la satisfacción de nuestro clientes y 
@@ -74,9 +74,6 @@ export const FinalJumbotron = () => {
                     <div className='btn btn-primary fw-light col-12 col-lg-4 col-xl-4 col-md-4 py-1 d-lg-none'>
                         <ButtonImage text='Conoce más sobre nosotros' icon='none-blue' someFunction={()=>navigate('/nosotros')} />
                     </div>
-                </div>
-                <div className='col'>
-                  
                 </div>
             </div>
             <div className='d-flex justify-content-center align-items-center row py-5 px-0 px-xl-5 px-lg-5'>
@@ -88,7 +85,7 @@ export const FinalJumbotron = () => {
                         style={{width: "100%", height: 'auto', maxWidth: '40rem', minHeight:'24rem', objectFit: 'cover'}}
                     />
                 </div>
-                <div className='col my-lg-5 px-0 px-lg-4 px-xl-4 px-md-4 px-0'>
+                <div className='col my-lg-5 px-lg-4 px-xl-4 px-md-4 px-0'>
                     <h1 className='raleway-bold py-4'> ¿Quieres vender tu propiedad en Tenerife?</h1>
                     <p className='pb-5 pb-md-3 pb-lg-1'>
                         Te acompañamos en el proceso de venta de tu propiedad en Tenerife para que no tengas que preocuparte de nada. 

@@ -23,16 +23,16 @@ export const ServicesJumbotron = () => {
     }, []);
 
     return (
-        <div className="d-flex flex-wrap justify-content-center align-items-center row bg-dark-subtle px-lg-5 px-xl-5 px-md-5 py-5">
+        <div className="d-flex flex-wrap justify-content-center align-items-center row bg-dark-subtle px-lg-5 px-xl-5 px-4 px-md-5 py-5">
             <div className="col-12 col-lg-auto d-flex justify-content-center my-lg-5">
                 <img 
                     src={ServicesPic} 
                     alt="Servicios" 
-                    className="mx-4" 
-                    style={{height: 'auto', width:'100%', minWidth: isLargeScreen? 620 : '', maxWidth: '20rem' , maxHeight: 415}
+                    className="" 
+                    style={{height: 'auto', width:'100%', maxHeight: 415}
                 }/>
             </div>
-            <div className="col-12 col-lg d-flex justify-content-center my-3 my-lg-5 row mx-lg-5 mx-xl-5 px-4 px-lg-0 px-xl-0 px-md-0" style={{minWidth: 450}}>
+            <div className="col-12 col-lg d-flex justify-content-center my-3 my-lg-5 row mx-0 px-0">
                 <div className="col-12">
                     <h2 className="raleway-bold fs-1">Servicios Personalizados para Compradores, Inquilinos y Propietarios</h2>
                     <h5 className="d-none d-lg-block py-2 nunito-light tu-font">

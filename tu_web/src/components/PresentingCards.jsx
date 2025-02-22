@@ -27,7 +27,7 @@ export const PresentingCard = (props) => {
                 width: '23rem',
                 //width: '100%',
                 maxWidth: 320,
-                minWidth: isSmallScreen? 370: '',
+                //minWidth: isSmallScreen? 370: '',
             }}
         >
             <div className="green-overlay"></div>

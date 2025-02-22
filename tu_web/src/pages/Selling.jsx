@@ -76,12 +76,12 @@ export const Selling = () => {
                         <ButtonImage text={isLargeScreen? 'Solicitar Evaluación': 'Evaluación'} icon="none" someFunction={()=>navigate('/contacto')}/>
                     </div>
                 </div>
-                <div className="col text-center mx-0 px-0 gx-0">
+                <div className="col-12 col-lg col-xl text-center mx-0 px-0 gx-0">
                     <img 
                         src={GivingKeys}
                         className="rounded-4"
                         alt="trabajando en la laptop" 
-                        style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
+                        style={{height: '100%', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
                 </div>
             </div>

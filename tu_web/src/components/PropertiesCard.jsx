@@ -24,7 +24,7 @@ export const PropertiesCard =(props)=> {
                     src={props.image || Placeholder} 
                     className="card-img-top bg-dark-subtle rounded-4 zoomable-image" 
                     alt="..." 
-                    style={{height: '15rem', width:'23rem', objectFit:'cover'}}
+                    style={{height: '15rem', width:'100%', objectFit:'cover'}}
                 />
                 <div style={{position:'absolute', top: 10 }}> 
                     <p className='badge btn-primary ms-4 rounded-4 raleway fw-light px-3 py-2 text-capitalize'>{props.type || 'Indefinido'}</p>

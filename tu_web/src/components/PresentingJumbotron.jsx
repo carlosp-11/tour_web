@@ -40,7 +40,7 @@ export const PresentingJumbotron =() => {
                     <WhatsAppButton/>
                 </div>
                 <h2 className="raleway-bold fs-1">Encuentra Tu Espacio Perfecto</h2>
-                <h6 className="tu-font nunito-light"> Descubre el apartamento ideal que se adapta a cada una de tus necesidades.</h6>
+                <h6 className="tu-font nunito-light"> Descubre el lugar ideal que se adapta a cada una de tus necesidades.</h6>
             </div>
             <span className={`col d-flex justify-content-evenly mt-3 px-0 mx-0 ${!isLargeScreen? 'row': ''}`}>
                 <a className="col-auto d-flex justify-content-center py-4" onClick={()=>navigate('/comprar')}>

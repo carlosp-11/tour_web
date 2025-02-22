@@ -1,11 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import { GlobalContext } from "../store/GlobalContext.jsx";
+import { useNavigate } from "react-router-dom";
 import { rentPrices, sellPrices } from "../constants/prices.js";
-import { ButtonImage } from "./ButtonImage";
 import Scope from "../assets/svg/scope.svg";
 import '../styles/SimpleSearchBar.css'
 
 export const SimpleSearchbar = () => {
+    const navigate = useNavigate();
     const { store, actions } = useContext(GlobalContext);
     const [isLoading, setIsLoading] = useState(true);
     const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -23,12 +24,13 @@ export const SimpleSearchbar = () => {
     };
 
     // Enviar formulario
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("Valores del formulario:", formValues);
         // Aquí puedes enviar los datos a tu backend o contexto global
-        actions.setFilters(formValues);
-        actions.useFilters({type:'filter', set: formValues.transactionType });
+        await actions.setFilters(formValues);
+        await actions.useFilters({type:'filter', set: formValues.transactionType });
+        navigate(formValues.transactionType === 'alquiler' ? '/alquilar' : 'comprar')
         console.log('filter values', store.filterOptions, );
         console.log('resultados: ', store.filteredProperties);
     };
@@ -101,7 +103,7 @@ export const SimpleSearchbar = () => {
                     value={formValues.propertyType}
                 >
                     <option selected value=""> { isLargeScreen ? 'Mostrar todos': 'Todos'}</option>
-                    <option value="piso">Piso</option>
+                    <option value="apartamento">Apartamento</option>
                     <option value="casa">Casa</option>
                     <option value="local">Local</option>
                 </select>
@@ -177,8 +179,15 @@ export const SimpleSearchbar = () => {
                 </div>
             </div>
             <div className=" col-12 col-lg-auto col-md-2 col-xl-auto  align-self-center px-1 pt-4 pt-md-0 pt-lg-0 pt-xl-0">   
-                <button type="submit" className="btn-secondary rounded w-100" children={<p className="text-center align-self-center fw-light fs-5 px-2 py-0 py-md-2 py-lg-1 py-xl-1 mb-0"> {isLargeScreen? 'Buscar': ''} <img src={Scope} className="align-self-center"/> </p>} />
-                        {/* <ButtonImage id='searchButton' text={'Buscar'} icon="scope" someFunction={handleSubmit} /> */}
+                <button 
+                    type="submit" 
+                    className="btn-secondary rounded w-100" 
+                    children={
+                        <p className="text-center align-self-center fw-light fs-5 px-2 py-0 py-md-2 py-lg-1 py-xl-1 mb-0"> 
+                            {isLargeScreen? 'Buscar': ''} <img src={Scope} className="align-self-center"/> 
+                        </p>
+                    } 
+                />
             </div>
         </form>
     );

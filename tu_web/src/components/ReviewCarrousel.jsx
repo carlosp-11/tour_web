@@ -16,13 +16,13 @@ export const ReviewCarrousel = () => {
             number: 2,
             name:"Ana", 
             date: "DICIEMBRE 2024",
-            text:"Yolanda escucha lo que necesitas para encontrar la vivienda ideal para ti. Si buscas un servicio confiable y eficiente, sin duda es la mejor opción. Recomendado 100%.", 
+            text:"Yolanda escucha lo que necesitas y consigue una opción ideal para ti. Si buscas un servicio confiable y eficiente en el sur de Tenerife, sin duda es la mejor opción. Recomendado 100%.", 
         },
         {
             number: 3,
             name:"Francisco", 
             date: "JUNIO 2024",
-            text:"Ofrece opciones de casas y apartamentos muy bien seleccionadas. Además, la cordialidad y el compromiso que demuestra generan confianza. Sin duda, una inmobiliaria con la que vale la pena trabajar.", 
+            text:"La cordialidad y la profesionalidad con la que te tratan generan confianza desde el primer momento. Su experiencia en el sector y su acompañamiento hizo que todo el trámite fuera más sencillo. Sin duda, una inmobiliaria con la que vale la pena trabajar.", 
         },
     ];
 

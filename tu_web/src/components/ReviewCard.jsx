@@ -7,7 +7,6 @@ import ClientPic3 from '../assets/pictures/client_pic3.png'
 export const ReviewCard =(props)=> {
     const [imageSrc, setImageSrc] = useState();
     useEffect(()=> {
-        console.log(props);
         if(props.number === 1)setImageSrc(ClientPic1)
         if(props.number === 2)setImageSrc(ClientPic2)
         if(props.number === 3)setImageSrc(ClientPic3)

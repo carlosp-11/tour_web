@@ -7,7 +7,7 @@ import { ButtonImage } from "../components/ButtonImage";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { WhatsAppButton } from "../components/WhatsAppButton";
-import CEOPic from '../assets/pictures/ceo_3.jpg'
+import CEOPic from '../assets/pictures/ceo_1.jpg'
 
 export const About = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);

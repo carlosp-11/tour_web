@@ -28,7 +28,6 @@ export const AdvancedSearchbar = (props) => {
     const handleChange = async (event) => {
         const { name, value } = event.target;
         setFormValues((prev) => ({ ...prev, [name]: value }));
-        console.log('cambiando filtros');
         setHasChanged(true);
     };
 
@@ -39,14 +38,11 @@ export const AdvancedSearchbar = (props) => {
         // Aquí puedes enviar los datos a tu backend o contexto global
         actions.setFilters(formValues);
         actions.useFilters(formValues);
-        // console.log('filter values', store.filterOptions, );
-        // console.log('resultados: ', store.filteredProperties);
     };
 
     const cleanFilters =()=> {
         actions.useFilters({type: 'reset', set: props.transaction});
         setHasChanged(false);
-        console.log('borrando filtros');
     };
 
     const handleAmenityChange = (event) => {
@@ -109,7 +105,7 @@ export const AdvancedSearchbar = (props) => {
                         value={formValues.propertyType}
                     >
                         <option selected value="todos"> { isLargeScreen ? 'Mostrar todos': 'Todos'}</option>
-                        <option value="piso">Piso</option>
+                        <option value="apartamento">Apartamento</option>
                         <option value="casa">Casa</option>
                         <option value="local">Locales</option>
                     </select>

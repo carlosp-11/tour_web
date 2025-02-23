@@ -31,15 +31,16 @@ export const Renting = () => {
        }, []);
    
        useEffect(()=>{
+        setIsPropertiesLoaded(false);
+        setTimeout(()=> {
            if(store.filterRentalProperties.length > 0) {
                setFilteredProperties([...store.filterRentalProperties]);
                setIsPropertiesLoaded(true);
-               console.log('obtenemos del contexto:',store.filterRentalProperties);
-               console.log('for sale',filteredProperties);
            } else  {
                setFilteredProperties([]); // 
                setIsPropertiesLoaded(false);
            }
+        },[2000])
        }, [store.filterRentalProperties])
    
        useEffect(() => {
@@ -74,7 +75,7 @@ export const Renting = () => {
                    <div className="row px-5">
                        <div className="row col-12 g-0">
                            <p className="col-12 col-md col-lg col-xl raleway-bold fs-3 align-self-start">
-                               Explora Nuestras Propiedades a la Venta
+                               Explora Nuestras Propiedades en Alquiler
                            </p>
                            <div className="col-auto"> 
                                <p className="col-auto text-end raleway pt-0 pt-md-3 pt-lg-3 pt-xl-3">

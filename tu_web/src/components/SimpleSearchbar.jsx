@@ -11,11 +11,11 @@ export const SimpleSearchbar = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isLargeScreen, setIsLargeScreen] = useState(false);
     const [formValues, setFormValues] = useState({
-        transactionType: "alquiler",  // Estado inicial en "Alquilar"
-        propertyType: "",
-        location: "",
-        priceStart: "",
-        priceEnd: ""
+        transactionType: "alquiler",
+        propertyType:  '',
+        location: '',
+        priceStart: 1,
+        priceEnd: 99999999,
     });
 
     const handleChange = (event) => {
@@ -28,11 +28,12 @@ export const SimpleSearchbar = () => {
         event.preventDefault();
         console.log("Valores del formulario:", formValues);
         // Aquí puedes enviar los datos a tu backend o contexto global
-        await actions.setFilters(formValues);
-        await actions.useFilters({type:'filter', set: formValues.transactionType });
-        navigate(formValues.transactionType === 'alquiler' ? '/alquilar' : 'comprar')
-        console.log('filter values', store.filterOptions, );
-        console.log('resultados: ', store.filteredProperties);
+        await actions.setFilters({...formValues, type:'filter'});
+        await setTimeout(()=> {
+            navigate(formValues.transactionType === 'alquiler' ? '/alquilar' : 'comprar')
+            console.log('ahora');
+           // actions.useFilters({type:'filter', set: formValues.transactionType });
+        },[1000])
     };
     
      useEffect(() => {
@@ -55,7 +56,7 @@ export const SimpleSearchbar = () => {
             setIsLoading(false);
         }
     }, [store.availableTowns]);
-    
+
     return (
         <form onSubmit={handleSubmit} className="row d-flex px-2 justify-content-center w-100 py-3 mx-auto bg-white rounded-3 nunito">
             <div className="col-12 col-lg col-xl col-md-auto ps-4 pb-3 pb-md-0 pb-lg-0 pb-xl-0">
@@ -63,13 +64,13 @@ export const SimpleSearchbar = () => {
                 <div className="row">
                     <div id="checkbox" className="form-check col">
                         <input 
-                            checked={formValues.transactionType === "comprar"} 
+                            checked={formValues.transactionType === "compra"} 
                             className="form-check-input" 
                             id="isPurchase" 
                             name="transactionType" 
                             onChange={handleChange}
                             type="radio" 
-                            value='comprar' 
+                            value='compra' 
                         />
                         <label className="form-check-label fw-light" htmlFor="isPurchase">
                             Comprar

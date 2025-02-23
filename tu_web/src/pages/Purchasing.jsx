@@ -13,7 +13,7 @@ export const Purchasing = () => {
     const [searchbarHeight, setSearchbarHeight] = useState(0);
     const [filteredProperties, setFilteredProperties] = useState([]);
     const searchbarRef = useRef(null);
-        
+
     useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth <= 576);
@@ -30,16 +30,17 @@ export const Purchasing = () => {
     }, []);
 
     useEffect(()=>{
-        if(store.filterForSaleProperties.length > 0) {
-            setFilteredProperties([...store.filterForSaleProperties]);
-            setIsPropertiesLoaded(true);
-            console.log('obtenemos del contexto:',store.filterForSaleProperties);
-            console.log('for sale',filteredProperties);
-        } else  {
-            setFilteredProperties([]); // 
-            setIsPropertiesLoaded(false);
-        }
-    }, [store.filterForSaleProperties])
+       setIsPropertiesLoaded(false);
+        setTimeout(()=> {
+            if(store.filterForSaleProperties.length > 0) {
+                setFilteredProperties([...store.filterForSaleProperties]);
+                setIsPropertiesLoaded(true);
+            } else  {
+                setFilteredProperties([]); // 
+                setIsPropertiesLoaded(false);
+            }
+        },[2000])
+    }, [store.filterForSaleProperties]);
 
     useEffect(() => {
         if (searchbarRef.current) {

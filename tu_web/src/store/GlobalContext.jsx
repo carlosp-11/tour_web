@@ -10,9 +10,9 @@ export const GlobalProvider = ({ children }) => {
         currentProperty: {},
         filterForSaleProperties: [],
         filterOptions: {
-            transactionType: "",
-            propertyType: "",
-            location: "",
+            transactionType: '',
+            propertyType: '',
+            location: '',
             priceStart: 0,
             priceEnd: 99999999
         },
@@ -159,6 +159,7 @@ export const GlobalProvider = ({ children }) => {
                     filterOptions: data
                 }
             });
+            actions.useFilters({...data, set: data.transactionType});
         },
         updateAvailableTowns: () => {
             setStore((prevStore) => {
@@ -176,6 +177,7 @@ export const GlobalProvider = ({ children }) => {
                 let searchedProperties = data.set === 'alquiler' ? 
                 [...prevStore.rentalProperties] : 
                 [...prevStore.forSaleProperties];
+
                 const { 
                     propertyType, 
                     location, 
@@ -186,7 +188,20 @@ export const GlobalProvider = ({ children }) => {
                     bedrooms, 
                     amenities, 
                     buiildingStatus 
-                } = store.filterOptions;
+                } = data;
+                // const { 
+                //     propertyType, 
+                //     location, 
+                //     priceStart, 
+                //     priceEnd, 
+                //     area, 
+                //     bathrooms, 
+                //     bedrooms, 
+                //     amenities, 
+                //     buiildingStatus 
+                // } = store.filterOptions;
+                console.log('filtros en variable',  store.filterOptions);
+                console.log('filtros activos', propertyType, location, priceStart, priceEnd, area, bathrooms, bedrooms, amenities, buiildingStatus );
 
                 if (data?.type === 'reset'){
                     searchedProperties = data.set === 'alquiler' 
@@ -202,54 +217,53 @@ export const GlobalProvider = ({ children }) => {
                 if(data?.type === 'filter'){
                     console.log('filtramos por ', propertyType, location, priceStart, priceEnd, area, bathrooms, bedrooms, amenities, buiildingStatus );
                     //searchedProperties = data.set === 'alquiler' ? prevStore.rentalProperties : prevStore.forSaleProperties;
-                    if (propertyType){
-                        console.log('filtramos por propiedad');
-                        searchedProperties = data.set === 'alquiler' ? prevStore.rentalProperties : prevStore.forSaleProperties;
+                    console.log('antes de filtrar', searchedProperties);
+                    if (propertyType !== ''){
                         if (propertyType !== 'todos') {
                             searchedProperties =  searchedProperties.filter(property => property.type === propertyType);
                         }                     
+                        console.log('filtramos por propiedad', searchedProperties);
                     }
-                    if (location){
-                        console.log('filtramos por locacion');
+                    if (location !== ''){
                         if (location !== 'todos') {
-                            searchedProperties =  searchedProperties.filter(property => property.location === location);
+                            searchedProperties =  searchedProperties.filter(property => property.town.name === location);
                         }                     
+                        console.log('filtramos por locacion', searchedProperties);
                     }
                     if (priceStart){
-                        console.log('filtramos por precio');
-                        searchedProperties =  searchedProperties.filter(property => property.price >= priceStart);
+                        searchedProperties =  searchedProperties.filter(property => Number(property.price) >= priceStart);
+                        console.log('filtramos por precio', searchedProperties);
                     }
                     if (priceEnd){
-                        console.log('filtramos por precio');
-                        searchedProperties =  searchedProperties.filter(property => property.price <= priceEnd);
+                        searchedProperties =  searchedProperties.filter(property => Number(property.price) <= priceEnd);
+                        console.log('filtramos por precio', searchedProperties);
                     }
-                    if (area){
-                        console.log('filtramos por area');
+                    if (area > 0){
                         if (area !== 'todos') {
                             searchedProperties =  searchedProperties.filter(property => property.area <= area);
                         }     
+                        console.log('filtramos por area', searchedProperties);
                     }
-                    if (bathrooms){
-                        console.log('filtramos por baños');
+                    if (bathrooms > 0){
                         if (area !== 'todos') {
                             searchedProperties =  searchedProperties.filter(property => property.bathrooms <= bathrooms);
                         }     
+                        console.log('filtramos por baños', searchedProperties);
                     }
-                    if (bedrooms){
-                        console.log('filtramos por habitaciones');
+                    if (bedrooms > 0){
                         if (area !== 'todos') {
                             searchedProperties =  searchedProperties.filter(property => property.bedrooms <= bedrooms);
                         }     
+                        console.log('filtramos por habitaciones', searchedProperties);
                     }
-                    if (buiildingStatus){
-                        console.log('filtramos por estado');
-                        if (area !== 'todos') {
-                            searchedProperties =  searchedProperties.filter(property => property.buiildingStatus <= buiildingStatus);
-                        }     
-                    }
+                    // if (buiildingStatus !== ''){
+                    //     if (area !== 'todos') {
+                    //         searchedProperties =  searchedProperties.filter(property => property.buiildingStatus <= buiildingStatus);
+                    //     }     
+                    //     console.log('filtramos por estado', searchedProperties);
+                    // }
                     
                     if (searchedProperties.length === 0) searchedProperties = [{message:'no hay resultados'}]
-                    console.log('resultado del filtro', searchedProperties);
                 } 
                 //console.log('buscamos', propertyType, 'en ', prevStore.propertiesList);
                 return {
@@ -258,11 +272,8 @@ export const GlobalProvider = ({ children }) => {
                     filterForSaleProperties: data.set==='compra'? [...searchedProperties] : prevStore.filterForSaleProperties,
                 };
             });
-            console.log('aplicamos', store.filterForSaleProperties);
+            console.log('Resultado de filtros', store.filterForSaleProperties);
         },
-        useInitialSearch: () =>{
-            actions.useFilters({...store.propertiesList, type:'filter'});
-        }
     };
 
 

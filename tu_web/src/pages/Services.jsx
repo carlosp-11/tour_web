@@ -1,10 +1,10 @@
 import { HeaderComponent } from "../components/HeaderComponent";
-import ServiceHeader from '../assets/headers/services-header.png';
+import ServiceHeader from '../assets/headers/skyline_2.png';
 import WorkingLaptop from '../assets/pictures/working-laptop.png';
 import UnderConstruction from '../assets/pictures/under-construction.png';
 import HouseKeys from '../assets/pictures/house-keys.png';
-import HighBuildings from '../assets/pictures/high-buildings.png';
-import ColonialTown from '../assets/pictures/colonial-town.png'; 
+import SouthStreet from '../assets/pictures/south-street.jpg';
+import ColonialTown from '../assets/pictures/colorful-buildings.jpg'; 
 import { ButtonImage } from "../components/ButtonImage";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -119,7 +119,7 @@ export const Services = () => {
                 <div className="col text-center align-self-center">
                     <img 
                         src={ColonialTown} 
-                        alt="trabajo en obras"
+                        alt="Edificios coloridos de Tenerife"
                         className="rounded-4" 
                         style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}
                     />
@@ -128,7 +128,7 @@ export const Services = () => {
             <div className="row mx-0 px-lg-5 px-4 py-5 bg-secondary-subtle">
                 <div className="col text-center">
                     <img 
-                        src={HighBuildings} 
+                        src={SouthStreet} 
                         alt="zona residencial"
                         className="rounded-4" 
                         style={{height: 'auto', objectFit: 'cover', width:'100%', minHeight:'25rem'}}

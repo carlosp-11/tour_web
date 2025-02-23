@@ -10,7 +10,7 @@ export const AdvancedSearchbar = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [hasChanged, setHasChanged] = useState(false);
     const [isLargeScreen, setIsLargeScreen] = useState(false);
-    const [formValues, setFormValues] = useState({
+    const initialValues = {
         buildingStatus : "todos",
         set: props.transaction || 'alquiler',  // Estado inicial en "Alquilar"
         transactionType: props.transaction || 'alquiler',
@@ -23,7 +23,9 @@ export const AdvancedSearchbar = (props) => {
         bathrooms:"",
         bedrooms:"",
         amenities:[],
-    });
+    };
+
+    const [formValues, setFormValues] = useState({...initialValues});
 
     const handleChange = async (event) => {
         const { name, value } = event.target;
@@ -32,16 +34,17 @@ export const AdvancedSearchbar = (props) => {
     };
 
     // Enviar formulario
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         //event.preventDefault();
         console.log("vamos a buscar con estos valores:", formValues);
         // Aquí puedes enviar los datos a tu backend o contexto global
-        actions.setFilters(formValues);
-        actions.useFilters(formValues);
+        await actions.setFilters(formValues);
+        //await actions.useFilters(formValues);
     };
 
     const cleanFilters =()=> {
         actions.useFilters({type: 'reset', set: props.transaction});
+        setFormValues({...initialValues});
         setHasChanged(false);
     };
 
@@ -82,11 +85,6 @@ export const AdvancedSearchbar = (props) => {
             setIsLoading(false);
         }
     }, [store.availableTowns]);
-
-    useEffect(()=> {
-        console.log('valores en barra:', formValues);
-        actions.setFilters(formValues);
-    }, [formValues])
 
     return (
         <form onSubmit={handleSubmit} 
@@ -342,7 +340,7 @@ export const AdvancedSearchbar = (props) => {
                     </div>
                     <div className="form-check col-auto">
                         <input className="form-check-input" type="radio" name="buildingStatus" id="all" 
-                            value='a reformar' checked={formValues.buildingStatus === "todos"} onChange={handleChange}
+                            value='todos' checked={formValues.buildingStatus === "todos"} onChange={handleChange}
                         />
                         <label className="form-check-label fw-light" htmlFor="all">
                             Todas

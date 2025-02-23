@@ -40,7 +40,7 @@ export const About = () => {
                     <h1 className="raleway-bold py-2 pt-3 pt-md-0 pt-lg-0 pt-xl-0">Crea Tu Hogar en Tenerife</h1>
                     <p className="nunito "> En Turismo URBANO S.L. ofrecemos una experiencia única de alquiler de inmuebles 
                         en la paradisiaca isla de Tenerife. Nuestra misión es conectar a turistas europeos, parejas que buscan un 
-                        nuevo comienzo, y nómadas digitales con propiedades completamente amuebladas y equipadas para estadías 
+                        nuevo comienzo y nómadas digitales con propiedades completamente amuebladas y equipadas para estadías 
                         temporales de 3 a 6 meses. Ya sea para disfrutar del invierno lejos del frío o para construir un futuro
                         en la isla, estamos aquí para brindarte el espacio que necesitas.
                     </p>
@@ -69,7 +69,7 @@ export const About = () => {
                     <p className="nunito pb-5"> Creemos que cada inmueble es más que un espacio: es un punto de
                         partida para nuevas historias. En Turismo URBANO, trabajamos bajo principios de 
                         trasparencia, comodidad y confianza, asegurando una experiencia sin complicaciones
-                        tanto para los propietarios como para los inquilinos. Nuestra cisión es liderar el 
+                        tanto para los propietarios como para los inquilinos. Nuestra misión es liderar el 
                         mercado de alquileres temporales en Tenerife, ofreciendo soluciones personalizadas
                         que se adaptan a las necesidades de cada cliente.
                     </p>
@@ -102,7 +102,7 @@ export const About = () => {
             <div className="bg-secondary row mx-0 px-lg-5 px-4 py-5">
                 <div className="col-12 col-lg-4  d-flex flex-column justify-content-around">
                     <div className="pb-3 pb-lg-5 pb-xl-5">
-                        <h6 className="nunito-light pb-2 d-none d-lg-block">Detrás de tu comfort</h6>
+                        <h6 className="nunito-light pb-2 d-none d-lg-block">Detrás de tu confort</h6>
                         <h2 className="raleway-bold fs-1 pb-lg-5 pt-3 pt-md-0 pt-lg-0 pt-xl-0"> Tu Tranquilidad, Nuestra Prioridad</h2>
                     </div>
                     <div className="pt-5 d-none d-lg-block">
@@ -129,8 +129,8 @@ export const About = () => {
                         <h4 className="raleway-bold fs-3 pb-3">Yolanda Dorta Fortes</h4>
                         <h6 className="text-warning raleway-bold d-none d-md-block">CEO/ Gerente</h6>
                     </div>
-                    <p className="raleway">Yolanda, CEO y asesora profesional de Turismo URBANO, lidera nuestra empresa con pasión y dedicación. 
-                        Con un enfoque en la personalización, Yolanda asegura que cada cliente reciba atención individualizada
+                    <p className="raleway">Yolanda, CEO y asesora profesional de Turismo URBANO, lidera la empresa con pasión y dedicación. 
+                        Con un enfoque en la personalización, Yolanda se asegura de que cada cliente reciba atención individualizada
                         y soluciones adaptadas a sus necesidades. Ya sea que estés buscando alquilar o gestionar tu propiedad, 
                         su experiencia y compromiso hacen la diferencia. Porque detrás de cada contrato, está nuestro deseo de 
                         brindarte tranquilidad.

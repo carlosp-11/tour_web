@@ -9,8 +9,8 @@ import { ButtonImage } from './ButtonImage';
 
 export const FinalJumbotron = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
     const navigate = useNavigate();
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
     
      useEffect(() => {
             const handleResize = () => {

@@ -126,7 +126,7 @@ export const Renting = () => {
                                </p> : 
                                <PaginationComponent properties={filteredProperties} />
                            ):
-                           (<SpinnerComponent/>)
+                           (<div className="d-flex justify-content-center align-items-center" style={{height:'60vh'}}> <SpinnerComponent/> </div>)
                        }
                    </div>
                </div>

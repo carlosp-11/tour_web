@@ -33,20 +33,20 @@ export const PropertiesCarrousel  = () => {
     const [displayedCards, setDisplayedCards] = useState([]);
   
     useEffect(()=> {
-        setCards(store.propertiesList.slice(0, 5))
+      let RentalItems =  store.propertiesList.filter(item=> item.transaction === 'alquiler');
+      setCards(RentalItems.slice(0, 5));
     }, [store.propertiesList])
 
     const visibleCardsCount = isSmallScreen ? 1 : isLargeScreen ? 3 : 2;
 
     useEffect(() => {
-        if (cards.length > 0) {
-          const newDisplayedCards = [];
-          for (let i = 0; i < visibleCardsCount; i++) {
-            newDisplayedCards.push(cards[(startIndex + i) % cards.length]);
-          }
+      if (cards.length > 0) {
+          // Limitar los elementos a la cantidad disponible sin repetirlos cíclicamente
+          const newDisplayedCards = cards.slice(startIndex, startIndex + visibleCardsCount);
           setDisplayedCards(newDisplayedCards);
-        }
-      }, [cards, startIndex, visibleCardsCount]);
+      }
+  }, [cards, startIndex, visibleCardsCount]);
+  
       
       const handleNext = () => {
         if (cards.length > 0) {
@@ -75,7 +75,10 @@ export const PropertiesCarrousel  = () => {
                 area={card.area}
                 name={card.name}
                 image={card.media?.[0]?.url}
-                data={card.id}
+                data={card}
+                bathrooms={card.bathrooms}
+                rooms={card.bedrooms}
+                amenities = {card.amenities}
               />
             </div>
           ))

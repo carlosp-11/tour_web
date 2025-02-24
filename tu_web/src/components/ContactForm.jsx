@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ContactForm = (props) => {
     const [isGreen, setIsGreen]= useState(true);
+    const navigate =useNavigate();
+
     useEffect(()=> {
         if(props.changeColor === true) setIsGreen(false);
     }, [props])
+    
     return(
         <form className="row g-2 nunito">
             <div className="form col-md-6">
@@ -31,7 +35,7 @@ export const ContactForm = (props) => {
                 <button type="submit" className={`btn  fw-bolder nunito w-100 mb-3 ${isGreen? 'btn-warning':'btn-secondary'}`}>Enviar</button>
                 <p className='text-center small' style={{fontSize: '0.9rem'}}>
                     Al hacer click en Enviar aceptas nuestras {' '}
-                    <a className={`${isGreen? 'link-light link-underline-light' : 'link-dark link-underline-dark'}`} onClick={()=>navigate('politica-privacidad')} role='button'> 
+                    <a role='button' className={`${isGreen? 'link-light link-underline-light' : 'link-dark link-underline-dark'}`} onClick={()=>navigate('/politica-privacidad')} > 
                         Políticas de privacidad
                     </a>
                 </p>

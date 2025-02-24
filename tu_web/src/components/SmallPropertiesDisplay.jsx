@@ -24,6 +24,11 @@ export const SmallPropertiesDisplay = () => {
                         type={card.type} 
                         area={card.area} 
                         key={index}
+                        rooms={card.bedrooms}
+                        bathrooms={card.bathrooms}
+                        amenities={card.amenities}
+                        image={card.media?.[0]?.url}
+                        data={card}
                     />
                 </div>
             ))}

@@ -11,6 +11,7 @@ import Placeholder from "../assets/svg/PropertyPlaceholder.svg";
 
 export const PropertiesCard =(props)=> {
     const navigate = useNavigate();
+    console.log('card', props.data);
 
     const goingTo =() => {
         console.log('enviaremos estos props', props,);
@@ -20,12 +21,14 @@ export const PropertiesCard =(props)=> {
     return(
         <div className="border rounded-4 shadow raleway my-2 w-100" /*style={{width: '23rem'}}*/>
             <div className='image-container position-relative pb-5'>
-                <img 
-                    src={props.image || Placeholder} 
-                    className="card-img-top bg-dark-subtle rounded-4 zoomable-image" 
-                    alt="..." 
-                    style={{height: '15rem', width:'100%', objectFit:'cover'}}
-                />
+                <a type='button' onClick={goingTo}>
+                    <img 
+                        src={props.image || Placeholder} 
+                        className="card-img-top bg-dark-subtle rounded-4 zoomable-image" 
+                        alt="..." 
+                        style={{height: '15rem', width:'100%', objectFit:'cover'}}
+                    />
+                </a>
                 <div style={{position:'absolute', top: 10 }}> 
                     <p className='badge btn-primary ms-4 rounded-4 raleway fw-light px-3 py-2 text-capitalize'>{props.type || 'Indefinido'}</p>
                 </div>
@@ -57,11 +60,14 @@ export const PropertiesCard =(props)=> {
                                 {props.bathrooms || '0'} 
                             </p>
                         </span>
-                        <span className='col-2 d-flex justify-content-center'>
-                            <p className='p-0 m-0'>
-                                <img src={WifiIcon} style={{objectFit: 'contain', width: 18, height:'auto'}}/>
-                            </p>
-                        </span>
+                        { 
+                            props.data && props.data.amenities.find(item => item.name === 'Wifi')&&
+                            (<span className='col-2 d-flex justify-content-center'>
+                                <p className='p-0 m-0'>
+                                    <img src={WifiIcon} style={{objectFit: 'contain', width: 18, height:'auto'}}/>
+                                </p>
+                            </span>)
+                        }
                     </div>
                     <div className='col-12 col-lg-4 my-2'>
                         <button type="button" className="btn btn-secondary fs-6 w-100" onClick={goingTo}>Ver más</button>
